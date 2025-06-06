@@ -1,0 +1,10 @@
+.sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Justify all paragraph text */
+body p {
+    text-align: justify;
+}
