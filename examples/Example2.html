@@ -346,7 +346,7 @@
 <p>In this section, we define the problem parameters, including the number of steps, problem ID, instance, dimensions. In addition, we set the custom parameters for the Neuroptimiser, which will replace the default parameters of the spiking core.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex2-Hyb_10p_1i_2d_100s_30u&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex2-Hyb_10p_1i_2d_333s_30u&#39;
 </pre></div>
 </div>
 </div>
@@ -361,7 +361,7 @@
 <div class="cell docutils container">
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bbob_f011_i01_d02: a 2-dimensional single-objective problem (problem 150 of suite &quot;b&#39;bbob&#39;&quot; with name &quot;bbob(BBOB suite problem f11 instance 1 in 2D)&quot;)
-COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0003
+COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0057
 </pre></div>
 </div>
 </div>
@@ -376,30 +376,31 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 [neuropt:log] Population of nheuristic units is created.
 [neuropt:log] Connections between nheuristic units and auxiliary processes are established.
 [neuropt:log] Monitors are set up.
-[neuropt:log] Starting simulation with 100 iterations...
+[neuropt:log] Starting simulation with 333 iterations...
 ... step: 0, best fitness: 35809.7890625
-... step: 10, best fitness: 523.8184814453125
-... step: 20, best fitness: 523.8184814453125
-... step: 30, best fitness: 104.98484802246094
-... step: 40, best fitness: 78.64187622070312
-... step: 50, best fitness: 78.64187622070312
-... step: 60, best fitness: 78.64187622070312
-... step: 70, best fitness: 78.64187622070312
-... step: 80, best fitness: 78.64187622070312
-... step: 90, best fitness: 78.64187622070312
-... step: 99, best fitness: 78.64187622070312
+... step: 33, best fitness: 615.9192504882812
+... step: 66, best fitness: 79.6163558959961
+... step: 99, best fitness: 79.6163558959961
+... step: 132, best fitness: 79.6163558959961
+... step: 165, best fitness: 79.6163558959961
+... step: 198, best fitness: 79.6163558959961
+... step: 231, best fitness: 79.6163558959961
+... step: 264, best fitness: 76.36540985107422
+... step: 297, best fitness: 76.36540985107422
+... step: 330, best fitness: 76.36540985107422
+... step: 332, best fitness: 76.36540985107422
 [neuropt:log] Simulation completed. Fetching monitor data... done
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1.55403391, -2.95717448]), array([78.64187622]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.68573698, -3.23015153]), array([76.36540985]))
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 100, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 10, &#39;neuron_topology&#39;: &#39;random&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;search_space&#39;: array([[-5.,  5.],
-       [-5.,  5.]]), &#39;num_dimensions&#39;: 2, &#39;seed&#39;: 69, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x107bb5630&gt;, &#39;core_params&#39;: {}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 333, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 10, &#39;neuron_topology&#39;: &#39;random&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x167108550&gt;, &#39;seed&#39;: 69, &#39;search_space&#39;: array([[-5.,  5.],
+       [-5.,  5.]]), &#39;num_dimensions&#39;: 2, &#39;core_params&#39;: {}}
 </pre></div>
 </div>
 </div>
@@ -451,14 +452,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>0</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -466,7 +467,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>69</td>
       <td>[-0.250919762305275, 0.9014286128198323]</td>
     </tr>
@@ -474,22 +475,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>1</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>70</td>
       <td>[0.4639878836228102, 0.1973169683940732]</td>
     </tr>
@@ -497,14 +498,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>2</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -512,7 +513,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>71</td>
       <td>[-0.687962719115127, -0.6880109593275947]</td>
     </tr>
@@ -520,22 +521,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>3</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>72</td>
       <td>[-0.8838327756636011, 0.7323522915498704]</td>
     </tr>
@@ -543,14 +544,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>4</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -558,7 +559,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>73</td>
       <td>[0.2022300234864176, 0.416145155592091]</td>
     </tr>
@@ -566,22 +567,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>5</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>74</td>
       <td>[-0.9588310114083951, 0.9398197043239886]</td>
     </tr>
@@ -589,14 +590,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>6</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -604,7 +605,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>75</td>
       <td>[0.6648852816008435, -0.5753217786434477]</td>
     </tr>
@@ -612,22 +613,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>7</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>76</td>
       <td>[-0.6363500655857988, -0.6331909802931324]</td>
     </tr>
@@ -635,14 +636,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>8</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -650,7 +651,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>77</td>
       <td>[-0.39151551408092455, 0.04951286326447568]</td>
     </tr>
@@ -658,22 +659,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>9</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>78</td>
       <td>[-0.13610996271576847, -0.4175417196039162]</td>
     </tr>
@@ -681,14 +682,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>10</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -696,7 +697,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>79</td>
       <td>[0.22370578944475894, -0.7210122786959163]</td>
     </tr>
@@ -704,22 +705,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>11</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>80</td>
       <td>[-0.4157107029295637, -0.2672763134126166]</td>
     </tr>
@@ -727,14 +728,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>12</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -742,7 +743,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>81</td>
       <td>[-0.08786003156592814, 0.5703519227860272]</td>
     </tr>
@@ -750,22 +751,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>13</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>82</td>
       <td>[-0.6006524356832805, 0.02846887682722321]</td>
     </tr>
@@ -773,14 +774,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>14</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -788,7 +789,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>83</td>
       <td>[0.18482913772408494, -0.9070991745600046]</td>
     </tr>
@@ -796,22 +797,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>15</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>84</td>
       <td>[0.21508970380287673, -0.6589517526254169]</td>
     </tr>
@@ -819,14 +820,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>16</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -834,7 +835,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>85</td>
       <td>[-0.869896814029441, 0.8977710745066665]</td>
     </tr>
@@ -842,22 +843,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>17</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>86</td>
       <td>[0.9312640661491187, 0.6167946962329223]</td>
     </tr>
@@ -865,14 +866,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>18</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -880,7 +881,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>87</td>
       <td>[-0.39077246165325863, -0.8046557719872323]</td>
     </tr>
@@ -888,22 +889,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>19</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>88</td>
       <td>[0.3684660530243138, -0.1196950125207974]</td>
     </tr>
@@ -911,14 +912,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>20</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -926,7 +927,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>89</td>
       <td>[-0.7559235303104423, -0.00964617977745963]</td>
     </tr>
@@ -934,22 +935,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>21</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>90</td>
       <td>[-0.9312229577695632, 0.8186408041575641]</td>
     </tr>
@@ -957,14 +958,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>22</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -972,7 +973,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>91</td>
       <td>[-0.48244003679996617, 0.32504456870796394]</td>
     </tr>
@@ -980,22 +981,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>23</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>92</td>
       <td>[-0.3765778478211781, 0.040136042355621626]</td>
     </tr>
@@ -1003,14 +1004,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>24</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -1018,7 +1019,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>93</td>
       <td>[0.0934205586865593, -0.6302910889489459]</td>
     </tr>
@@ -1026,22 +1027,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>25</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>94</td>
       <td>[0.9391692555291171, 0.5502656467222291]</td>
     </tr>
@@ -1049,14 +1050,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>26</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -1064,7 +1065,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>rand-to-best</td>
       <td>95</td>
       <td>[0.8789978831283782, 0.7896547008552977]</td>
     </tr>
@@ -1072,37 +1073,14 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>27</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
-      <td>2.0</td>
-      <td>0.000001</td>
-      <td>1.0</td>
-      <td>0.05</td>
-      <td>l2</td>
-      <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
-      <td>96</td>
-      <td>[0.19579995762217028, 0.8437484700462337]</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>1.0</td>
-      <td>0.01</td>
-      <td>100</td>
-      <td>(0.0, 0.3)</td>
-      <td>pg</td>
-      <td>True</td>
-      <td>linear</td>
-      <td>random</td>
-      <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
@@ -1110,7 +1088,30 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>current-to-best</td>
+      <td>current-to-pbest</td>
+      <td>96</td>
+      <td>[0.19579995762217028, 0.8437484700462337]</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1.0</td>
+      <td>0.01</td>
+      <td>333</td>
+      <td>(0.0, 0.3)</td>
+      <td>pg</td>
+      <td>True</td>
+      <td>linear</td>
+      <td>random</td>
+      <td>rk4</td>
+      <td>diff_pref</td>
+      <td>2.0</td>
+      <td>0.000001</td>
+      <td>1.0</td>
+      <td>0.05</td>
+      <td>l2</td>
+      <td>0.25</td>
+      <td>differential</td>
+      <td>rand-to-best</td>
       <td>97</td>
       <td>[-0.823014995896161, -0.6080342751617096]</td>
     </tr>
@@ -1118,22 +1119,22 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
       <th>29</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>100</td>
+      <td>333</td>
       <td>(0.0, 0.3)</td>
       <td>pg</td>
       <td>True</td>
       <td>izhikevich</td>
       <td>random</td>
       <td>rk4</td>
-      <td>diff_pg</td>
+      <td>diff_pref</td>
       <td>2.0</td>
       <td>0.000001</td>
       <td>1.0</td>
       <td>0.05</td>
       <td>l2</td>
       <td>0.25</td>
-      <td>fixed</td>
-      <td>current-to-rand</td>
+      <td>differential</td>
+      <td>current-to-pbest</td>
       <td>98</td>
       <td>[-0.9095454221789239, -0.3493393384734713]</td>
     </tr>
@@ -1147,9 +1148,9 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>In this section, we process the results of the optimisation and visualise them using various plots. The results include the fitness values, agent positions, and phase portraits.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 78.6419
--1.1943 &lt;= v1 &lt;= 1.2972
--0.9607 &lt;= v2 &lt;= 0.9703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 76.3654
+-1.9732 &lt;= v1 &lt;= 1.6336
+-1.6099 &lt;= v2 &lt;= 1.6336
 </pre></div>
 </div>
 </div>
@@ -1159,7 +1160,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This plot shows the convergence of the absolute error in fitness values over the iterations of the optimisation process.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/d533f7064d41f24624cb82e01d108f681cbc610798d9a6d03ad4507e05baa7b2.png" src="../_images/d533f7064d41f24624cb82e01d108f681cbc610798d9a6d03ad4507e05baa7b2.png" />
+<img alt="../_images/5fc5c808220056cf0b784db158c5346f5f2eaa184fbb9528495876da5d369690.png" src="../_images/5fc5c808220056cf0b784db158c5346f5f2eaa184fbb9528495876da5d369690.png" />
 </div>
 </div>
 </section>
@@ -1168,7 +1169,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This plot shows the evolution of the unit positions in the 2D space over the iterations of the optimisation process.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/c9f85111e5c2c9eba92caa28aef73f3f0cf89aef7d87ac0ce1cbc90881dd2e98.png" src="../_images/c9f85111e5c2c9eba92caa28aef73f3f0cf89aef7d87ac0ce1cbc90881dd2e98.png" />
+<img alt="../_images/5a914365f45a8f05efa535f68a43fb271afd83cb3095e6d8b387f385c0caeaf2.png" src="../_images/5a914365f45a8f05efa535f68a43fb271afd83cb3095e6d8b387f385c0caeaf2.png" />
 </div>
 </div>
 </section>
@@ -1177,7 +1178,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This plot shows the evolution of the unit positions in the 3D space over the iterations of the optimisation process.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/fa036eb06d58ab21db4417be4d8f956ad10967085d4d62fa847e0841c69454d6.png" src="../_images/fa036eb06d58ab21db4417be4d8f956ad10967085d4d62fa847e0841c69454d6.png" />
+<img alt="../_images/3cfe654e2147f674e32cc610f96414454b20ece4b5c42fe120a34ffad37ac97a.png" src="../_images/3cfe654e2147f674e32cc610f96414454b20ece4b5c42fe120a34ffad37ac97a.png" />
 </div>
 </div>
 </section>
@@ -1186,7 +1187,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This section visualises the phase portrait of the optimisation process in 2D. The phase portrait shows the trajectory of each agent in the 2D space over the iterations.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/7b59be4e5b4ec5e337d94c5234494f720ee066586de893cc10f6a7ce1d72fe55.png" src="../_images/7b59be4e5b4ec5e337d94c5234494f720ee066586de893cc10f6a7ce1d72fe55.png" />
+<img alt="../_images/18b76974febdc26a42a193d36757a41738029e8f7b17faee9bf0b6f10683b691.png" src="../_images/18b76974febdc26a42a193d36757a41738029e8f7b17faee9bf0b6f10683b691.png" />
 </div>
 </div>
 </section>
@@ -1195,7 +1196,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This section visualises the phase portrait of the optimisation process in 3D. The phase portrait shows the trajectory of each agent in the 3D space over the iterations.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/44df61e43b7d9616b2e43278c659ed41455a085ed4c9ed01a4ad93fdf2406f19.png" src="../_images/44df61e43b7d9616b2e43278c659ed41455a085ed4c9ed01a4ad93fdf2406f19.png" />
+<img alt="../_images/6f62eef0a8cbbc8253a75a06e922f8c3910a44d20da9953ded28defb3aa48c04.png" src="../_images/6f62eef0a8cbbc8253a75a06e922f8c3910a44d20da9953ded28defb3aa48c04.png" />
 </div>
 </div>
 </section>
@@ -1204,7 +1205,7 @@ COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0
 <p>This section visualises the spike activity of the agents over the iterations of the optimisation process. The heatmap shows the summed spike counts across all dimensions for each agent at each step.</p>
 <div class="cell docutils container">
 <div class="cell_output docutils container">
-<img alt="../_images/c84055a5a868124432bd42f8d0881fbbe0e4a58d3ceaa7141ccf2f14cd6a9faa.png" src="../_images/c84055a5a868124432bd42f8d0881fbbe0e4a58d3ceaa7141ccf2f14cd6a9faa.png" />
+<img alt="../_images/160073f94d318e46daf85686805bf7181481cce0d0d18dc4a6a6e676e916131b.png" src="../_images/160073f94d318e46daf85686805bf7181481cce0d0d18dc4a6a6e676e916131b.png" />
 </div>
 </div>
 </section>
