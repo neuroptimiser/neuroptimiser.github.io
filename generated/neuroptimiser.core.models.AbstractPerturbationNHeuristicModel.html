@@ -10,7 +10,9 @@
         <title>AbstractPerturbationNHeuristicModel - NeurOptimiser</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=51cda3f8" />
     
@@ -227,8 +229,8 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   <div class="sidebar-logo-container">
-    <img class="sidebar-logo only-light" src="../_static/neuropty-Light-small.png" alt="Light Logo"/>
-    <img class="sidebar-logo only-dark" src="../_static/neuropty-Dark-small.png" alt="Dark Logo"/>
+    <img class="sidebar-logo only-light" src="../_static/images/neuropty-light.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/images/neuropty-dark.svg" alt="Dark Logo"/>
   </div>
   
   <span class="sidebar-brand-text">NeurOptimiser</span>
@@ -339,7 +341,7 @@
 <p class="rubric">Description</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AbstractPerturbationNHeuristicModel</span></span><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AbstractPerturbationNHeuristicModel</span></span><a class="reference internal" href="../_modules/neuroptimiser/core/models.html#AbstractPerturbationNHeuristicModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PyLoihiProcessModel</span></code></p>
 <p>Abstract model for a perturbation-based nheuristic process model</p>
 <p>This model serves as a base for implementing various perturbation-based process models.</p>
@@ -352,7 +354,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proc_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proc_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuroptimiser/core/models.html#AbstractPerturbationNHeuristicModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Initialises the process model with the given parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -371,52 +373,52 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fg_in">
-<span class="sig-name descname"><span class="pre">fg_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fg_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fg_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fg_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fp_in">
-<span class="sig-name descname"><span class="pre">fp_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fp_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fp_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fp_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fxn_in">
-<span class="sig-name descname"><span class="pre">fxn_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fxn_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">fxn_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.fxn_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.g_in">
-<span class="sig-name descname"><span class="pre">g_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.g_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">g_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.g_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.p_in">
-<span class="sig-name descname"><span class="pre">p_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.p_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">p_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.p_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_in">
-<span class="sig-name descname"><span class="pre">s_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'bool'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">s_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'bool'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_out">
-<span class="sig-name descname"><span class="pre">s_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyOutPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyOutPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'bool'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_out" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">s_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyOutPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyOutPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'bool'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.s_out" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x">
-<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x_out">
-<span class="sig-name descname"><span class="pre">x_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyOutPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyOutPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x_out" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">x_out</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyOutPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyOutPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.x_out" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.xn_in">
-<span class="sig-name descname"><span class="pre">xn_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">PyInPort</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.xn_in" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">xn_in</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">PyInPort</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'lava.magma.core.model.py.ports.PyInPortVectorDense'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'numpy.float32'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.xn_in" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -452,7 +454,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
+                Copyright &#169; 2025 - 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -517,5 +519,8 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=00122899"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     </body>
 </html>

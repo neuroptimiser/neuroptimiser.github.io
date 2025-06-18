@@ -10,7 +10,9 @@
         <title>PyTwoDimSpikingCoreModel - NeurOptimiser</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=51cda3f8" />
     
@@ -227,8 +229,8 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
   
   <div class="sidebar-logo-container">
-    <img class="sidebar-logo only-light" src="../_static/neuropty-Light-small.png" alt="Light Logo"/>
-    <img class="sidebar-logo only-dark" src="../_static/neuropty-Dark-small.png" alt="Dark Logo"/>
+    <img class="sidebar-logo only-light" src="../_static/images/neuropty-light.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../_static/images/neuropty-dark.svg" alt="Dark Logo"/>
   </div>
   
   <span class="sidebar-brand-text">NeurOptimiser</span>
@@ -339,7 +341,7 @@
 <p class="rubric">Description</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PyTwoDimSpikingCoreModel</span></span><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PyTwoDimSpikingCoreModel</span></span><a class="reference internal" href="../_modules/neuroptimiser/core/models.html#PyTwoDimSpikingCoreModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel.html#neuroptimiser.core.models.AbstractPerturbationNHeuristicModel" title="neuroptimiser.core.models.AbstractPerturbationNHeuristicModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractPerturbationNHeuristicModel</span></code></a></p>
 <p>Two-dimensional spiking core model for perturbation-based nheuristics</p>
 <p>This model implements a two-dimensional spiking core for perturbation-based nheuristics, allowing for various dynamic systems and approximation methods.</p>
@@ -352,7 +354,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proc_params</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.__init__" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">proc_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuroptimiser/core/models.html#PyTwoDimSpikingCoreModel.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.__init__" title="Link to this definition">¶</a></dt>
 <dd><p>Initialises the two-dimensional spiking core model with the given parameters.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -397,12 +399,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel.required_resources">
-<span class="sig-name descname"><span class="pre">required_resources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ty.List[ty.Type[AbstractResource]]</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'lava.magma.core.resources.CPU'&gt;]</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.required_resources" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">required_resources</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ty.List</span><span class="p"><span class="pre">[</span></span><span class="pre">ty.Type</span><span class="p"><span class="pre">[</span></span><span class="pre">AbstractResource</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'lava.magma.core.resources.CPU'&gt;]</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.required_resources" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel.run_spk">
-<span class="sig-name descname"><span class="pre">run_spk</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.run_spk" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run_spk</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/neuroptimiser/core/models.html#PyTwoDimSpikingCoreModel.run_spk"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.run_spk" title="Link to this definition">¶</a></dt>
 <dd><p>Runs the spiking core process model.</p>
 <dl class="simple">
 <dt>The process is summarised as follows:</dt><dd><ol class="arabic simple">
@@ -424,12 +426,12 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v1">
-<span class="sig-name descname"><span class="pre">v1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v1" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">v1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v1" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v2">
-<span class="sig-name descname"><span class="pre">v2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v2" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">v2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">LavaPyType(cls=&lt;class</span> <span class="pre">'numpy.ndarray'&gt;,</span> <span class="pre">d_type=&lt;class</span> <span class="pre">'float'&gt;,</span> <span class="pre">precision=None)</span></em><a class="headerlink" href="#neuroptimiser.core.models.PyTwoDimSpikingCoreModel.v2" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -465,7 +467,7 @@
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
+                Copyright &#169; 2025 - 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -526,5 +528,8 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=00122899"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     </body>
 </html>

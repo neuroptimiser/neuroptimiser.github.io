@@ -10,7 +10,9 @@
         <title>Utils - NeurOptimiser</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=302659d7" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=51cda3f8" />
     
@@ -227,8 +229,8 @@
       <div class="sidebar-sticky"><a class="sidebar-brand" href="index.html">
   
   <div class="sidebar-logo-container">
-    <img class="sidebar-logo only-light" src="_static/neuropty-Light-small.png" alt="Light Logo"/>
-    <img class="sidebar-logo only-dark" src="_static/neuropty-Dark-small.png" alt="Dark Logo"/>
+    <img class="sidebar-logo only-light" src="_static/images/neuropty-light.svg" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/images/neuropty-dark.svg" alt="Dark Logo"/>
   </div>
   
   <span class="sidebar-brand-text">NeurOptimiser</span>
@@ -337,7 +339,7 @@
 <p>Utility functions and constants for the Neuroptimiser framework.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.get_2d_sys">
-<span class="sig-name descname"><span class="pre">get_2d_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.get_2d_sys" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_2d_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_2d_sys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_2d_sys" title="Link to this definition">¶</a></dt>
 <dd><p>Generate a 2D dynamic system matrix based on the specified kind.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -348,9 +350,6 @@
 <li><p><strong>eps</strong> – Small value to avoid division by zero or negative values.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
-</dd>
 </dl>
 <p>Returns:
 A 2x2 numpy array representing the system matrix.</p>
@@ -358,18 +357,15 @@ A 2x2 numpy array representing the system matrix.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.get_arch_matrix">
-<span class="sig-name descname"><span class="pre">get_arch_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ring'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_neighbours</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.get_arch_matrix" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_arch_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">topology</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'ring'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_neighbours</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_arch_matrix"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_arch_matrix" title="Link to this definition">¶</a></dt>
 <dd><p>Generate an adjacency matrix for a given topology.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>length</strong> – Number of nodes in the network.</p></li>
-<li><p><strong>topology</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Type of network topology (e.g., “ring”, “fully-connected”, “random”).</p></li>
-<li><p><strong>num_neighbours</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>) – Number of neighbours for random topology (if applicable).</p></li>
+<li><p><strong>topology</strong> – Type of network topology (e.g., “ring”, “fully-connected”, “random”).</p></li>
+<li><p><strong>num_neighbours</strong> – Number of neighbours for random topology (if applicable).</p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code></span></p>
 </dd>
 </dl>
 <p>Returns:
@@ -378,7 +374,7 @@ A square adjacency matrix representing the specified topology.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.get_izhikevich_sys">
-<span class="sig-name descname"><span class="pre">get_izhikevich_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.get_izhikevich_sys" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_izhikevich_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_izhikevich_sys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_izhikevich_sys" title="Link to this definition">¶</a></dt>
 <dd><p>Get the parameters for an Izhikevich neuron model.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -387,9 +383,6 @@ A square adjacency matrix representing the specified topology.</p>
 <li><p><strong>scale</strong> – Scale factor for random perturbation of parameters (default is 0.1).</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></span></p>
-</dd>
 </dl>
 <p>Returns:
 A dictionary containing the parameters of the Izhikevich model.</p>
@@ -397,14 +390,11 @@ A dictionary containing the parameters of the Izhikevich model.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.reset_all_processes">
-<span class="sig-name descname"><span class="pre">reset_all_processes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">processes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.reset_all_processes" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">reset_all_processes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">processes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#reset_all_processes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.reset_all_processes" title="Link to this definition">¶</a></dt>
 <dd><p>Reset all provided processes to their initial state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>*processes</strong> – Variable number of process instances to reset.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
 </dd>
 </dl>
 <p>Returns:
@@ -413,18 +403,15 @@ None</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.tro2s">
-<span class="sig-name descname"><span class="pre">tro2s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.tro2s" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">tro2s</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#tro2s"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.tro2s" title="Link to this definition">¶</a></dt>
 <dd><p>Transform a value from the original scale to a normalized scale.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Value or array of values to transform.</p></li>
-<li><p><strong>lb</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Lower bound of the original scale.</p></li>
-<li><p><strong>ub</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Upper bound of the original scale.</p></li>
+<li><p><strong>x</strong> – Value or array of values to transform.</p></li>
+<li><p><strong>lb</strong> – Lower bound of the original scale.</p></li>
+<li><p><strong>ub</strong> – Upper bound of the original scale.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
 <p>Returns:
@@ -433,18 +420,15 @@ Normalized value or array of values in the range [-1, 1].</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.trs2o">
-<span class="sig-name descname"><span class="pre">trs2o</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#neuroptimiser.utils.trs2o" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">trs2o</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lb</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ub</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#trs2o"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.trs2o" title="Link to this definition">¶</a></dt>
 <dd><p>Transform a value from a normalized scale back to the original scale.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Normalized value or array of values in the range [-1, 1].</p></li>
-<li><p><strong>lb</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Lower bound of the original scale.</p></li>
-<li><p><strong>ub</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – Upper bound of the original scale.</p></li>
+<li><p><strong>x</strong> – Normalized value or array of values in the range [-1, 1].</p></li>
+<li><p><strong>lb</strong> – Lower bound of the original scale.</p></li>
+<li><p><strong>ub</strong> – Upper bound of the original scale.</p></li>
 </ul>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span></p>
 </dd>
 </dl>
 <p>Returns:
@@ -482,7 +466,7 @@ Value or array of values transformed back to the original scale.</p>
         <div class="bottom-of-page">
           <div class="left-details">
             <div class="copyright">
-                Copyright &#169; 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
+                Copyright &#169; 2025 - 2025, Jorge M. Cruz-Duarte (jorge-mario.cruz-duarte@inria.fr)
             </div>
             Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
             
@@ -539,5 +523,8 @@ Value or array of values transformed back to the original scale.</p>
     <script src="_static/doctools.js?v=9bcbadda"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=00122899"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     </body>
 </html>
