@@ -342,6 +342,8 @@
            <span class="s2">&quot;PyNeighbourhoodManagerModel&quot;</span><span class="p">,</span> <span class="s2">&quot;PySpikingHandlerModel&quot;</span><span class="p">,</span>
            <span class="s2">&quot;PyPositionReceiverModel&quot;</span><span class="p">,</span> <span class="s2">&quot;PyPositionReceiverModel&quot;</span><span class="p">]</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">partial</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">lava.magma.core.model.py.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyLoihiProcessModel</span>
@@ -467,8 +469,10 @@
 <span class="sd">                    - ``thr_k``: float, scaling factor for the threshold</span>
 <span class="sd">                    - ``spk_cond``: str, spiking condition (e.g., &quot;fixed&quot;, &quot;l1&quot;, &quot;l2&quot;, &quot;l2_gen&quot;, &quot;random&quot;, &quot;adaptive&quot;, &quot;stable&quot;)</span>
 <span class="sd">                    - ``spk_alpha``: float, scaling factor for the spiking condition</span>
-<span class="sd">                    - ``hs_operator``: str, heuristic search operator (e.g., &quot;fixed&quot;, &quot;random&quot;, &quot;directional&quot;, &quot;differential&quot;)</span>
-<span class="sd">                    - ``hs_variant``: str, variant of the heuristic search operator (e.g., &quot;current-to-rand&quot;, &quot;best-to-rand&quot;, &quot;rand&quot;, &quot;current-to-best&quot;)</span>
+<span class="sd">                    - ``hs_operator``: str, heuristic search operator (i.e., &quot;fixed&quot;, &quot;random&quot;, &quot;directional&quot;, &quot;differential&quot;)</span>
+<span class="sd">                    - ``hs_variant``: str, variant of the heuristic search operator. The available variants when</span>
+<span class="sd">                        - ``hs_operator``=&quot;directional&quot; are &quot;pbest&quot;, &quot;gbest&quot;, and &quot;center&quot;.</span>
+<span class="sd">                        - ``hs_operator``=&quot;differential&quot; are &quot;current-to-rand&quot;, &quot;best-to-rand&quot;, &quot;rand&quot;, and &quot;current-to-best&quot;.</span>
 <span class="sd">                    - ``is_bounded``: bool, whether the perturbation is bounded (default: True)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -662,9 +666,19 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_hs_directional</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">var</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Directional heuristic search operator for perturbation-based nheuristics.&quot;&quot;&quot;</span>
-        <span class="n">dir1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v1_pbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">dir2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v2_pbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">new_var</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span><span class="p">])</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span>
+        <span class="k">match</span> <span class="bp">self</span><span class="o">.</span><span class="n">hs_variant</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;pbest&quot;</span><span class="p">:</span>
+                <span class="n">dir1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v1_pbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">dir2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v2_pbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span> <span class="s2">&quot;center&quot;</span><span class="p">:</span>
+                <span class="n">dir1</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">dir2</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span> <span class="c1"># default: &quot;gbest&quot; or &quot;fixed&quot;</span>
+                <span class="n">dir1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v1_gbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">dir2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v2_gbest</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="o">-</span> <span class="n">var</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">new_var</span>  <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span>  <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span><span class="p">])</span> <span class="o">+</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">()</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">noise_std</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_var</span>
 
     <span class="nd">@staticmethod</span>
@@ -740,7 +754,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Runs the core process of the two-dimensional spiking core model.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_dimensions</span><span class="p">):</span>
             <span class="c1"># Get the spike condition for this neuron</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">self_fire</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spike_condition</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">dim</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">self_fire</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>     <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spike_condition</span><span class="p">(</span>
+                <span class="n">v1</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">v2</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">thr</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
             <span class="n">fire_condition</span>          <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">self_fire</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">compulsory_fire</span><span class="p">[</span><span class="n">dim</span><span class="p">]</span>
 
             <span class="n">upsilon</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="p">[</span><span class="n">dim</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="p">[</span><span class="n">dim</span><span class="p">]])</span>
@@ -867,7 +882,7 @@
         <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-3</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_step</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">([</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">eps</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">_init_spike_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_init_spike_condition</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialises the spiking condition based on the specified spiking condition type.&quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">spk_cond</span> <span class="o">==</span> <span class="s2">&quot;fixed&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_spike_fixed</span>
@@ -974,9 +989,29 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">num_agents</span> <span class="o">=</span> <span class="n">proc_params</span><span class="p">[</span><span class="s1">&#39;num_agents&#39;</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">funct</span>      <span class="o">=</span> <span class="n">proc_params</span><span class="p">[</span><span class="s1">&#39;function&#39;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sel_mode</span>   <span class="o">=</span> <span class="n">proc_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sel_mode&#39;</span><span class="p">,</span> <span class="s1">&#39;greedy&#39;</span><span class="p">)</span>
+
+        <span class="k">match</span> <span class="bp">self</span><span class="o">.</span><span class="n">sel_mode</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s1">&#39;random&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sel_random</span>
+            <span class="k">case</span> <span class="s1">&#39;metropolis&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sel_metropolis</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span> <span class="c1"># Default to greedy selection</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sel_greedy</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span> <span class="o">=</span> <span class="kc">False</span></div>
 
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sel_greedy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Greedy selection strategy: always selects the best position.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">fx</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sel_random</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="mf">0.5</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_sel_metropolis</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Metropolis selection strategy: accepts a new position with a probability based on the fitness difference.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span> <span class="o">&lt;</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span> <span class="p">(</span><span class="n">fx</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
 <div class="viewcode-block" id="PySelectorModel.run_spk">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.models.PySelectorModel.html#neuroptimiser.core.models.PySelectorModel.run_spk">[docs]</a>
@@ -996,7 +1031,7 @@
         <span class="n">fx</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">funct</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 
         <span class="c1"># Update the particular position</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span> <span class="ow">or</span> <span class="n">fx</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_selection</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span>    <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[:]</span>           <span class="o">=</span> <span class="n">x</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="p">[:]</span>          <span class="o">=</span> <span class="n">fx</span>
@@ -1083,7 +1118,7 @@
         <span class="n">new_fg</span>              <span class="o">=</span> <span class="n">fg_candidates</span><span class="p">[</span><span class="n">best_candidate</span><span class="p">]</span>
 
         <span class="c1"># Compare and update the global best</span>
-        <span class="k">if</span> <span class="n">new_fg</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span> <span class="ow">or</span> <span class="n">new_fg</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fg</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">initialised</span>    <span class="o">=</span> <span class="kc">True</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="p">[:]</span>           <span class="o">=</span> <span class="n">new_g</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fg</span><span class="p">[:]</span>          <span class="o">=</span> <span class="n">new_fg</span>

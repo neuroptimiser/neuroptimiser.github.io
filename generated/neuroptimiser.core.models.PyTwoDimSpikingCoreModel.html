@@ -375,8 +375,15 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">thr_k</span></code>: float, scaling factor for the threshold</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spk_cond</span></code>: str, spiking condition (e.g., “fixed”, “l1”, “l2”, “l2_gen”, “random”, “adaptive”, “stable”)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">spk_alpha</span></code>: float, scaling factor for the spiking condition</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hs_operator</span></code>: str, heuristic search operator (e.g., “fixed”, “random”, “directional”, “differential”)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">hs_variant</span></code>: str, variant of the heuristic search operator (e.g., “current-to-rand”, “best-to-rand”, “rand”, “current-to-best”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hs_operator</span></code>: str, heuristic search operator (i.e., “fixed”, “random”, “directional”, “differential”)</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">hs_variant</span></code>: str, variant of the heuristic search operator. The available variants when</dt><dd><ul>
+<li><p><a href="#id1"><span class="problematic" id="id2">``</span></a>hs_operator``=”directional” are “pbest”, “gbest”, and “center”.</p></li>
+<li><p><a href="#id3"><span class="problematic" id="id4">``</span></a>hs_operator``=”differential” are “current-to-rand”, “best-to-rand”, “rand”, and “current-to-best”.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">is_bounded</span></code>: bool, whether the perturbation is bounded (default: True)</p></li>
 </ul>
 </dd>

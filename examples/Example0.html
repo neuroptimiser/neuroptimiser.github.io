@@ -367,6 +367,8 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">optimiser</span> <span class="o">=</span> <span class="n">NeurOptimiser</span><span class="p">()</span>
+<span class="c1">#optimiser = NeurOptimiser(core_params={&quot;hs_operator&quot;: &quot;directional&quot;, &quot;hs_variant&quot;: &quot;pbest&quot;})</span>
+<span class="c1"># selector_params={&quot;sel_mode&quot;: &quot;greedy&quot;}</span>
 </pre></div>
 </div>
 </div>
@@ -376,16 +378,20 @@
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Show the overall configuration parameters of the optimiser</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DEFAULT CONFIG PARAMS:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">optimiser</span><span class="o">.</span><span class="n">config_params</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DEFAULT CORE PARAMS:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">optimiser</span><span class="o">.</span><span class="n">core_params</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">DEFAULT SELECTOR PARAMS:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">optimiser</span><span class="o">.</span><span class="n">selector_params</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DEFAULT CONFIG PARAMS:
- {&#39;num_iterations&#39;: 300, &#39;num_neighbours&#39;: 1, &#39;seed&#39;: 69, &#39;function&#39;: None, &#39;search_space&#39;: array([[-1,  1],
-       [-1,  1]]), &#39;unit_topology&#39;: &#39;2dr&#39;, &#39;core_params&#39;: {}, &#39;num_agents&#39;: 10, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;num_dimensions&#39;: 2, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;} 
+ {&#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;core_params&#39;: {}, &#39;search_space&#39;: array([[-1,  1],
+       [-1,  1]]), &#39;unit_topology&#39;: &#39;2dr&#39;, &#39;seed&#39;: 69, &#39;function&#39;: None, &#39;num_agents&#39;: 10, &#39;num_dimensions&#39;: 2, &#39;num_neighbours&#39;: 1, &#39;num_iterations&#39;: 300} 
 
 DEFAULT CORE PARAMS:
- [{&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}, {&#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;approx&#39;: &#39;rk4&#39;, &#39;thr_alpha&#39;: 1.0, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_max&#39;: 1.0, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;dt&#39;: 0.01, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;name&#39;: &#39;linear&#39;, &#39;thr_min&#39;: 1e-06, &#39;max_steps&#39;: 100, &#39;noise_std&#39;: 0.1, &#39;alpha&#39;: 1.0, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;is_bounded&#39;: False, &#39;hs_variant&#39;: &#39;fixed&#39;}]
+ [{&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}, {&#39;thr_min&#39;: 1e-06, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;coeffs&#39;: &#39;random&#39;, &#39;seed&#39;: None, &#39;thr_k&#39;: 0.05, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;max_steps&#39;: 100, &#39;is_bounded&#39;: False, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;spk_alpha&#39;: 0.25, &#39;name&#39;: &#39;linear&#39;, &#39;noise_std&#39;: 0.1, &#39;thr_alpha&#39;: 1.0}]
+
+DEFAULT SELECTOR PARAMS:
+ {} 
 </pre></div>
 </div>
 </div>
@@ -399,7 +405,8 @@ DEFAULT CORE PARAMS:
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">optimiser</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
     <span class="n">obj_func</span><span class="o">=</span><span class="n">problem_function</span><span class="p">,</span>
     <span class="n">search_space</span><span class="o">=</span><span class="n">problem_bounds</span><span class="p">,</span>
-    <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span>
+    <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">num_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -412,22 +419,22 @@ DEFAULT CORE PARAMS:
 [neuropt:log] Population of nheuristic units is created.
 [neuropt:log] Connections between nheuristic units and auxiliary processes are established.
 [neuropt:log] Monitors are set up.
-[neuropt:log] Starting simulation with 300 iterations...
-... step: 0, best fitness: 2.025650978088379
-... step: 30, best fitness: 1.113487958908081
-... step: 60, best fitness: 0.15552423894405365
-... step: 90, best fitness: 0.1322910338640213
-... step: 120, best fitness: 0.024050353094935417
-... step: 150, best fitness: 0.024050353094935417
-... step: 180, best fitness: 0.0138082941994071
-... step: 210, best fitness: 0.013055730611085892
-... step: 240, best fitness: 0.013055730611085892
-... step: 270, best fitness: 0.013055730611085892
-... step: 299, best fitness: 0.013055730611085892
+[neuropt:log] Starting simulation with 1000 iterations...
+... step: 0, best fitness: 0.6424241065979004
+... step: 100, best fitness: 0.025011446326971054
+... step: 200, best fitness: 0.019809743389487267
+... step: 300, best fitness: 0.01837228797376156
+... step: 400, best fitness: 0.015472172759473324
+... step: 500, best fitness: 0.015472172759473324
+... step: 600, best fitness: 0.015472172759473324
+... step: 700, best fitness: 0.015472172759473324
+... step: 800, best fitness: 0.015472172759473324
+... step: 900, best fitness: 0.01039238553494215
+... step: 999, best fitness: 0.01039238553494215
 [neuropt:log] Simulation completed. Fetching monitor data... done
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.00682959,  0.0111269 ]), array([0.01305573]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0.00928941, 0.00465906]), array([0.01039239]))
 </pre></div>
 </div>
 </div>
@@ -462,10 +469,10 @@ DEFAULT CORE PARAMS:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 0.0131, f*: 0.0000, error: 1.3056e-02
-norm2(g - x*): 1.3056e-02
--1.1394 &lt;= v1 &lt;= 1.2176
--0.8110 &lt;= v2 &lt;= 0.9703
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 0.0104, f*: 0.0000, error: 1.0392e-02
+norm2(g - x*): 1.0392e-02
+-0.6664 &lt;= v1 &lt;= 1.1091
+-1.0177 &lt;= v2 &lt;= 2.8301
 </pre></div>
 </div>
 </div>
@@ -494,7 +501,7 @@ norm2(g - x*): 1.3056e-02
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5052fc8ce436d521d7c73c91fbafa89d9bbef6f811e73f4f0b6ccd899b5f3628.png" src="../_images/5052fc8ce436d521d7c73c91fbafa89d9bbef6f811e73f4f0b6ccd899b5f3628.png" />
+<img alt="../_images/cd0a5a8e11dec2bdb9bba90e89883189ede6febbdb5f9a5d9dcac542e6073522.png" src="../_images/cd0a5a8e11dec2bdb9bba90e89883189ede6febbdb5f9a5d9dcac542e6073522.png" />
 </div>
 </div>
 </section>
