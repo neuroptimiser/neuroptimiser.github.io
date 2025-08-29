@@ -359,6 +359,10 @@
 <dt class="sig sig-object py" id="neuroptimiser.core.processes.Selector.Variables">
 <span class="sig-name descname"><span class="pre">Variables</span></span><a class="headerlink" href="#neuroptimiser.core.processes.Selector.Variables" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
+<dt>x<span class="classifier">Var</span></dt><dd><p>Variable for the current position of the spiking core.</p>
+</dd>
+<dt>fx: Var</dt><dd><p>Variable for the current fitness of the spiking core.</p>
+</dd>
 <dt>p<span class="classifier">Var</span></dt><dd><p>Variable for the position of the agent.</p>
 </dd>
 <dt>fp<span class="classifier">Var</span></dt><dd><p>Variable for the fitness of the agent.</p>
@@ -370,9 +374,11 @@
 <dt class="sig sig-object py" id="neuroptimiser.core.processes.Selector.Outports">
 <span class="sig-name descname"><span class="pre">Outports</span></span><a class="headerlink" href="#neuroptimiser.core.processes.Selector.Outports" title="Link to this definition">¶</a></dt>
 <dd><dl class="simple">
-<dt>p_out<span class="classifier">OutPort</span></dt><dd><p>Output port for the position variable.</p>
+<dt>fx_out<span class="classifier">OutPort</span></dt><dd><p>Output port for the current fitness of the spiking core.</p>
 </dd>
-<dt>fp_out<span class="classifier">OutPort</span></dt><dd><p>Output port for the fitness variable.</p>
+<dt>p_out<span class="classifier">OutPort</span></dt><dd><p>Output port for the particular best position.</p>
+</dd>
+<dt>fp_out<span class="classifier">OutPort</span></dt><dd><p>Output port for the particular best fitness.</p>
 </dd>
 </dl>
 </dd></dl>

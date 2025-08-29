@@ -365,6 +365,8 @@
 <span class="sd">                Input port for the spiking activity.</span>
 <span class="sd">            p_in : InPort</span>
 <span class="sd">                Input port for the position variable.</span>
+<span class="sd">            fx_in : InPort</span>
+<span class="sd">                Input port for the fitness variable.</span>
 <span class="sd">            fp_in : InPort</span>
 <span class="sd">                Input port for the fitness variable.</span>
 <span class="sd">            g_in : InPort</span>
@@ -428,6 +430,7 @@
         <span class="c1"># Inports</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">s_in</span>       <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_in</span>       <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fx_in</span>      <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape_fx</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp_in</span>      <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape_fx</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">g_in</span>       <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fg_in</span>      <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape_fx</span><span class="p">)</span>
@@ -479,6 +482,8 @@
 <span class="sd">                Input port for the spiking activity.</span>
 <span class="sd">            p_in : InPort</span>
 <span class="sd">                Input port for the position variable.</span>
+<span class="sd">            fx_in : InPort</span>
+<span class="sd">                Input port for the fitness variable.</span>
 <span class="sd">            fp_in : InPort</span>
 <span class="sd">                Input port for the fitness variable.</span>
 <span class="sd">            g_in : InPort</span>
@@ -655,15 +660,21 @@
 <span class="sd">            x_in : InPort</span>
 <span class="sd">                Input port for the position variable.</span>
 <span class="sd">        Variables</span>
+<span class="sd">            x : Var</span>
+<span class="sd">                Variable for the current position of the spiking core.</span>
+<span class="sd">            fx: Var</span>
+<span class="sd">                Variable for the current fitness of the spiking core.</span>
 <span class="sd">            p : Var</span>
 <span class="sd">                Variable for the position of the agent.</span>
 <span class="sd">            fp : Var</span>
 <span class="sd">                Variable for the fitness of the agent.</span>
 <span class="sd">        Outports</span>
+<span class="sd">            fx_out : OutPort</span>
+<span class="sd">                Output port for the current fitness of the spiking core.</span>
 <span class="sd">            p_out : OutPort</span>
-<span class="sd">                Output port for the position variable.</span>
+<span class="sd">                Output port for the particular best position.</span>
 <span class="sd">            fp_out : OutPort</span>
-<span class="sd">                Output port for the fitness variable.</span>
+<span class="sd">                Output port for the particular best fitness.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -709,10 +720,13 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">x_in</span>   <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
 
         <span class="c1"># Variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span>      <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fx</span>     <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">init</span><span class="o">=</span><span class="mf">6.9</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span>      <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp</span>     <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">init</span><span class="o">=</span><span class="mf">6.9</span><span class="p">)</span>
 
         <span class="c1"># Outports</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fx_out</span> <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_out</span>  <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp_out</span> <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span></div>
 

@@ -407,12 +407,14 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the problem parameters</span>
-<span class="n">num_steps</span>       <span class="o">=</span> <span class="mi">333</span>       <span class="c1"># Number of iterations</span>
+<span class="n">num_steps</span>       <span class="o">=</span> <span class="mi">1000</span>       <span class="c1"># Number of iterations</span>
 <span class="n">problem_id</span>      <span class="o">=</span> <span class="mi">10</span>        <span class="c1"># Problem ID from the BBOB framework</span>
 <span class="n">problem_ins</span>     <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># Problem instance</span>
 <span class="n">num_dimensions</span>  <span class="o">=</span> <span class="mi">2</span>         <span class="c1"># Number of dimensions for the problem</span>
 <span class="n">num_agents</span>      <span class="o">=</span> <span class="mi">30</span>        <span class="c1"># Number of agents/units in the Neuroptimiser</span>
-<span class="n">num_neighbours</span>  <span class="o">=</span> <span class="mi">10</span>        <span class="c1"># Number of neighbours for each agent/unit</span>
+<span class="n">num_neighbours</span>  <span class="o">=</span> <span class="mi">15</span>        <span class="c1"># Number of neighbours for each agent/unit</span>
+
+<span class="n">coco_suite</span>      <span class="o">=</span> <span class="s2">&quot;bbob-noisy&quot;</span>
 
 <span class="c1"># Define the Neuroptimiser parameters</span>
 <span class="n">neuropt_name</span>    <span class="o">=</span> <span class="s2">&quot;neuropt_Ex2-Hyb&quot;</span>
@@ -426,20 +428,22 @@
     <span class="n">unit_topology</span>   <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="c1"># Proportion of custom spiking cores</span>
+<span class="n">proportion_dist</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
 <span class="n">neuropt_custom_params</span> <span class="o">=</span> <span class="p">[</span>   <span class="c1"># Specify the custom parameters for the spiking cores</span>
-    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>      <span class="c1"># (uncomment to make 50% or 33% of the units use this core)</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span> <span class="s2">&quot;l1&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span>
      <span class="s2">&quot;hs_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;differential&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;hs_variant&quot;</span><span class="p">:</span> <span class="s2">&quot;rand-to-best&quot;</span>
+     <span class="s2">&quot;hs_variant&quot;</span><span class="p">:</span> <span class="s2">&quot;current-to-best&quot;</span>
      <span class="p">},</span>
-    <span class="c1"># {&quot;name&quot;: &quot;linear&quot;,  # 33% of the units will use this core</span>
-    <span class="c1">#  &quot;coeffs&quot;: &quot;repeller&quot;,</span>
-    <span class="c1">#  &quot;spk_cond&quot;: &quot;l1&quot;,</span>
-    <span class="c1">#  &quot;hs_operator&quot;: &quot;differential&quot;,</span>
-    <span class="c1">#  &quot;hs_variant&quot;: &quot;rand-to-best&quot;,</span>
-    <span class="c1">#  },</span>
-    <span class="c1"># {&quot;name&quot;: &quot;izhikevich&quot;,  # 33% of the units will use this core</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="s2">&quot;repeller&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;hs_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;differential&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;hs_variant&quot;</span><span class="p">:</span> <span class="s2">&quot;rand-to-best&quot;</span><span class="p">,</span>
+     <span class="p">},</span>
+    <span class="c1"># {&quot;name&quot;: &quot;izhikevich&quot;,</span>
     <span class="c1">#  &quot;coeffs&quot;: &quot;random&quot;,</span>
     <span class="c1">#  &quot;spk_cond&quot;: &quot;fixed&quot;,</span>
     <span class="c1">#  &quot;hs_operator&quot;: &quot;differential&quot;,</span>
@@ -462,7 +466,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex2-Hyb_10p_1i_2d_333s_30u&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex2-Hyb_10p_1i_2d_1000s_30u&#39;
 </pre></div>
 </div>
 </div>
@@ -476,13 +480,13 @@
     <span class="n">dt</span>          <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
     <span class="n">max_steps</span>   <span class="o">=</span> <span class="n">num_steps</span><span class="p">,</span>
     <span class="n">noise_std</span>   <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
-    <span class="n">ref_mode</span>    <span class="o">=</span> <span class="s2">&quot;pg&quot;</span><span class="p">,</span>
+    <span class="n">ref_mode</span>    <span class="o">=</span> <span class="s2">&quot;pgn&quot;</span><span class="p">,</span>
     <span class="n">is_bounded</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">name</span>        <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
     <span class="n">coeffs</span>      <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
     <span class="n">approx</span>      <span class="o">=</span> <span class="s2">&quot;rk4&quot;</span><span class="p">,</span>
     <span class="n">thr_mode</span>    <span class="o">=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
-    <span class="n">thr_alpha</span>   <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">thr_alpha</span>   <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="n">thr_min</span>     <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span>
     <span class="n">thr_max</span>     <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
     <span class="n">thr_k</span>       <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
@@ -496,10 +500,13 @@
 <span class="k">if</span> <span class="n">neuropt_custom_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">neuropt_custom_params</span> <span class="o">=</span> <span class="p">[{}]</span>
 
+<span class="n">custom_params_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">neuropt_custom_params</span><span class="p">)),</span> <span class="n">size</span><span class="o">=</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">proportion_dist</span><span class="p">)</span>
+
 <span class="n">core_params</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">default_core_params</span><span class="p">)</span>
-    <span class="n">override</span> <span class="o">=</span> <span class="n">neuropt_custom_params</span><span class="p">[</span><span class="n">i</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">neuropt_custom_params</span><span class="p">)]</span>
+    <span class="n">override</span> <span class="o">=</span> <span class="n">neuropt_custom_params</span><span class="p">[</span><span class="n">custom_params_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="c1"># override = neuropt_custom_params[i % len(neuropt_custom_params)]</span>
     <span class="n">p</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">override</span><span class="p">)</span>
     <span class="n">core_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </pre></div>
@@ -514,7 +521,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get the problem from the COCO framework</span>
 <span class="n">observer</span>    <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">Observer</span><span class="p">(</span><span class="s2">&quot;bbob&quot;</span><span class="p">,</span> <span class="s2">&quot;result_folder: </span><span class="si">%s</span><span class="s2">_on_</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">neuropt_name</span><span class="p">,</span> <span class="s2">&quot;bbob2009&quot;</span><span class="p">))</span>
-<span class="n">suite</span>       <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">Suite</span><span class="p">(</span><span class="s2">&quot;bbob&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;dimensions:2 instance_indices:1&quot;</span><span class="p">)</span>
+<span class="n">suite</span>       <span class="o">=</span> <span class="n">ex</span><span class="o">.</span><span class="n">Suite</span><span class="p">(</span><span class="n">coco_suite</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;dimensions:</span><span class="si">{</span><span class="n">num_dimensions</span><span class="si">}</span><span class="s2"> instance_indices:</span><span class="si">{</span><span class="n">problem_ins</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">problem</span>     <span class="o">=</span> <span class="n">suite</span><span class="o">.</span><span class="n">get_problem</span><span class="p">(</span><span class="n">problem_id</span><span class="p">)</span>
 
 <span class="n">problem</span><span class="o">.</span><span class="n">observe_with</span><span class="p">(</span><span class="n">observer</span><span class="p">)</span>
@@ -524,7 +531,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bbob_f011_i01_d02: a 2-dimensional single-objective problem (problem 150 of suite &quot;b&#39;bbob&#39;&quot; with name &quot;bbob(BBOB suite problem f11 instance 1 in 2D)&quot;)COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0078
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bbob_noisy_f111_i01_d02: a 2-dimensional single-objective problem (problem 150 of suite &quot;b&#39;bbob-noisy&#39;&quot; with name &quot;bbob(uniform_noise_model(BBOB-NOISY suite problem f111 instance 1 in 2D))&quot;)
+COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0081
 </pre></div>
 </div>
 </div>
@@ -548,23 +556,22 @@
 [neuropt:log] Population of nheuristic units is created.
 [neuropt:log] Connections between nheuristic units and auxiliary processes are established.
 [neuropt:log] Monitors are set up.
-[neuropt:log] Starting simulation with 333 iterations...
-... step: 0, best fitness: 35809.7890625
-... step: 33, best fitness: 101.95655059814453
-... step: 66, best fitness: 81.49549102783203
-... step: 99, best fitness: 81.49549102783203
-... step: 132, best fitness: 81.49549102783203
-... step: 165, best fitness: 80.59732055664062
-... step: 198, best fitness: 76.71781158447266
-... step: 231, best fitness: 76.71781158447266
-... step: 264, best fitness: 76.71781158447266
-... step: 297, best fitness: 76.71781158447266
-... step: 330, best fitness: 76.71781158447266
-... step: 332, best fitness: 76.71781158447266
+[neuropt:log] Starting simulation with 1000 iterations...
+... step: 0, best fitness: 1675.8153076171875
+... step: 100, best fitness: 150.7548065185547
+... step: 200, best fitness: 149.16635131835938
+... step: 300, best fitness: 149.1537628173828
+... step: 400, best fitness: 149.1510467529297
+... step: 500, best fitness: 149.1510467529297
+... step: 600, best fitness: 149.15036010742188
+... step: 700, best fitness: 149.15036010742188
+... step: 800, best fitness: 149.15036010742188
+... step: 900, best fitness: 149.15036010742188
+... step: 999, best fitness: 149.15036010742188
 [neuropt:log] Simulation completed. Fetching monitor data... done
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1.25912279, -3.04951727]), array([76.71781158]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-0.02888329, -0.31782307]), array([149.15036011]))
 </pre></div>
 </div>
 </div>
@@ -577,8 +584,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 333, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 10, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;search_space&#39;: array([[-5.,  5.],
-       [-5.,  5.]]), &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x1690fc670&gt;, &#39;num_dimensions&#39;: 2, &#39;seed&#39;: 69, &#39;core_params&#39;: {}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 1000, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 15, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;search_space&#39;: array([[-5.,  5.],
+       [-5.,  5.]]), &#39;num_dimensions&#39;: 2, &#39;seed&#39;: 69, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x15550a200&gt;, &#39;core_params&#39;: {}}
 </pre></div>
 </div>
 </div>
@@ -619,15 +626,16 @@
       <th>coeffs</th>
       <th>approx</th>
       <th>thr_mode</th>
-      <th>thr_alpha</th>
-      <th>thr_min</th>
+      <th>...</th>
       <th>thr_max</th>
       <th>thr_k</th>
       <th>spk_cond</th>
       <th>spk_alpha</th>
       <th>hs_operator</th>
       <th>hs_variant</th>
+      <th>spk_weights</th>
       <th>seed</th>
+      <th>spk_q_ord</th>
       <th>init_position</th>
     </tr>
   </thead>
@@ -636,694 +644,725 @@
       <th>0</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>69</td>
-      <td>[-0.250919762305275, 0.9014286128198323]</td>
+      <td>2</td>
+      <td>[0.21508970380287673, -0.6589517526254169]</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>70</td>
-      <td>[0.4639878836228102, 0.1973169683940732]</td>
+      <td>2</td>
+      <td>[-0.869896814029441, 0.8977710745066665]</td>
     </tr>
     <tr>
       <th>2</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>71</td>
-      <td>[-0.687962719115127, -0.6880109593275947]</td>
+      <td>2</td>
+      <td>[0.9312640661491187, 0.6167946962329223]</td>
     </tr>
     <tr>
       <th>3</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>72</td>
-      <td>[-0.8838327756636011, 0.7323522915498704]</td>
+      <td>2</td>
+      <td>[-0.39077246165325863, -0.8046557719872323]</td>
     </tr>
     <tr>
       <th>4</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>73</td>
-      <td>[0.2022300234864176, 0.416145155592091]</td>
+      <td>2</td>
+      <td>[0.3684660530243138, -0.1196950125207974]</td>
     </tr>
     <tr>
       <th>5</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>74</td>
-      <td>[-0.9588310114083951, 0.9398197043239886]</td>
+      <td>2</td>
+      <td>[-0.7559235303104423, -0.00964617977745963]</td>
     </tr>
     <tr>
       <th>6</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>75</td>
-      <td>[0.6648852816008435, -0.5753217786434477]</td>
+      <td>2</td>
+      <td>[-0.9312229577695632, 0.8186408041575641]</td>
     </tr>
     <tr>
       <th>7</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>76</td>
-      <td>[-0.6363500655857988, -0.6331909802931324]</td>
+      <td>2</td>
+      <td>[-0.48244003679996617, 0.32504456870796394]</td>
     </tr>
     <tr>
       <th>8</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>77</td>
-      <td>[-0.39151551408092455, 0.04951286326447568]</td>
+      <td>2</td>
+      <td>[-0.3765778478211781, 0.040136042355621626]</td>
     </tr>
     <tr>
       <th>9</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>78</td>
-      <td>[-0.13610996271576847, -0.4175417196039162]</td>
+      <td>2</td>
+      <td>[0.0934205586865593, -0.6302910889489459]</td>
     </tr>
     <tr>
       <th>10</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>79</td>
-      <td>[0.22370578944475894, -0.7210122786959163]</td>
+      <td>2</td>
+      <td>[0.9391692555291171, 0.5502656467222291]</td>
     </tr>
     <tr>
       <th>11</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>80</td>
-      <td>[-0.4157107029295637, -0.2672763134126166]</td>
+      <td>2</td>
+      <td>[0.8789978831283782, 0.7896547008552977]</td>
     </tr>
     <tr>
       <th>12</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>81</td>
-      <td>[-0.08786003156592814, 0.5703519227860272]</td>
+      <td>2</td>
+      <td>[0.19579995762217028, 0.8437484700462337]</td>
     </tr>
     <tr>
       <th>13</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>82</td>
-      <td>[-0.6006524356832805, 0.02846887682722321]</td>
+      <td>2</td>
+      <td>[-0.823014995896161, -0.6080342751617096]</td>
     </tr>
     <tr>
       <th>14</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>83</td>
-      <td>[0.18482913772408494, -0.9070991745600046]</td>
+      <td>2</td>
+      <td>[-0.9095454221789239, -0.3493393384734713]</td>
     </tr>
     <tr>
       <th>15</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>84</td>
-      <td>[0.21508970380287673, -0.6589517526254169]</td>
+      <td>2</td>
+      <td>[-0.22264542062103598, -0.4573019364522082]</td>
     </tr>
     <tr>
       <th>16</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>85</td>
-      <td>[-0.869896814029441, 0.8977710745066665]</td>
+      <td>2</td>
+      <td>[0.6574750183038587, -0.28649334661282144]</td>
     </tr>
     <tr>
       <th>17</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>86</td>
-      <td>[0.9312640661491187, 0.6167946962329223]</td>
+      <td>2</td>
+      <td>[-0.4381309806252385, 0.08539216631649693]</td>
     </tr>
     <tr>
       <th>18</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>87</td>
-      <td>[-0.39077246165325863, -0.8046557719872323]</td>
+      <td>2</td>
+      <td>[-0.7181515500504747, 0.6043939615080793]</td>
     </tr>
     <tr>
       <th>19</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>88</td>
-      <td>[0.3684660530243138, -0.1196950125207974]</td>
+      <td>2</td>
+      <td>[-0.8508987126404584, 0.9737738732010346]</td>
     </tr>
     <tr>
       <th>20</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>89</td>
-      <td>[-0.7559235303104423, -0.00964617977745963]</td>
+      <td>2</td>
+      <td>[0.5444895385933148, -0.6025686369316552]</td>
     </tr>
     <tr>
       <th>21</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>90</td>
-      <td>[-0.9312229577695632, 0.8186408041575641]</td>
+      <td>2</td>
+      <td>[-0.9889557657527952, 0.6309228569096683]</td>
     </tr>
     <tr>
       <th>22</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>91</td>
-      <td>[-0.48244003679996617, 0.32504456870796394]</td>
+      <td>2</td>
+      <td>[0.41371468769523423, 0.4580143360819746]</td>
     </tr>
     <tr>
       <th>23</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>92</td>
-      <td>[-0.3765778478211781, 0.040136042355621626]</td>
+      <td>2</td>
+      <td>[0.5425406933718915, -0.8519106965318193]</td>
     </tr>
     <tr>
       <th>24</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>93</td>
-      <td>[0.0934205586865593, -0.6302910889489459]</td>
+      <td>2</td>
+      <td>[-0.2830685429114548, -0.7682618809497406]</td>
     </tr>
     <tr>
       <th>25</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
-      <td>random</td>
+      <td>repeller</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
       <td>rand-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>94</td>
-      <td>[0.9391692555291171, 0.5502656467222291]</td>
+      <td>2</td>
+      <td>[0.726206851751187, 0.24659625365511584]</td>
     </tr>
     <tr>
       <th>26</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>95</td>
-      <td>[0.8789978831283782, 0.7896547008552977]</td>
+      <td>2</td>
+      <td>[-0.3382039502947016, -0.8728832994279527]</td>
     </tr>
     <tr>
       <th>27</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>96</td>
-      <td>[0.19579995762217028, 0.8437484700462337]</td>
+      <td>2</td>
+      <td>[-0.3780353565686756, -0.3496333559465059]</td>
     </tr>
     <tr>
       <th>28</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>97</td>
-      <td>[-0.823014995896161, -0.6080342751617096]</td>
+      <td>2</td>
+      <td>[0.45921235667612814, 0.27511494271042625]</td>
     </tr>
     <tr>
       <th>29</th>
       <td>1.0</td>
       <td>0.01</td>
-      <td>333</td>
+      <td>1000</td>
       <td>(0.0, 0.3)</td>
-      <td>pg</td>
+      <td>pgn</td>
       <td>True</td>
       <td>linear</td>
       <td>random</td>
       <td>rk4</td>
       <td>fixed</td>
-      <td>2.0</td>
-      <td>0.000001</td>
+      <td>...</td>
       <td>1.0</td>
       <td>0.05</td>
-      <td>l1</td>
+      <td>l2</td>
       <td>0.25</td>
       <td>differential</td>
-      <td>rand-to-best</td>
+      <td>current-to-best</td>
+      <td>[0.5, 0.5]</td>
       <td>98</td>
-      <td>[-0.9095454221789239, -0.3493393384734713]</td>
+      <td>2</td>
+      <td>[0.7744254851526531, -0.05557014967610141]</td>
     </tr>
   </tbody>
 </table>
+<p>30 rows × 22 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1351,9 +1390,9 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 76.7178
--1.2857 &lt;= v1 &lt;= 1.6901
--1.3516 &lt;= v2 &lt;= 1.8370
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 149.1504
+-1.5780 &lt;= v1 &lt;= 1.5496
+-1.5533 &lt;= v2 &lt;= 1.5140
 </pre></div>
 </div>
 </div>
@@ -1387,7 +1426,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cd0ea508bd266a4abb7d95b1031fcd2f6661322f7b1ed9097738ae6b51e768a3.png" src="../_images/cd0ea508bd266a4abb7d95b1031fcd2f6661322f7b1ed9097738ae6b51e768a3.png" />
+<img alt="../_images/83bec1983773e21d413be4bfdf8371b4abbb8463fc4e8c0fa767a65b9b354575.png" src="../_images/83bec1983773e21d413be4bfdf8371b4abbb8463fc4e8c0fa767a65b9b354575.png" />
 </div>
 </div>
 </section>
@@ -1421,7 +1460,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4f32ea4fa4d74d73c8c6afa320eea3ab95179e6fb6a4cf8fe10b573ad7163053.png" src="../_images/4f32ea4fa4d74d73c8c6afa320eea3ab95179e6fb6a4cf8fe10b573ad7163053.png" />
+<img alt="../_images/dba54f98b0ca013c30abe0d346c096a7ecec40bbd77f256c06ccb55dfa6d3835.png" src="../_images/dba54f98b0ca013c30abe0d346c096a7ecec40bbd77f256c06ccb55dfa6d3835.png" />
 </div>
 </div>
 </section>
@@ -1477,7 +1516,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bd5e4a3b600f2095afc8c4c5e5030d743729b945bf7186f9b8915b6e8511547a.png" src="../_images/bd5e4a3b600f2095afc8c4c5e5030d743729b945bf7186f9b8915b6e8511547a.png" />
+<img alt="../_images/b0ba979c35c697ad02bfdf22ada3183f7a2f8693221a3eb57cfdf7e515a4f59f.png" src="../_images/b0ba979c35c697ad02bfdf22ada3183f7a2f8693221a3eb57cfdf7e515a4f59f.png" />
 </div>
 </div>
 </section>
@@ -1518,7 +1557,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fafef6b527b67c5c64627d56c1cd6f57a55c7ed8d0b0491fd8f9996a172bc7db.png" src="../_images/fafef6b527b67c5c64627d56c1cd6f57a55c7ed8d0b0491fd8f9996a172bc7db.png" />
+<img alt="../_images/82fed8ee8dfa191ce52e2493e5893475f1986e137ccb53decba87afd4f51b799.png" src="../_images/82fed8ee8dfa191ce52e2493e5893475f1986e137ccb53decba87afd4f51b799.png" />
 </div>
 </div>
 </section>
@@ -1582,7 +1621,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e381fd8458d64e813d08b3f52597d47f3422cd11cfda787721c7d9c878bde15e.png" src="../_images/e381fd8458d64e813d08b3f52597d47f3422cd11cfda787721c7d9c878bde15e.png" />
+<img alt="../_images/fe07313a78421025c419aebcac03c9a735863efac8bc0f6cdf9c982d24c847db.png" src="../_images/fe07313a78421025c419aebcac03c9a735863efac8bc0f6cdf9c982d24c847db.png" />
 </div>
 </div>
 </section>
@@ -1594,7 +1633,7 @@
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">height</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">))</span>
 
 <span class="n">spikes_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spikes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;YlGnBu_r&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;CMRmap_r&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">im</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">spikes_sum</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
                <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
@@ -1612,7 +1651,64 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c450ee261d18b6728309ede88e3b2bbdcb6c6f0031ee944b9dea8f2bf399c680.png" src="../_images/c450ee261d18b6728309ede88e3b2bbdcb6c6f0031ee944b9dea8f2bf399c680.png" />
+<img alt="../_images/58266090493b86e7d382009819d84b89b553c23d9a88889c05c70d8c22d7ef92.png" src="../_images/58266090493b86e7d382009819d84b89b553c23d9a88889c05c70d8c22d7ef92.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">height</span><span class="o">*</span><span class="mf">0.6</span><span class="p">))</span>
+
+<span class="c1"># spikes: (T, A, D) -&gt; per-agent list of spike times</span>
+<span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
+    <span class="c1"># any spike on any dimension at step t?</span>
+    <span class="n">t_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">spikes</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t_idx</span><span class="p">)</span>
+
+<span class="c1"># eventplot expects a list of 1D arrays</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">eventplot</span><span class="p">(</span><span class="n">events</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">linelengths</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Step, $t$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Agent index, $i$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">num_agents</span> <span class="o">+</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_agents</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">save_this</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">_in</span><span class="o">=</span><span class="s2">&quot;spikes_raster_agents&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fdad76e48ebc4050075b183bbbcb4fab51c91a700b12787c5136d92f651a4b93.png" src="../_images/fdad76e48ebc4050075b183bbbcb4fab51c91a700b12787c5136d92f651a4b93.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">num_steps</span> <span class="o">//</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># choose a small window</span>
+<span class="c1"># mean activity per step (across agents and dims)</span>
+<span class="n">rate</span> <span class="o">=</span> <span class="n">spikes</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="c1"># simple moving average</span>
+<span class="n">kernel</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">window</span><span class="p">)</span> <span class="o">/</span> <span class="n">window</span>
+<span class="n">rate_ma</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">rate</span><span class="p">,</span> <span class="n">kernel</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;same&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">width</span><span class="o">*</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">height</span><span class="o">*</span><span class="mf">0.4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_steps</span><span class="p">),</span> <span class="n">rate</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Instantaneous&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_steps</span><span class="p">),</span> <span class="n">rate_ma</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;MA (w=</span><span class="si">{</span><span class="n">window</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Step, $t$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Spike rate&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper right&quot;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">save_this</span><span class="p">(</span><span class="n">fig</span><span class="p">,</span> <span class="n">_in</span><span class="o">=</span><span class="s2">&quot;spikes_rate_ma&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/493616967af760f66ace3dd5b6d0bea5aab2a58595a03b449b7dfe7b3fcc2499.png" src="../_images/493616967af760f66ace3dd5b6d0bea5aab2a58595a03b449b7dfe7b3fcc2499.png" />
 </div>
 </div>
 </section>
