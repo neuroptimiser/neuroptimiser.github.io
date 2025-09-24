@@ -812,8 +812,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">g_out</span>  <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_dimensions</span><span class="p">,))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fg_out</span> <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_agents</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_dimensions</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">num_agents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;greedy&quot;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="HighLevelSelection.reset">
@@ -877,7 +878,6 @@
                  <span class="n">spiking_core</span><span class="p">:</span> <span class="n">AbstractProcess</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
                  <span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">core_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">selector_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the NeuroHeuristicUnit with the given parameters.</span>
 
@@ -916,7 +916,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_neighbours</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">function</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;core_params&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">core_params</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;selector_params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">selector_params</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;spiking_core&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">spiking_core</span>
 
@@ -940,8 +939,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">pn_in</span>  <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">external_shape_neighbours</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fpn_in</span> <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_neighbours</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span>       <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;core_ref&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">selector_ref</span>   <span class="o">=</span> <span class="n">selector_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;selector_ref&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span>       <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;core_ref&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="NeuroHeuristicUnit.reset">
@@ -954,11 +952,7 @@
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">selector_ref</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">selector_ref</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">selector_ref</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
 </div>
 
 

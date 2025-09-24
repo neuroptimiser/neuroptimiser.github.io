@@ -339,6 +339,22 @@
 <span id="utils"></span><h1>Utils<a class="headerlink" href="#module-neuroptimiser.utils" title="Link to this heading">¶</a></h1>
 <p>Utility functions and constants for the Neuroptimiser framework.</p>
 <dl class="py function">
+<dt class="sig sig-object py" id="neuroptimiser.utils.from_yaml">
+<span class="sig-name descname"><span class="pre">from_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#from_yaml"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.from_yaml" title="Link to this definition">¶</a></dt>
+<dd><p>Load a YAML file and return its contents as a dictionary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>yaml_path</strong> – Path to the YAML file.</p></li>
+<li><p><strong>disp</strong> – If True, print the loaded configuration for debugging purposes.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Returns:
+A dictionary containing the contents of the YAML file.</p>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.get_2d_sys">
 <span class="sig-name descname"><span class="pre">get_2d_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detA_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_2d_sys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_2d_sys" title="Link to this definition">¶</a></dt>
 <dd><p>Generate a 2D dynamic system matrix based on the specified kind.</p>
@@ -374,6 +390,11 @@ A square adjacency matrix representing the specified topology.</p>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="neuroptimiser.utils.get_core_params">
+<span class="sig-name descname"><span class="pre">get_core_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">core_cfg</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_core_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_core_params" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.get_izhikevich_sys">
 <span class="sig-name descname"><span class="pre">get_izhikevich_sys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'RS'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="reference internal" href="_modules/neuroptimiser/utils.html#get_izhikevich_sys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.get_izhikevich_sys" title="Link to this definition">¶</a></dt>
 <dd><p>Get the parameters for an Izhikevich neuron model.</p>
@@ -388,6 +409,11 @@ A square adjacency matrix representing the specified topology.</p>
 <p>Returns:
 A dictionary containing the parameters of the Izhikevich model.</p>
 </dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="neuroptimiser.utils.process_parameters">
+<span class="sig-name descname"><span class="pre">process_parameters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_experiment_config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/neuroptimiser/utils.html#process_parameters"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#neuroptimiser.utils.process_parameters" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="neuroptimiser.utils.reset_all_processes">
@@ -503,9 +529,12 @@ Value or array of values transformed back to the original scale.</p>
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Utils</a><ul>
+<li><a class="reference internal" href="#neuroptimiser.utils.from_yaml"><code class="docutils literal notranslate"><span class="pre">from_yaml()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.get_2d_sys"><code class="docutils literal notranslate"><span class="pre">get_2d_sys()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.get_arch_matrix"><code class="docutils literal notranslate"><span class="pre">get_arch_matrix()</span></code></a></li>
+<li><a class="reference internal" href="#neuroptimiser.utils.get_core_params"><code class="docutils literal notranslate"><span class="pre">get_core_params()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.get_izhikevich_sys"><code class="docutils literal notranslate"><span class="pre">get_izhikevich_sys()</span></code></a></li>
+<li><a class="reference internal" href="#neuroptimiser.utils.process_parameters"><code class="docutils literal notranslate"><span class="pre">process_parameters()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.reset_all_processes"><code class="docutils literal notranslate"><span class="pre">reset_all_processes()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.tro2s"><code class="docutils literal notranslate"><span class="pre">tro2s()</span></code></a></li>
 <li><a class="reference internal" href="#neuroptimiser.utils.trs2o"><code class="docutils literal notranslate"><span class="pre">trs2o()</span></code></a></li>

@@ -408,12 +408,12 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython2 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the problem parameters</span>
-<span class="n">num_steps</span>       <span class="o">=</span> <span class="mi">100</span>       <span class="c1"># Number of iterations</span>
-<span class="n">problem_id</span>      <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># Problem ID from the IOH framework</span>
+<span class="n">num_steps</span>       <span class="o">=</span> <span class="mi">1000</span>       <span class="c1"># Number of iterations</span>
+<span class="n">problem_id</span>      <span class="o">=</span> <span class="mi">3</span>         <span class="c1"># Problem ID from the IOH framework</span>
 <span class="n">problem_ins</span>     <span class="o">=</span> <span class="mi">1</span>         <span class="c1"># Problem instance</span>
 <span class="n">num_dimensions</span>  <span class="o">=</span> <span class="mi">2</span>         <span class="c1"># Number of dimensions for the problem</span>
 <span class="n">num_agents</span>      <span class="o">=</span> <span class="mi">30</span>        <span class="c1"># Number of agents/units in the Neuroptimiser</span>
-<span class="n">num_neighbours</span>  <span class="o">=</span> <span class="mi">10</span>        <span class="c1"># Number of neighbours for each agent/unit</span>
+<span class="n">num_neighbours</span>  <span class="o">=</span> <span class="mi">15</span>        <span class="c1"># Number of neighbours for each agent/unit</span>
 
 <span class="c1"># Define the Neuroptimiser parameters</span>
 <span class="n">neuropt_name</span>    <span class="o">=</span> <span class="s2">&quot;neuropt_Ex1-LinRand&quot;</span>
@@ -430,9 +430,10 @@
 <span class="n">core_params</span> <span class="o">=</span> <span class="p">[</span>   <span class="c1"># Specify the custom parameters for the spiking core</span>
     <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;izhikevich&quot;</span><span class="p">,</span>
      <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
-     <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span> <span class="s2">&quot;l1&quot;</span><span class="p">,</span>
      <span class="s2">&quot;hs_operator&quot;</span><span class="p">:</span> <span class="s2">&quot;differential&quot;</span><span class="p">,</span>
      <span class="s2">&quot;hs_variant&quot;</span><span class="p">:</span> <span class="s2">&quot;current-to-rand&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;sel_mode&quot;</span><span class="p">:</span> <span class="s2">&quot;greedy&quot;</span><span class="p">,</span>
      <span class="p">},</span>
 <span class="p">]</span>
 
@@ -451,7 +452,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex1-LinRand_1p_1i_2d_100s_30u&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prefix_filename: &#39;neuropt_Ex1-LinRand_3p_1i_2d_1000s_30u&#39;
 </pre></div>
 </div>
 </div>
@@ -473,7 +474,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;RealSingleObjectiveProblem 1. Sphere (iid=1 dim=2)&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;RealSingleObjectiveProblem 3. Rastrigin (iid=1 dim=2)&gt;
 </pre></div>
 </div>
 </div>
@@ -497,22 +498,22 @@
 [neuropt:log] Population of nheuristic units is created.
 [neuropt:log] Connections between nheuristic units and auxiliary processes are established.
 [neuropt:log] Monitors are set up.
-[neuropt:log] Starting simulation with 100 iterations...
-... step: 0, best fitness: 81.21773529052734
-... step: 10, best fitness: 79.82351684570312
-... step: 20, best fitness: 79.4904556274414
-... step: 30, best fitness: 79.4904556274414
-... step: 40, best fitness: 79.48018646240234
-... step: 50, best fitness: 79.48018646240234
-... step: 60, best fitness: 79.48018646240234
-... step: 70, best fitness: 79.48009490966797
-... step: 80, best fitness: 79.48003387451172
-... step: 90, best fitness: 79.48003387451172
-... step: 99, best fitness: 79.48003387451172
+[neuropt:log] Starting simulation with 1000 iterations...
+... step: 0, best fitness: -457.0638427734375
+... step: 100, best fitness: -461.8068542480469
+... step: 200, best fitness: -461.9642639160156
+... step: 300, best fitness: -462.08636474609375
+... step: 400, best fitness: -462.0899963378906
+... step: 500, best fitness: -462.0899963378906
+... step: 600, best fitness: -462.0899963378906
+... step: 700, best fitness: -462.0899963378906
+... step: 800, best fitness: -462.0899963378906
+... step: 900, best fitness: -462.0899963378906
+... step: 999, best fitness: -462.0899963378906
 [neuropt:log] Simulation completed. Fetching monitor data... done
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0.24804067, -1.15403481]), array([79.48003387]))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-2.34097064,  2.29994103]), -462.0899963378906)
 </pre></div>
 </div>
 </div>
@@ -525,8 +526,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 100, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 10, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;num_dimensions&#39;: 2, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x156101870&gt;, &#39;search_space&#39;: array([[-5.,  5.],
-       [-5.,  5.]]), &#39;seed&#39;: 69, &#39;core_params&#39;: {}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 1000, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 15, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;search_space&#39;: array([[-5.,  5.],
+       [-5.,  5.]]), &#39;seed&#39;: 69, &#39;num_dimensions&#39;: 2, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x120b35c60&gt;, &#39;core_params&#39;: {}}
 </pre></div>
 </div>
 </div>
@@ -562,21 +563,21 @@
       <th>spk_cond</th>
       <th>hs_operator</th>
       <th>hs_variant</th>
-      <th>dt</th>
-      <th>spk_weights</th>
-      <th>thr_max</th>
-      <th>spk_q_ord</th>
-      <th>alpha</th>
-      <th>...</th>
-      <th>thr_mode</th>
+      <th>sel_mode</th>
       <th>spk_alpha</th>
-      <th>ref_mode</th>
-      <th>noise_std</th>
-      <th>is_bounded</th>
       <th>seed</th>
-      <th>thr_min</th>
-      <th>approx</th>
+      <th>noise_std</th>
+      <th>hs_params</th>
+      <th>...</th>
       <th>thr_k</th>
+      <th>spk_weights</th>
+      <th>approx</th>
+      <th>thr_alpha</th>
+      <th>thr_mode</th>
+      <th>thr_max</th>
+      <th>alpha</th>
+      <th>thr_min</th>
+      <th>spk_q_ord</th>
       <th>init_position</th>
     </tr>
   </thead>
@@ -585,725 +586,725 @@
       <th>0</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>69</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.250919762305275, 0.9014286128198323]</td>
     </tr>
     <tr>
       <th>1</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>70</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.4639878836228102, 0.1973169683940732]</td>
     </tr>
     <tr>
       <th>2</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>71</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.687962719115127, -0.6880109593275947]</td>
     </tr>
     <tr>
       <th>3</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>72</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.8838327756636011, 0.7323522915498704]</td>
     </tr>
     <tr>
       <th>4</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>73</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.2022300234864176, 0.416145155592091]</td>
     </tr>
     <tr>
       <th>5</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>74</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.9588310114083951, 0.9398197043239886]</td>
     </tr>
     <tr>
       <th>6</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>75</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.6648852816008435, -0.5753217786434477]</td>
     </tr>
     <tr>
       <th>7</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>76</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.6363500655857988, -0.6331909802931324]</td>
     </tr>
     <tr>
       <th>8</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>77</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.39151551408092455, 0.04951286326447568]</td>
     </tr>
     <tr>
       <th>9</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>78</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.13610996271576847, -0.4175417196039162]</td>
     </tr>
     <tr>
       <th>10</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>79</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.22370578944475894, -0.7210122786959163]</td>
     </tr>
     <tr>
       <th>11</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>80</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.4157107029295637, -0.2672763134126166]</td>
     </tr>
     <tr>
       <th>12</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>81</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.08786003156592814, 0.5703519227860272]</td>
     </tr>
     <tr>
       <th>13</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>82</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.6006524356832805, 0.02846887682722321]</td>
     </tr>
     <tr>
       <th>14</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>83</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.18482913772408494, -0.9070991745600046]</td>
     </tr>
     <tr>
       <th>15</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>84</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.21508970380287673, -0.6589517526254169]</td>
     </tr>
     <tr>
       <th>16</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>85</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.869896814029441, 0.8977710745066665]</td>
     </tr>
     <tr>
       <th>17</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>86</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.9312640661491187, 0.6167946962329223]</td>
     </tr>
     <tr>
       <th>18</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>87</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.39077246165325863, -0.8046557719872323]</td>
     </tr>
     <tr>
       <th>19</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>88</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.3684660530243138, -0.1196950125207974]</td>
     </tr>
     <tr>
       <th>20</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>89</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.7559235303104423, -0.00964617977745963]</td>
     </tr>
     <tr>
       <th>21</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>90</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.9312229577695632, 0.8186408041575641]</td>
     </tr>
     <tr>
       <th>22</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>91</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.48244003679996617, 0.32504456870796394]</td>
     </tr>
     <tr>
       <th>23</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>92</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.3765778478211781, 0.040136042355621626]</td>
     </tr>
     <tr>
       <th>24</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>93</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.0934205586865593, -0.6302910889489459]</td>
     </tr>
     <tr>
       <th>25</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>94</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.9391692555291171, 0.5502656467222291]</td>
     </tr>
     <tr>
       <th>26</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>95</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.8789978831283782, 0.7896547008552977]</td>
     </tr>
     <tr>
       <th>27</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>96</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[0.19579995762217028, 0.8437484700462337]</td>
     </tr>
     <tr>
       <th>28</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>97</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.823014995896161, -0.6080342751617096]</td>
     </tr>
     <tr>
       <th>29</th>
       <td>izhikevich</td>
       <td>random</td>
-      <td>fixed</td>
+      <td>l1</td>
       <td>differential</td>
       <td>current-to-rand</td>
-      <td>0.01</td>
-      <td>[0.5, 0.5]</td>
-      <td>1.0</td>
-      <td>2</td>
-      <td>1.0</td>
-      <td>...</td>
-      <td>diff_pg</td>
+      <td>greedy</td>
       <td>0.25</td>
-      <td>pgn</td>
-      <td>0.1</td>
-      <td>False</td>
       <td>98</td>
-      <td>0.000001</td>
-      <td>rk4</td>
+      <td>0.1</td>
+      <td>{}</td>
+      <td>...</td>
       <td>0.05</td>
+      <td>[0.5, 0.5]</td>
+      <td>rk4</td>
+      <td>1.0</td>
+      <td>diff_pg</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.000001</td>
+      <td>2</td>
       <td>[-0.9095454221789239, -0.3493393384734713]</td>
     </tr>
   </tbody>
 </table>
-<p>30 rows × 22 columns</p>
+<p>30 rows × 24 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1336,10 +1337,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: 79.4800, f*: 79.4800, error: 3.3875e-05
-norm2(g - x*): 5.5043e-03
--6.5048 &lt;= v1 &lt;= 5.2544
--5.5478 &lt;= v2 &lt;= 7.1809
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: -462.0900, f*: -462.0900, error: 3.6621e-06
+norm2(g - x*): 1.8054e-04
+-6.9711 &lt;= v1 &lt;= 8.0792
+-6.1717 &lt;= v2 &lt;= 6.8563
 </pre></div>
 </div>
 </div>
@@ -1373,7 +1374,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a0affa5d34b8eb2f61eee427e4d8e97b387a8669bb551f782ceea0e443a1ed9f.png" src="../_images/a0affa5d34b8eb2f61eee427e4d8e97b387a8669bb551f782ceea0e443a1ed9f.png" />
+<img alt="../_images/9ba5ad5358512b3da641fdff0b3c3c9c3ceb7b4fe410af597624ece385ab58eb.png" src="../_images/9ba5ad5358512b3da641fdff0b3c3c9c3ceb7b4fe410af597624ece385ab58eb.png" />
 </div>
 </div>
 </section>
@@ -1387,13 +1388,13 @@ norm2(g - x*): 5.5043e-03
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">)</span>
 <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">))</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">optimum</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">problem</span><span class="o">.</span><span class="n">optimum</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
-         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimum&quot;</span><span class="p">)</span>
-
 <span class="k">for</span> <span class="n">agent</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">positions</span><span class="p">[:,</span> <span class="n">agent</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">positions</span><span class="p">[:,</span><span class="n">agent</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;--o&quot;</span><span class="p">,</span>
              <span class="n">color</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
              <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Agent </span><span class="si">{</span><span class="n">agent</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">problem</span><span class="o">.</span><span class="n">optimum</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">problem</span><span class="o">.</span><span class="n">optimum</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span>
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">markeredgecolor</span><span class="o">=</span><span class="s2">&quot;cyan&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Optimum&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">best_position</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">best_position</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s2">&quot;--*&quot;</span><span class="p">,</span>
          <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Best position&quot;</span><span class="p">)</span>
@@ -1410,7 +1411,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1052f00eca06701d3d73f0b4188a85a170bcd29eba50e5f424d84a4864c883dd.png" src="../_images/1052f00eca06701d3d73f0b4188a85a170bcd29eba50e5f424d84a4864c883dd.png" />
+<img alt="../_images/6fec0e29010b3b547cecc6732977799cf19351868f7d14ed77482cecd39c6318.png" src="../_images/6fec0e29010b3b547cecc6732977799cf19351868f7d14ed77482cecd39c6318.png" />
 </div>
 </div>
 </section>
@@ -1469,7 +1470,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/47c44d0a0e5472977061af70e6e51d3161e511d24596540268a1e3af3465b16d.png" src="../_images/47c44d0a0e5472977061af70e6e51d3161e511d24596540268a1e3af3465b16d.png" />
+<img alt="../_images/4fbd9a62a29756b94a6fc0fc996d6da11234928645856f9a050062bba07544fc.png" src="../_images/4fbd9a62a29756b94a6fc0fc996d6da11234928645856f9a050062bba07544fc.png" />
 </div>
 </div>
 </section>
@@ -1485,7 +1486,8 @@ norm2(g - x*): 5.5043e-03
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;Spectral&#39;</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">)</span>
 <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">))</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">axs</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="p">[:</span><span class="n">num_dimensions</span><span class="p">]):</span>
 
     <span class="k">for</span> <span class="n">agent</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">color</span><span class="p">):</span>
         <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v1</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="n">v2</span><span class="p">[</span><span class="n">agent</span><span class="p">,</span> <span class="p">:,</span> <span class="n">i</span><span class="p">],</span> <span class="s2">&quot;-o&quot;</span><span class="p">,</span>
@@ -1510,7 +1512,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1451a035ae454d346d3838325553686b5d1cd6a1f153dbe12f60c920234780fd.png" src="../_images/1451a035ae454d346d3838325553686b5d1cd6a1f153dbe12f60c920234780fd.png" />
+<img alt="../_images/2f310e250399e3729758234be2752a4586ff97581c3800eeea3440273a08c855.png" src="../_images/2f310e250399e3729758234be2752a4586ff97581c3800eeea3440273a08c855.png" />
 </div>
 </div>
 </section>
@@ -1574,7 +1576,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ce81e7afdc2bf323a8fc25ba9525fd16c6bf808a2c177fdbbdc0496b83cf6811.png" src="../_images/ce81e7afdc2bf323a8fc25ba9525fd16c6bf808a2c177fdbbdc0496b83cf6811.png" />
+<img alt="../_images/c5bd5cdb40ce68ed028d5bf5e234338fe064188d54d90439e705195ce2889438.png" src="../_images/c5bd5cdb40ce68ed028d5bf5e234338fe064188d54d90439e705195ce2889438.png" />
 </div>
 </div>
 </section>
@@ -1604,7 +1606,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a37504fb823fa08526a8f57deadc9918545b70ce09e3e081b2dd6b05bdfb14f8.png" src="../_images/a37504fb823fa08526a8f57deadc9918545b70ce09e3e081b2dd6b05bdfb14f8.png" />
+<img alt="../_images/cdb5638443a7609cab67635d26cbedc4fec8cdf484bccf9f368c6b8e69c8cda7.png" src="../_images/cdb5638443a7609cab67635d26cbedc4fec8cdf484bccf9f368c6b8e69c8cda7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1632,7 +1634,7 @@ norm2(g - x*): 5.5043e-03
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a8d462ed793c00220158910b9f4365b1ce8a2a3b3df1168c0a746d132d9622dd.png" src="../_images/a8d462ed793c00220158910b9f4365b1ce8a2a3b3df1168c0a746d132d9622dd.png" />
+<img alt="../_images/9136d9418525afe532e73e528db42a602b830c7faaf48cbbc318164cf27ff6c9.png" src="../_images/9136d9418525afe532e73e528db42a602b830c7faaf48cbbc318164cf27ff6c9.png" />
 </div>
 </div>
 </section>

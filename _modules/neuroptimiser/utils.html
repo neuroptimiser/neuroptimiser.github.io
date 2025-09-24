@@ -332,11 +332,20 @@
 <span></span><span class="sd">&quot;&quot;&quot;Utility functions and constants for the Neuroptimiser framework.&quot;&quot;&quot;</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Jorge M. Cruz-Duarte&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;jorge.cruz-duarte@univ-lille.fr&quot;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;reset_all_processes&quot;</span><span class="p">,</span> <span class="s2">&quot;tro2s&quot;</span><span class="p">,</span> <span class="s2">&quot;trs2o&quot;</span><span class="p">,</span> <span class="s2">&quot;get_arch_matrix&quot;</span><span class="p">,</span> <span class="s2">&quot;get_2d_sys&quot;</span><span class="p">,</span> <span class="s2">&quot;get_izhikevich_sys&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;IZHIKEVICH_MODELS_KIND&quot;</span><span class="p">,</span> <span class="s2">&quot;DYN_MODELS_KIND&quot;</span><span class="p">,</span> <span class="s2">&quot;ADJ_MAT_OPTIONS&quot;</span><span class="p">]</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;from_yaml&quot;</span><span class="p">,</span> <span class="s2">&quot;get_core_params&quot;</span><span class="p">,</span> <span class="s2">&quot;process_parameters&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;reset_all_processes&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;tro2s&quot;</span><span class="p">,</span> <span class="s2">&quot;trs2o&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_arch_matrix&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;get_2d_sys&quot;</span><span class="p">,</span> <span class="s2">&quot;get_izhikevich_sys&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;IZHIKEVICH_MODELS_KIND&quot;</span><span class="p">,</span> <span class="s2">&quot;DYN_MODELS_KIND&quot;</span><span class="p">,</span> <span class="s2">&quot;ADJ_MAT_OPTIONS&quot;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 
 <span class="c1"># Constants for Izhikevich models and dynamic systems</span>
 <span class="n">IZHIKEVICH_MODELS_KIND</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;RS&quot;</span><span class="p">,</span> <span class="s2">&quot;IB&quot;</span><span class="p">,</span> <span class="s2">&quot;CH&quot;</span><span class="p">,</span> <span class="s2">&quot;FS&quot;</span><span class="p">,</span> <span class="s2">&quot;TC&quot;</span><span class="p">,</span> <span class="s2">&quot;TCn&quot;</span><span class="p">,</span> <span class="s2">&quot;RZ&quot;</span><span class="p">,</span> <span class="s2">&quot;LTS&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">]</span>
@@ -351,6 +360,7 @@
     <span class="s2">&quot;fully-connected&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;full&quot;</span><span class="p">,</span>
     <span class="s2">&quot;random&quot;</span><span class="p">,</span> <span class="s2">&quot;rand&quot;</span><span class="p">,</span>
 <span class="p">]</span>
+
 
 <div class="viewcode-block" id="reset_all_processes">
 <a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.reset_all_processes">[docs]</a>
@@ -367,9 +377,10 @@
             <span class="n">proc</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
 
 
+
 <div class="viewcode-block" id="tro2s">
 <a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.tro2s">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">tro2s</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">,</span> <span class="n">lb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">,</span> <span class="n">ub</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">tro2s</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ub</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Transform a value from the original scale to a normalized scale.</span>
 
 <span class="sd">    Arguments:</span>
@@ -382,9 +393,10 @@
     <span class="k">return</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">lb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">ub</span> <span class="o">-</span> <span class="n">lb</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span></div>
 
 
+
 <div class="viewcode-block" id="trs2o">
 <a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.trs2o">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">trs2o</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">,</span> <span class="n">lb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">,</span> <span class="n">ub</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="o">|</span><span class="nb">float</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">trs2o</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">lb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span> <span class="n">ub</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Transform a value from a normalized scale back to the original scale.</span>
 
 <span class="sd">    Arguments:</span>
@@ -395,6 +407,7 @@
 <span class="sd">    Value or array of values transformed back to the original scale.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">ub</span> <span class="o">-</span> <span class="n">lb</span><span class="p">)</span> <span class="o">+</span> <span class="n">lb</span></div>
+
 
 
 <div class="viewcode-block" id="get_arch_matrix">
@@ -434,6 +447,7 @@
         <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;Topology not implemented yet (?)&quot;</span><span class="p">)</span></div>
 
 
+
 <div class="viewcode-block" id="get_2d_sys">
 <a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.get_2d_sys">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_2d_sys</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;sink&quot;</span><span class="p">,</span> <span class="n">trA_max</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">detA_max</span><span class="o">=</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -469,7 +483,7 @@
         <span class="k">elif</span> <span class="n">kind</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="s2">&quot;sink&quot;</span><span class="p">]:</span>
             <span class="c1"># discriminant = trA^2 - 4 (trA^2/4 - delta) = 4 delta &lt; 0 (spiral)</span>
             <span class="n">delta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="n">trA_max</span><span class="p">,</span> <span class="o">-</span><span class="n">eps</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span> <span class="c1"># Centre</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Centre</span>
             <span class="n">delta</span> <span class="o">=</span> <span class="mf">0.0</span>
 
         <span class="n">detA</span> <span class="o">=</span> <span class="n">trAsq4</span> <span class="o">-</span> <span class="n">delta</span>
@@ -481,6 +495,7 @@
         <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">d</span> <span class="o">-</span> <span class="n">detA</span><span class="p">)</span> <span class="o">/</span> <span class="n">b</span>
 
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">]])</span></div>
+
 
 
 <div class="viewcode-block" id="get_izhikevich_sys">
@@ -499,33 +514,47 @@
         <span class="k">return</span> <span class="n">get_izhikevich_sys</span><span class="p">(</span><span class="n">kind</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Default parameters for Izhikevich model</span>
-        <span class="n">a</span>       <span class="o">=</span> <span class="mf">0.02</span>
-        <span class="n">b</span>       <span class="o">=</span> <span class="mf">0.2</span>
-        <span class="n">c</span>       <span class="o">=</span> <span class="o">-</span><span class="mi">65</span>
-        <span class="n">d</span>       <span class="o">=</span> <span class="mf">8.0</span>
-        <span class="n">I</span>       <span class="o">=</span> <span class="mf">0.1</span>
-        <span class="n">vmin</span>    <span class="o">=</span> <span class="o">-</span><span class="mf">80.</span>    <span class="c1"># [V]</span>
-        <span class="n">vmax</span>    <span class="o">=</span> <span class="mf">30.</span>
-        <span class="n">umin</span>    <span class="o">=</span> <span class="o">-</span><span class="mf">20.</span>    <span class="c1"># [V]</span>
-        <span class="n">umax</span>    <span class="o">=</span> <span class="mf">0.</span>
-        <span class="n">Lt</span>      <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mf">0.02</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="mf">0.2</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">65</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="mf">8.0</span>
+        <span class="n">I</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">80.</span>  <span class="c1"># [V]</span>
+        <span class="n">vmax</span> <span class="o">=</span> <span class="mf">30.</span>
+        <span class="n">umin</span> <span class="o">=</span> <span class="o">-</span><span class="mf">20.</span>  <span class="c1"># [V]</span>
+        <span class="n">umax</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">Lt</span> <span class="o">=</span> <span class="mf">1.0</span>
 
-        <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;IB&quot;</span><span class="p">:</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">55</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">4.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;CH&quot;</span><span class="p">:</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;FS&quot;</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;TC&quot;</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span> <span class="n">I</span> <span class="o">=</span> <span class="mf">0.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;TCn&quot;</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mf">0.02</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">;</span> <span class="n">I</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;RZ&quot;</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.26</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
-        <span class="k">elif</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">&quot;LTS&quot;</span><span class="p">:</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">;</span> <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">;</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">pass</span> <span class="c1"># RS</span>
+        <span class="k">match</span> <span class="n">kind</span><span class="p">:</span>
+            <span class="k">case</span> <span class="s2">&quot;IB&quot;</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">55</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">4.0</span>
+            <span class="k">case</span> <span class="s2">&quot;CH&quot;</span><span class="p">:</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="mi">50</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
+            <span class="k">case</span> <span class="s2">&quot;FS&quot;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
+            <span class="k">case</span> <span class="s2">&quot;TC&quot;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mf">0.02</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">0.05</span>
+                <span class="n">I</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="k">case</span> <span class="s2">&quot;TCn&quot;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mf">0.02</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">0.05</span>
+                <span class="n">I</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.0</span>
+            <span class="k">case</span> <span class="s2">&quot;RZ&quot;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mf">0.1</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mf">0.26</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
+            <span class="k">case</span> <span class="s2">&quot;LTS&quot;</span><span class="p">:</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mf">0.2</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">2.0</span>
+            <span class="k">case</span><span class="w"> </span><span class="k">_</span><span class="p">:</span>
+                <span class="k">pass</span>  <span class="c1"># RS</span>
 
         <span class="n">coeffs</span> <span class="o">=</span> <span class="p">{</span>
             <span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="n">c</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="n">d</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="n">I</span><span class="p">,</span>
@@ -538,6 +567,347 @@
                 <span class="n">coeffs</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_value</span>
         <span class="k">return</span> <span class="n">coeffs</span></div>
 
+
+<div class="viewcode-block" id="get_core_params">
+<a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.get_core_params">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_core_params</span><span class="p">(</span><span class="n">core_cfg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">_num_steps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_steps&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">))</span>
+
+    <span class="c1"># Default core parameters</span>
+    <span class="n">cdp_alpha</span>       <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">))</span>
+    <span class="n">cdp_dt</span>          <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">))</span>
+    <span class="n">cdp_max_steps</span>   <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_steps&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cdp_max_steps</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cdp_max_steps</span> <span class="o">=</span> <span class="n">_num_steps</span>
+    <span class="n">cdp_noise_std</span>   <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_std&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
+    <span class="n">cdp_ref_mode</span>    <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ref_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;pg&quot;</span><span class="p">)</span>
+    <span class="n">cdp_is_bounded</span>  <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;is_bounded&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+
+    <span class="n">_hl_selector_params</span> <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;selector&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="n">threshold_cfg</span>   <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;threshold&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">cdp_thr_mode</span>    <span class="o">=</span> <span class="n">threshold_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;thr_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;diff_pg&quot;</span><span class="p">)</span>
+    <span class="n">cdp_thr_alpha</span>   <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">threshold_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;thr_alpha&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+    <span class="n">cdp_thr_min</span>     <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">threshold_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;thr_min&quot;</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">))</span>
+    <span class="n">cdp_thr_max</span>     <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">threshold_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;thr_max&quot;</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">))</span>
+    <span class="n">cdp_thr_k</span>       <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">threshold_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;thr_k&quot;</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">))</span>
+
+    <span class="n">spiking_cfg</span>     <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spiking&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">cdp_spk_cond</span>    <span class="o">=</span> <span class="n">spiking_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spk_cond&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">)</span>
+    <span class="n">cdp_spk_alpha</span>   <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">spiking_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spk_alpha&quot;</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">))</span>
+    <span class="n">cdp_spk_q_ord</span>   <span class="o">=</span> <span class="n">spiking_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spk_q_ord&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">cdp_spk_weights</span> <span class="o">=</span> <span class="n">spiking_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spk_weights&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+
+    <span class="n">hd_operator_cfg</span> <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hd_operator&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">cdp_name</span>        <span class="o">=</span> <span class="n">hd_operator_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+    <span class="n">cdp_coeffs</span>      <span class="o">=</span> <span class="n">hd_operator_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coeffs&quot;</span><span class="p">,</span> <span class="s2">&quot;sink&quot;</span><span class="p">)</span>
+    <span class="n">cdp_approx</span>      <span class="o">=</span> <span class="n">hd_operator_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;approx&quot;</span><span class="p">,</span> <span class="s2">&quot;rk4&quot;</span><span class="p">)</span>
+
+    <span class="n">hs_operator_cfg</span> <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;hs_operator&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">cdp_hs_operator</span> <span class="o">=</span> <span class="n">hs_operator_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;differential&quot;</span><span class="p">)</span>
+    <span class="n">cdp_hs_variant</span>  <span class="o">=</span> <span class="n">hs_operator_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;variant&quot;</span><span class="p">,</span> <span class="s2">&quot;current-to-rand&quot;</span><span class="p">)</span>
+
+    <span class="n">selector_cfg</span>    <span class="o">=</span> <span class="n">core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;selector&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">cdp_sel_mode</span>    <span class="o">=</span> <span class="n">selector_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;greedy&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Core parameters dictionary</span>
+    <span class="n">_core_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;alpha&quot;</span><span class="p">:</span>        <span class="n">cdp_alpha</span><span class="p">,</span>
+        <span class="s2">&quot;dt&quot;</span><span class="p">:</span>           <span class="n">cdp_dt</span><span class="p">,</span>
+        <span class="s2">&quot;max_steps&quot;</span><span class="p">:</span>    <span class="n">cdp_max_steps</span><span class="p">,</span>
+        <span class="s2">&quot;noise_std&quot;</span><span class="p">:</span>    <span class="n">cdp_noise_std</span><span class="p">,</span>
+        <span class="s2">&quot;ref_mode&quot;</span><span class="p">:</span>     <span class="n">cdp_ref_mode</span><span class="p">,</span>
+        <span class="s2">&quot;is_bounded&quot;</span><span class="p">:</span>   <span class="n">cdp_is_bounded</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span>         <span class="n">cdp_name</span><span class="p">,</span>
+        <span class="s2">&quot;coeffs&quot;</span><span class="p">:</span>       <span class="n">cdp_coeffs</span><span class="p">,</span>
+        <span class="s2">&quot;approx&quot;</span><span class="p">:</span>       <span class="n">cdp_approx</span><span class="p">,</span>
+        <span class="s2">&quot;thr_mode&quot;</span><span class="p">:</span>     <span class="n">cdp_thr_mode</span><span class="p">,</span>
+        <span class="s2">&quot;thr_alpha&quot;</span><span class="p">:</span>    <span class="n">cdp_thr_alpha</span><span class="p">,</span>
+        <span class="s2">&quot;thr_min&quot;</span><span class="p">:</span>      <span class="n">cdp_thr_min</span><span class="p">,</span>
+        <span class="s2">&quot;thr_max&quot;</span><span class="p">:</span>      <span class="n">cdp_thr_max</span><span class="p">,</span>
+        <span class="s2">&quot;thr_k&quot;</span><span class="p">:</span>        <span class="n">cdp_thr_k</span><span class="p">,</span>
+        <span class="s2">&quot;spk_cond&quot;</span><span class="p">:</span>     <span class="n">cdp_spk_cond</span><span class="p">,</span>
+        <span class="s2">&quot;spk_alpha&quot;</span><span class="p">:</span>    <span class="n">cdp_spk_alpha</span><span class="p">,</span>
+        <span class="s2">&quot;spk_q_ord&quot;</span><span class="p">:</span>    <span class="n">cdp_spk_q_ord</span><span class="p">,</span>
+        <span class="s2">&quot;spk_weights&quot;</span><span class="p">:</span>  <span class="n">cdp_spk_weights</span><span class="p">,</span>
+        <span class="s2">&quot;hs_operator&quot;</span><span class="p">:</span>  <span class="n">cdp_hs_operator</span><span class="p">,</span>
+        <span class="s2">&quot;hs_variant&quot;</span><span class="p">:</span>   <span class="n">cdp_hs_variant</span><span class="p">,</span>
+        <span class="s2">&quot;sel_mode&quot;</span><span class="p">:</span>     <span class="n">cdp_sel_mode</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">_core_params</span><span class="p">,</span> <span class="n">_hl_selector_params</span></div>
+
+
+
+<div class="viewcode-block" id="process_parameters">
+<a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.process_parameters">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_parameters</span><span class="p">(</span><span class="n">_experiment_config</span><span class="p">):</span>
+    <span class="c1"># Extract nested config</span>
+    <span class="n">problems_cfg</span>        <span class="o">=</span> <span class="n">_experiment_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;metadata&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">optimiser_cfg</span>       <span class="o">=</span> <span class="n">_experiment_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;optimiser&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">full_core_cfg</span>       <span class="o">=</span> <span class="n">_experiment_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;core_parameters&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">default_core_cfg</span>    <span class="o">=</span> <span class="n">full_core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="c1"># Problem setup</span>
+    <span class="n">name</span>                <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;unnamed experiment&quot;</span><span class="p">)</span>
+    <span class="n">description</span>         <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">debug_mode</span>          <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;debug_mode&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+    <span class="n">suite_name</span>          <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;suite_name&quot;</span><span class="p">,</span> <span class="s2">&quot;bbob&quot;</span><span class="p">)</span>
+    <span class="n">func_indices</span>        <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;func_indices&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">num_dimensions</span>      <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">instances</span>           <span class="o">=</span> <span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;instances&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">budget_multiplier</span>   <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">problems_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;budget_multiplier&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Optimiser setup</span>
+    <span class="n">num_steps</span>           <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">optimiser_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_steps&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">)))</span>
+    <span class="n">num_agents</span>          <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">optimiser_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_agents&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+    <span class="n">spiking_core</span>        <span class="o">=</span> <span class="n">optimiser_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;spiking_core&quot;</span><span class="p">,</span> <span class="s2">&quot;TwoDimSpikingCore&quot;</span><span class="p">)</span>
+
+    <span class="n">neighbourhood_cfg</span>   <span class="o">=</span> <span class="n">optimiser_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;neighbourhood&quot;</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">num_neighbours</span>      <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">neighbourhood_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">neuron_topology</span>     <span class="o">=</span> <span class="n">neighbourhood_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;neuron_topology&quot;</span><span class="p">,</span> <span class="s2">&quot;2dr&quot;</span><span class="p">)</span>
+    <span class="n">unit_topology</span>       <span class="o">=</span> <span class="n">neighbourhood_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;unit_topology&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Generate the config parameters</span>
+    <span class="n">_config_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;num_iterations&quot;</span><span class="p">:</span>   <span class="n">num_steps</span><span class="p">,</span>
+        <span class="s2">&quot;num_agents&quot;</span><span class="p">:</span>       <span class="n">num_agents</span><span class="p">,</span>
+        <span class="s2">&quot;spiking_core&quot;</span><span class="p">:</span>     <span class="n">spiking_core</span><span class="p">,</span>
+        <span class="s2">&quot;num_neighbours&quot;</span><span class="p">:</span>   <span class="n">num_neighbours</span><span class="p">,</span>
+        <span class="s2">&quot;neuron_topology&quot;</span><span class="p">:</span>  <span class="n">neuron_topology</span><span class="p">,</span>
+        <span class="s2">&quot;unit_topology&quot;</span><span class="p">:</span>    <span class="n">unit_topology</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Generate the suite config</span>
+    <span class="n">_experiment_params</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="p">:</span>             <span class="n">name</span><span class="p">,</span>
+        <span class="s2">&quot;description&quot;</span><span class="p">:</span>      <span class="n">description</span><span class="p">,</span>
+        <span class="s2">&quot;debug_mode&quot;</span><span class="p">:</span>       <span class="n">debug_mode</span><span class="p">,</span>
+        <span class="s2">&quot;suite_name&quot;</span><span class="p">:</span>       <span class="n">suite_name</span><span class="p">,</span>
+        <span class="s2">&quot;budget_multiplier&quot;</span><span class="p">:</span>    <span class="n">budget_multiplier</span><span class="p">,</span>
+        <span class="s2">&quot;func_indices&quot;</span><span class="p">:</span>     <span class="n">func_indices</span><span class="p">,</span>
+        <span class="s2">&quot;instance&quot;</span><span class="p">:</span>         <span class="n">instances</span><span class="p">,</span>
+        <span class="s2">&quot;dimensions&quot;</span><span class="p">:</span>       <span class="n">num_dimensions</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Identify the custom core parameters and process them</span>
+    <span class="n">custom_core_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">full_core_cfg</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;core_&quot;</span><span class="p">)]</span>
+    <span class="n">custom_core_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">full_core_cfg</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">custom_core_keys</span><span class="p">])</span>
+    <span class="n">num_custom_cores</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">custom_core_keys</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">custom_core_weights</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Custom core parameters must have a weight specified.&quot;</span><span class="p">)</span>
+
+    <span class="n">sum_core_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">custom_core_weights</span><span class="p">)</span>
+    <span class="n">custom_core_weights</span> <span class="o">=</span> <span class="n">custom_core_weights</span> <span class="o">/</span> <span class="n">sum_core_weights</span>
+
+    <span class="c1"># From num_agents decide which has a config</span>
+    <span class="n">_core_params</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">num_custom_cores</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">custom_core_key</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+                <span class="n">a</span><span class="o">=</span><span class="n">custom_core_keys</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">custom_core_weights</span><span class="p">):</span>
+            <span class="c1"># Get the two dicts</span>
+            <span class="n">dcp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">default_core_cfg</span><span class="p">)</span>  <span class="c1"># default core parameters</span>
+            <span class="n">ccp</span> <span class="o">=</span> <span class="n">full_core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_core_key</span><span class="p">,</span> <span class="p">{})</span>  <span class="c1"># custom core parameters</span>
+
+            <span class="c1"># Override the default one</span>
+            <span class="n">dcp</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ccp</span><span class="p">)</span>
+
+            <span class="c1"># Process the parameters</span>
+            <span class="n">unit_core_parameters</span><span class="p">,</span> <span class="n">unit_sel_parameters</span> <span class="o">=</span> <span class="n">get_core_params</span><span class="p">(</span><span class="n">dcp</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">)</span>
+
+            <span class="n">_core_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unit_core_parameters</span><span class="p">)</span>
+            <span class="c1"># print(f&quot;{custom_core_key} with {ccp}&quot;)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
+            <span class="n">dcp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">default_core_cfg</span><span class="p">)</span>
+            <span class="n">unit_core_parameters</span><span class="p">,</span> <span class="n">unit_sel_parameters</span> <span class="o">=</span> <span class="n">get_core_params</span><span class="p">(</span><span class="n">dcp</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">)</span>
+            <span class="n">_core_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unit_core_parameters</span><span class="p">)</span>
+
+    <span class="c1"># Return the relevant dicts</span>
+    <span class="k">return</span> <span class="n">_experiment_params</span><span class="p">,</span> <span class="n">_config_params</span><span class="p">,</span> <span class="n">_core_params</span></div>
+
+
+<div class="viewcode-block" id="from_yaml">
+<a class="viewcode-back" href="../../api-utils.html#neuroptimiser.utils.from_yaml">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">from_yaml</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">disp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load a YAML file and return its contents as a dictionary.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        yaml_path: Path to the YAML file.</span>
+<span class="sd">        disp: If True, print the loaded configuration for debugging purposes.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    A dictionary containing the contents of the YAML file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">yaml_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.yaml&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">yaml_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.yml&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file must have a .yaml or .yml extension.&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">experiment_config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="n">experiment_params</span><span class="p">,</span> <span class="n">config_params</span><span class="p">,</span> <span class="n">core_params</span> <span class="o">=</span> <span class="n">process_parameters</span><span class="p">(</span><span class="n">experiment_config</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">disp</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Loaded experiment configuration from YAML: </span><span class="si">{</span><span class="n">yaml_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Experiment parameters:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">experiment_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Config parameters:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">config_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Default Core parameters:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">core_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Full core parameters for all units:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">cp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">core_params</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; NHU </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">cp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">experiment_params</span><span class="p">,</span> <span class="n">config_params</span><span class="p">,</span> <span class="n">core_params</span></div>
+
+
+<span class="n">_DEFAULT_CORE_PARAMS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">alpha</span>       <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">dt</span>          <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">max_steps</span>   <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="n">noise_std</span>   <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
+    <span class="n">ref_mode</span>    <span class="o">=</span> <span class="s2">&quot;pgn&quot;</span><span class="p">,</span>
+    <span class="n">is_bounded</span>  <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="n">name</span>        <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
+    <span class="n">coeffs</span>      <span class="o">=</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span>
+    <span class="n">approx</span>      <span class="o">=</span> <span class="s2">&quot;rk4&quot;</span><span class="p">,</span>
+    <span class="n">thr_mode</span>    <span class="o">=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="n">thr_alpha</span>   <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">thr_min</span>     <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span>
+    <span class="n">thr_max</span>     <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">thr_k</span>       <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+    <span class="n">spk_cond</span>    <span class="o">=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="n">spk_alpha</span>   <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">hs_operator</span> <span class="o">=</span> <span class="s2">&quot;fixed&quot;</span><span class="p">,</span>
+    <span class="n">hs_variant</span>  <span class="o">=</span> <span class="s2">&quot;current-to-rand&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">_DEFAULT_CONFIG_PARAMS</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">num_iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">num_agents</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+    <span class="n">spiking_core</span><span class="o">=</span><span class="s2">&quot;TwoDimSpikingCore&quot;</span><span class="p">,</span>
+    <span class="n">num_neighbours</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">neuron_topology</span><span class="o">=</span><span class="s2">&quot;2dr&quot;</span><span class="p">,</span>
+    <span class="n">unit_topology</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">from_optuna_json</span><span class="p">(</span><span class="n">json_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">disp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load an Optuna JSON file and return its contents as a dictionary.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        json_path: Path to the JSON file.</span>
+<span class="sd">        disp: If True, print the loaded configuration for debugging purposes.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">    A tuple containing:</span>
+<span class="sd">        - config_params: Dictionary of configuration parameters.</span>
+<span class="sd">        - core_params: List of dictionaries for each unit&#39;s core parameters.</span>
+<span class="sd">        - raw_params: Original parameters from the JSON file.</span>
+<span class="sd">        - full_core_cfg: Full core configuration including defaults and custom cores.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">json_path</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.json&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file must have a .json extension.&quot;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+        <span class="n">trial_data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+
+    <span class="n">params</span> <span class="o">=</span> <span class="n">trial_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;params&quot;</span><span class="p">,</span> <span class="p">{})</span>
+
+    <span class="c1"># Remove all keys that do not start with &quot;core*&quot;</span>
+    <span class="n">config_params</span>      <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;core&quot;</span><span class="p">)}</span>
+
+    <span class="c1"># For each core parameter, create a dictionary</span>
+    <span class="n">_core_params</span>        <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;core&quot;</span><span class="p">)}</span>
+    <span class="n">num_custom_cores</span>    <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">([</span><span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">_core_params</span><span class="o">.</span><span class="n">keys</span><span class="p">()]))</span>
+
+    <span class="c1"># Normalize the weights because they might not sum to 1, optuna does not enforce that but during experiment we do internally</span>
+    <span class="n">custom_core_weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">_core_params</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">_weight&quot;</span><span class="p">]</span>
+                                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_custom_cores</span><span class="p">)])</span>
+    <span class="n">sum_core_weights</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">custom_core_weights</span><span class="p">)</span>
+    <span class="n">proportion_dist</span>     <span class="o">=</span> <span class="n">custom_core_weights</span> <span class="o">/</span> <span class="n">sum_core_weights</span>
+
+    <span class="n">full_core_cfg</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="p">{}}</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_custom_cores</span><span class="p">):</span>
+        <span class="n">full_core_cfg</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;weight&quot;</span><span class="p">:</span> <span class="n">proportion_dist</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">_core_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;core</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">_&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">key</span> <span class="o">!=</span> <span class="sa">f</span><span class="s2">&quot;core</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">_weight&quot;</span><span class="p">:</span>
+                <span class="n">param_key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;core</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">_&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+                <span class="n">register</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="n">param_key</span> <span class="o">==</span> <span class="s2">&quot;hd_operator&quot;</span><span class="p">:</span>
+                    <span class="n">param_key</span> <span class="o">=</span> <span class="s2">&quot;name&quot;</span>
+                <span class="k">if</span> <span class="n">param_key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;coeffs_&quot;</span><span class="p">):</span>
+                    <span class="n">param_key</span> <span class="o">=</span> <span class="s2">&quot;coeffs&quot;</span>
+                <span class="k">if</span> <span class="n">param_key</span> <span class="o">==</span> <span class="s2">&quot;izh_small_var&quot;</span><span class="p">:</span>
+                    <span class="n">full_core_cfg</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">][</span><span class="s2">&quot;coeffs&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;r&quot;</span>
+                    <span class="n">register</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">param_key</span> <span class="o">==</span> <span class="s2">&quot;coeff_all&quot;</span><span class="p">:</span>
+                    <span class="n">full_core_cfg</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">][</span><span class="s2">&quot;coeffs&quot;</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;_all&quot;</span>
+                    <span class="n">register</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="k">if</span> <span class="n">param_key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;hs_variant_&quot;</span><span class="p">):</span>
+                    <span class="n">param_key</span> <span class="o">=</span> <span class="s2">&quot;hs_variant&quot;</span>
+
+                <span class="k">if</span> <span class="n">register</span><span class="p">:</span>
+                    <span class="n">full_core_cfg</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">][</span><span class="n">param_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+    <span class="c1"># Print the loaded configuration for debugging purposes</span>
+    <span class="k">if</span> <span class="n">disp</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Loaded experiment configuration from Optuna JSON: </span><span class="si">{</span><span class="n">json_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Config parameters:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">config_params</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Default Core parameters:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">full_core_cfg</span><span class="p">[</span><span class="s2">&quot;default&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Full core parameters for each kind of unit:&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_custom_cores</span><span class="p">):</span>
+            <span class="n">cp</span> <span class="o">=</span> <span class="n">full_core_cfg</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; NHU </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">cp</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=&quot;</span> <span class="o">*</span> <span class="mi">40</span><span class="p">)</span>
+
+    <span class="c1"># Ensure all core parameters have a value, if not use the default one</span>
+    <span class="n">proc_config_params</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">_DEFAULT_CONFIG_PARAMS</span><span class="p">)</span>
+    <span class="n">proc_config_params</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">config_params</span><span class="p">)</span>
+
+    <span class="c1"># Define the kind of core parameters</span>
+    <span class="n">num_agents</span>              <span class="o">=</span> <span class="n">proc_config_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>
+    <span class="n">custom_params_indices</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+        <span class="n">a</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">num_custom_cores</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">proportion_dist</span><span class="p">)</span>
+
+    <span class="c1"># Assign the core parameters to each unit</span>
+    <span class="n">proc_core_params</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_agents</span><span class="p">):</span>
+        <span class="n">dcp</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">_DEFAULT_CORE_PARAMS</span><span class="p">)</span>
+
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">custom_params_indices</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">ccp</span> <span class="o">=</span> <span class="n">full_core_cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;core_</span><span class="si">{</span><span class="n">idx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">dcp</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">ccp</span><span class="p">)</span>
+
+        <span class="n">proc_core_params</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dcp</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">proc_config_params</span><span class="p">,</span> <span class="n">proc_core_params</span><span class="p">,</span> <span class="n">config_params</span><span class="p">,</span> <span class="n">full_core_cfg</span>
 </pre></div>
         </article>
       </div>
