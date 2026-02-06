@@ -342,17 +342,14 @@
         <article role="main" id="furo-main-content">
           <section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Link to this heading">¶</a></h1>
-<p>Neuroptimiser is under active development and will soon be available via PyPI. Until the first official release is published, installation is supported through the GitHub repository.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>These installation instructions apply to the current development version. <strong>PyPI installation will be added once the first stable release is published.</strong></p>
-</div>
+<p>Neuroptimiser is available on PyPI and can be installed via pip or uv.</p>
 <hr class="docutils" />
 <section id="system-requirements">
 <h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Python &gt;= 3.10</p></li>
-<li><p>Operating System: Linux, macOS, or Windows (not tested yet)</p></li>
+<li><p><strong>Python 3.10</strong> (tested and recommended version)</p></li>
+<li><p>Lava-NC environment configured</p></li>
+<li><p>Operating System: Linux, macOS, or Windows</p></li>
 <li><p>A virtual environment is strongly recommended to isolate dependencies.</p></li>
 <li><p><a class="reference external" href="https://docs.astral.sh/uv/">uv from astral</a> is strongly recommended for managing the project environment.</p></li>
 </ul>
@@ -360,7 +357,16 @@
 <hr class="docutils" />
 <section id="installation-methods">
 <h2>Installation Methods<a class="headerlink" href="#installation-methods" title="Link to this heading">¶</a></h2>
-<p><strong>1. Installing from GitHub (development version)</strong></p>
+<p><strong>1. Installing from PyPI (Recommended)</strong></p>
+<p>You can install Neuroptimiser directly from PyPI:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using pip</span>
+pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
+
+<span class="c1"># Using uv (recommended)</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
+</pre></div>
+</div>
+<p><strong>2. Installing from GitHub (development version)</strong></p>
 <p>If you prefer to install the latest development version directly from the GitHub repository, you can use:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/neuroptimiser/neuroptimiser.git
 </pre></div>
@@ -368,12 +374,33 @@
 <p>Alternatively, you can clone the repository and install in <em>editable mode</em> for local development:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/neuroptimiser/neuroptimiser.git
 <span class="nb">cd</span><span class="w"> </span>neuroptimiser
+
+<span class="c1"># Using pip</span>
 pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+
+<span class="c1"># Using uv (recommended)</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
-<p><strong>2. Installing from PyPI (available soon)</strong></p>
-<p>The package can be installed via:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
+<p>You can also use the provided <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for additional installation options and commands.</p>
+</section>
+<hr class="docutils" />
+<section id="known-issues">
+<h2>Known Issues<a class="headerlink" href="#known-issues" title="Link to this heading">¶</a></h2>
+<p><strong>“Too many open files” error</strong></p>
+<p>On some systems, you may encounter this error during execution. To fix it:</p>
+<p><strong>Unix/Linux/macOS:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">65536</span>
+</pre></div>
+</div>
+<p><strong>Windows (PowerShell):</strong></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="c"># No direct equivalent - typically not needed on Windows</span>
+<span class="c"># If issues persist, check system file handle limits via registry</span>
+</pre></div>
+</div>
+<p><strong>Windows (Command Prompt):</strong></p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="c1">REM Windows typically has higher default limits</span>
+<span class="c1">REM If needed, adjust via Registry Editor or contact system administrator</span>
 </pre></div>
 </div>
 </section>
@@ -479,6 +506,7 @@ pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </s
 <li><a class="reference internal" href="#">Installation</a><ul>
 <li><a class="reference internal" href="#system-requirements">System Requirements</a></li>
 <li><a class="reference internal" href="#installation-methods">Installation Methods</a></li>
+<li><a class="reference internal" href="#known-issues">Known Issues</a></li>
 <li><a class="reference internal" href="#optional-virtual-environment-setup">Optional: Virtual Environment Setup</a></li>
 <li><a class="reference internal" href="#verifying-installation">Verifying Installation</a></li>
 <li><a class="reference internal" href="#uninstalling">Uninstalling</a></li>

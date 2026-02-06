@@ -354,28 +354,61 @@
 </div>
 </div></blockquote>
 </li>
-<li><p><strong>Create and Activate a Virtual Environment</strong>:</p>
+<li><p><strong>Create and Activate a Virtual Environment</strong> (Python 3.10 recommended):</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3.10<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate<span class="w">  </span><span class="c1"># On Unix/Linux/macOS</span>
+<span class="c1"># .venv\Scripts\activate  # On Windows</span>
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p><strong>Install Dependencies</strong>:</p>
 <blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div><p>Using pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="c1"># or from PyPI</span>
+pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
 </pre></div>
 </div>
+<p>Using uv (recommended):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<span class="c1"># or from PyPI</span>
+uv<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
+</pre></div>
+</div>
+<p>You can also use the provided <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> for additional installation options and commands.</p>
+</div></blockquote>
+</li>
+<li><p><strong>Prevent “Too many open files” error</strong> (if needed):</p>
+<blockquote>
+<div><p>On Unix/Linux/macOS:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">65536</span>
+</pre></div>
+</div>
+<p>On Windows, this is typically not needed as Windows has higher default limits.</p>
 </div></blockquote>
 </li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Once <cite>neuroptimiser</cite> is available on PyPI, you will be able to install it directly using:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>neuroptimiser
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading">¶</a></h2>
+<p>Here’s a simple example to get started:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">neuroptimiser</span><span class="w"> </span><span class="kn">import</span> <span class="n">NeurOptimiser</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">problem_function</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">problem_bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]])</span>
+
+<span class="n">optimiser</span> <span class="o">=</span> <span class="n">NeurOptimiser</span><span class="p">()</span>
+
+<span class="n">optimiser</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span>
+    <span class="n">obj_func</span><span class="o">=</span><span class="n">problem_function</span><span class="p">,</span>
+    <span class="n">search_space</span><span class="o">=</span><span class="n">problem_bounds</span><span class="p">,</span>
+    <span class="n">debug_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">num_iterations</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </section>
 <section id="examples">
@@ -466,6 +499,7 @@
             <ul>
 <li><a class="reference internal" href="#">Usage</a><ul>
 <li><a class="reference internal" href="#quick-start">Quick Start</a></li>
+<li><a class="reference internal" href="#example-usage">Example Usage</a></li>
 <li><a class="reference internal" href="#examples">Examples</a></li>
 <li><a class="reference internal" href="#further-reading">Further Reading</a></li>
 </ul>

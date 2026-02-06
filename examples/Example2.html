@@ -538,8 +538,8 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0088
-bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 of suite &quot;b&#39;bbob-noisy&#39;&quot; with name &quot;bbob(gaussian_noise_model(BBOB-NOISY suite problem f116 instance 1 in 2D))&quot;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 of suite &quot;b&#39;bbob-noisy&#39;&quot; with name &quot;bbob(gaussian_noise_model(BBOB-NOISY suite problem f116 instance 1 in 2D))&quot;)
+COCO INFO: Results will be output to folder exdata/neuropt_Ex2-Hyb_on_bbob2009-0089
 </pre></div>
 </div>
 </div>
@@ -565,20 +565,20 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 [neuropt:log] Monitors are set up.
 [neuropt:log] Starting simulation with 500 iterations...
 ... step: 0, best fitness: 893.1510620117188
-... step: 50, best fitness: -54.93385314941406
-... step: 100, best fitness: -54.93385314941406
-... step: 150, best fitness: -54.93999099731445
-... step: 200, best fitness: -54.93999099731445
-... step: 250, best fitness: -54.93999099731445
-... step: 300, best fitness: -54.939998626708984
-... step: 350, best fitness: -54.939998626708984
-... step: 400, best fitness: -54.939998626708984
-... step: 450, best fitness: -54.939998626708984
-... step: 499, best fitness: -54.939998626708984
+... step: 50, best fitness: -54.931739807128906
+... step: 100, best fitness: -54.931739807128906
+... step: 150, best fitness: -54.931739807128906
+... step: 200, best fitness: -54.93987274169922
+... step: 250, best fitness: -54.93987274169922
+... step: 300, best fitness: -54.93987274169922
+... step: 350, best fitness: -54.93987274169922
+... step: 400, best fitness: -54.93990707397461
+... step: 450, best fitness: -54.93992233276367
+... step: 499, best fitness: -54.93992233276367
 [neuropt:log] Simulation completed. Fetching monitor data... done
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1.72700867, -1.50787055]), -54.939998626708984)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([-1.7168045 , -1.51006475]), -54.93992233276367)
 </pre></div>
 </div>
 </div>
@@ -591,8 +591,8 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 500, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 15, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;num_dimensions&#39;: 2, &#39;seed&#39;: 69, &#39;search_space&#39;: array([[-5.,  5.],
-       [-5.,  5.]]), &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x121327b50&gt;, &#39;core_params&#39;: {}}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;num_iterations&#39;: 500, &#39;num_agents&#39;: 30, &#39;spiking_core&#39;: &#39;TwoDimSpikingCore&#39;, &#39;num_neighbours&#39;: 15, &#39;neuron_topology&#39;: &#39;2dr&#39;, &#39;unit_topology&#39;: &#39;random&#39;, &#39;seed&#39;: 69, &#39;function&#39;: &lt;function AbstractSolver._rescale_problem.&lt;locals&gt;.scaled_problem at 0x12546f130&gt;, &#39;search_space&#39;: array([[-5.,  5.],
+       [-5.,  5.]]), &#39;num_dimensions&#39;: 2, &#39;core_params&#39;: {}}
 </pre></div>
 </div>
 </div>
@@ -639,9 +639,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <th>hs_operator</th>
       <th>hs_variant</th>
       <th>sel_mode</th>
-      <th>spk_q_ord</th>
       <th>hs_params</th>
       <th>spk_weights</th>
+      <th>spk_q_ord</th>
       <th>seed</th>
       <th>init_position</th>
     </tr>
@@ -665,9 +665,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>69</td>
       <td>[0.21508970380287673, -0.6589517526254169]</td>
     </tr>
@@ -689,9 +689,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>rand-to-best</td>
       <td>metropolis</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>70</td>
       <td>[-0.869896814029441, 0.8977710745066665]</td>
     </tr>
@@ -713,9 +713,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>71</td>
       <td>[0.9312640661491187, 0.6167946962329223]</td>
     </tr>
@@ -737,9 +737,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>72</td>
       <td>[-0.39077246165325863, -0.8046557719872323]</td>
     </tr>
@@ -761,9 +761,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>73</td>
       <td>[0.3684660530243138, -0.1196950125207974]</td>
     </tr>
@@ -785,9 +785,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>74</td>
       <td>[-0.7559235303104423, -0.00964617977745963]</td>
     </tr>
@@ -809,9 +809,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>75</td>
       <td>[-0.9312229577695632, 0.8186408041575641]</td>
     </tr>
@@ -833,9 +833,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>rand-to-best</td>
       <td>metropolis</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>76</td>
       <td>[-0.48244003679996617, 0.32504456870796394]</td>
     </tr>
@@ -857,9 +857,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>77</td>
       <td>[-0.3765778478211781, 0.040136042355621626]</td>
     </tr>
@@ -881,9 +881,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>78</td>
       <td>[0.0934205586865593, -0.6302910889489459]</td>
     </tr>
@@ -905,9 +905,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>79</td>
       <td>[0.9391692555291171, 0.5502656467222291]</td>
     </tr>
@@ -929,9 +929,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>rand-to-best</td>
       <td>metropolis</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>80</td>
       <td>[0.8789978831283782, 0.7896547008552977]</td>
     </tr>
@@ -953,9 +953,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>rand-to-best</td>
       <td>metropolis</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>81</td>
       <td>[0.19579995762217028, 0.8437484700462337]</td>
     </tr>
@@ -977,9 +977,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>82</td>
       <td>[-0.823014995896161, -0.6080342751617096]</td>
     </tr>
@@ -1001,9 +1001,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>83</td>
       <td>[-0.9095454221789239, -0.3493393384734713]</td>
     </tr>
@@ -1025,9 +1025,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>84</td>
       <td>[-0.22264542062103598, -0.4573019364522082]</td>
     </tr>
@@ -1049,9 +1049,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>85</td>
       <td>[0.6574750183038587, -0.28649334661282144]</td>
     </tr>
@@ -1073,9 +1073,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>86</td>
       <td>[-0.4381309806252385, 0.08539216631649693]</td>
     </tr>
@@ -1097,9 +1097,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>87</td>
       <td>[-0.7181515500504747, 0.6043939615080793]</td>
     </tr>
@@ -1121,9 +1121,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>88</td>
       <td>[-0.8508987126404584, 0.9737738732010346]</td>
     </tr>
@@ -1145,9 +1145,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>89</td>
       <td>[0.5444895385933148, -0.6025686369316552]</td>
     </tr>
@@ -1169,9 +1169,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>90</td>
       <td>[-0.9889557657527952, 0.6309228569096683]</td>
     </tr>
@@ -1193,9 +1193,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>91</td>
       <td>[0.41371468769523423, 0.4580143360819746]</td>
     </tr>
@@ -1217,9 +1217,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>92</td>
       <td>[0.5425406933718915, -0.8519106965318193]</td>
     </tr>
@@ -1241,9 +1241,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>93</td>
       <td>[-0.2830685429114548, -0.7682618809497406]</td>
     </tr>
@@ -1265,9 +1265,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>94</td>
       <td>[0.726206851751187, 0.24659625365511584]</td>
     </tr>
@@ -1289,9 +1289,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>95</td>
       <td>[-0.3382039502947016, -0.8728832994279527]</td>
     </tr>
@@ -1313,9 +1313,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>96</td>
       <td>[-0.3780353565686756, -0.3496333559465059]</td>
     </tr>
@@ -1337,9 +1337,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>97</td>
       <td>[0.45921235667612814, 0.27511494271042625]</td>
     </tr>
@@ -1361,9 +1361,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
       <td>differential</td>
       <td>current-to-best</td>
       <td>greedy</td>
-      <td>2</td>
       <td>{}</td>
       <td>[0.5, 0.5]</td>
+      <td>2</td>
       <td>98</td>
       <td>[0.7744254851526531, -0.05557014967610141]</td>
     </tr>
@@ -1397,9 +1397,9 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: -54.9400
--1.1349 &lt;= v1 &lt;= 1.5066
--1.1349 &lt;= v2 &lt;= 1.5066
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fg: -54.9399
+-1.4022 &lt;= v1 &lt;= 1.5069
+-1.3390 &lt;= v2 &lt;= 1.4856
 </pre></div>
 </div>
 </div>
@@ -1433,7 +1433,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a40302563d3efe3a61db214a082ae14ace3ab510a022128b8ed0fba078c07499.png" src="../_images/a40302563d3efe3a61db214a082ae14ace3ab510a022128b8ed0fba078c07499.png" />
+<img alt="../_images/fbc96bc107ab6da9e5155f5e48c96cbcfa70e02b0d1892665af9b6995118f0c8.png" src="../_images/fbc96bc107ab6da9e5155f5e48c96cbcfa70e02b0d1892665af9b6995118f0c8.png" />
 </div>
 </div>
 </section>
@@ -1467,7 +1467,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/63381d41ca127be104df694d60cd9c3854d0526f4dde758c052f0ac97fddf056.png" src="../_images/63381d41ca127be104df694d60cd9c3854d0526f4dde758c052f0ac97fddf056.png" />
+<img alt="../_images/70d2dd561d9ee3317845e87e3492d78e3a9648c314740fda014e0b47be0a30bb.png" src="../_images/70d2dd561d9ee3317845e87e3492d78e3a9648c314740fda014e0b47be0a30bb.png" />
 </div>
 </div>
 </section>
@@ -1523,7 +1523,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fd994d638fcdecb0fbcf5ec606442a1493d4509a210734894cb5ed08fa1141fc.png" src="../_images/fd994d638fcdecb0fbcf5ec606442a1493d4509a210734894cb5ed08fa1141fc.png" />
+<img alt="../_images/2dcbc73e7093de47c3edb100d426767b5677a244fef5e725adcbb80ff63adfa0.png" src="../_images/2dcbc73e7093de47c3edb100d426767b5677a244fef5e725adcbb80ff63adfa0.png" />
 </div>
 </div>
 </section>
@@ -1564,7 +1564,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3fb2445d2f7d597991c8dad3b55cef414c9f5a45e4215e9abefbc9b600c6ee30.png" src="../_images/3fb2445d2f7d597991c8dad3b55cef414c9f5a45e4215e9abefbc9b600c6ee30.png" />
+<img alt="../_images/f2bb47e2c1140262540819d572897e22447073439617cd4139eb0839bb72d163.png" src="../_images/f2bb47e2c1140262540819d572897e22447073439617cd4139eb0839bb72d163.png" />
 </div>
 </div>
 </section>
@@ -1628,7 +1628,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d6bd4baa2f07c0d35b59b6f0f5e963e72b03cc94c79f4d1082251c371a92b50f.png" src="../_images/d6bd4baa2f07c0d35b59b6f0f5e963e72b03cc94c79f4d1082251c371a92b50f.png" />
+<img alt="../_images/d6eecb2ff77924aad967bc5b5887c372ffcff9fef26c7d92618edaaecb0527a3.png" src="../_images/d6eecb2ff77924aad967bc5b5887c372ffcff9fef26c7d92618edaaecb0527a3.png" />
 </div>
 </div>
 </section>
@@ -1658,7 +1658,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8069de9f2ce9ffccd0795307bb4555a06153f5533b487030673af178c39f8e81.png" src="../_images/8069de9f2ce9ffccd0795307bb4555a06153f5533b487030673af178c39f8e81.png" />
+<img alt="../_images/c2f42928bbba9a8dcd2e9e3ccbff2e7497a97219b6bde7baf15097943b0a1bdd.png" src="../_images/c2f42928bbba9a8dcd2e9e3ccbff2e7497a97219b6bde7baf15097943b0a1bdd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1687,7 +1687,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e817ae8b9364ccc5dea24f723a0f63b3f60a9953f4109617ad837aca33b095ca.png" src="../_images/e817ae8b9364ccc5dea24f723a0f63b3f60a9953f4109617ad837aca33b095ca.png" />
+<img alt="../_images/b132fcc1058756cd9d88c9f18d70d68c8554771744c9d298d0c4d50eb5c02698.png" src="../_images/b132fcc1058756cd9d88c9f18d70d68c8554771744c9d298d0c4d50eb5c02698.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1715,7 +1715,7 @@ bbob_noisy_f116_i01_d02: a 2-dimensional single-objective problem (problem 225 o
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/55b7efa952615091419b17fd65943b7894c6b6b9ebdfaa075a8799ae333af9c4.png" src="../_images/55b7efa952615091419b17fd65943b7894c6b6b9ebdfaa075a8799ae333af9c4.png" />
+<img alt="../_images/57cf302ea92f0f8afc241dc3e9e976ec69a63d0692e4515761ae12ad86806dbb.png" src="../_images/57cf302ea92f0f8afc241dc3e9e976ec69a63d0692e4515761ae12ad86806dbb.png" />
 </div>
 </div>
 </section>
