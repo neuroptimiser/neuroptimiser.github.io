@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=4bf1dd04" />
@@ -334,16 +334,16 @@
         </div>
         <article role="main" id="furo-main-content">
           <h1>Source code for neuroptimiser.core.processes</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Neuroptimiser Core Processes</span>
+<span></span><span class="sd">"""Neuroptimiser Core Processes</span>
 
 <span class="sd">This module contains the core processes for the Neuroptimiser framework based on Lava.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Jorge M. Cruz-Duarte&quot;</span>
-<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;jorge.cruz-duarte@univ-lille.fr&quot;</span>
-<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;1.0.0&quot;</span>
-<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;AbstractSpikingCore&quot;</span><span class="p">,</span> <span class="s2">&quot;TwoDimSpikingCore&quot;</span><span class="p">,</span> <span class="s2">&quot;Selector&quot;</span><span class="p">,</span> <span class="s2">&quot;HighLevelSelection&quot;</span><span class="p">,</span>
-              <span class="s2">&quot;NeuroHeuristicUnit&quot;</span><span class="p">,</span> <span class="s2">&quot;TensorContractionLayer&quot;</span><span class="p">,</span> <span class="s2">&quot;NeighbourhoodManager&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;SpikingHandler&quot;</span><span class="p">,</span> <span class="s2">&quot;PositionSender&quot;</span><span class="p">,</span> <span class="s2">&quot;PositionReceiver&quot;</span><span class="p">]</span>
+<span class="sd">"""</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">"Jorge M. Cruz-Duarte"</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">"jorge.cruz-duarte@univ-lille.fr"</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">"1.0.0"</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"AbstractSpikingCore"</span><span class="p">,</span> <span class="s2">"TwoDimSpikingCore"</span><span class="p">,</span> <span class="s2">"Selector"</span><span class="p">,</span> <span class="s2">"HighLevelSelection"</span><span class="p">,</span>
+              <span class="s2">"NeuroHeuristicUnit"</span><span class="p">,</span> <span class="s2">"TensorContractionLayer"</span><span class="p">,</span> <span class="s2">"NeighbourhoodManager"</span><span class="p">,</span>
+                <span class="s2">"SpikingHandler"</span><span class="p">,</span> <span class="s2">"PositionSender"</span><span class="p">,</span> <span class="s2">"PositionReceiver"</span><span class="p">]</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
@@ -359,7 +359,7 @@
 <div class="viewcode-block" id="AbstractSpikingCore">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.AbstractSpikingCore.html#neuroptimiser.core.processes.AbstractSpikingCore">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AbstractSpikingCore</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Abstract process class for a spiking core</span>
+<span class="w">    </span><span class="sd">"""Abstract process class for a spiking core</span>
 
 <span class="sd">    This class is designed to be used as a base class for spiking neuron models. It initialises the core parameters and sets up the necessary ports and variables for the spiking core.</span>
 
@@ -379,9 +379,9 @@
 <span class="sd">            fg_in : InPort</span>
 <span class="sd">                Input port for the global best fitness.</span>
 <span class="sd">            xn_in : InPort</span>
-<span class="sd">                Input port for the neighbours&#39; positions.</span>
+<span class="sd">                Input port for the neighbours' positions.</span>
 <span class="sd">            fxn_in : InPort</span>
-<span class="sd">                Input port for the neighbours&#39; fitness.</span>
+<span class="sd">                Input port for the neighbours' fitness.</span>
 <span class="sd">        Variables</span>
 <span class="sd">            x : Var</span>
 <span class="sd">                Variable for the current position of the spiking core.</span>
@@ -390,7 +390,7 @@
 <span class="sd">                Output port for the spiking activity.</span>
 <span class="sd">            x_out : OutPort</span>
 <span class="sd">                Output port for the current position of the spiking core.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="AbstractSpikingCore.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.AbstractSpikingCore.html#neuroptimiser.core.processes.AbstractSpikingCore.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -398,7 +398,7 @@
                  <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
                  <span class="n">max_steps</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the spiking core with the given parameters.</span>
 
 <span class="sd">        Keyword Arguments</span>
@@ -415,12 +415,12 @@
 <span class="sd">                Initial position of the spiking core in the defined dimensions. If not provided, a random position will be generated within the range [-1, 1].</span>
 <span class="sd">            num_neighbours: int, optional</span>
 <span class="sd">                Number of neighbours for the spiking core. Default is 0, meaning no neighbours are considered.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
-        <span class="n">num_dimensions</span>  <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-        <span class="n">init_position</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;init_position&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-        <span class="n">num_neighbours</span>  <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">num_dimensions</span>  <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"num_dimensions"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">init_position</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"init_position"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">num_neighbours</span>  <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"num_neighbours"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span>      <span class="o">=</span> <span class="p">(</span><span class="n">num_dimensions</span><span class="p">,)</span>
         <span class="n">shape_fx</span>        <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,)</span>
@@ -450,23 +450,23 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">x_out</span>      <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
         <span class="c1"># Read and prepare the common parameters</span>
-        <span class="n">alpha</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-        <span class="n">max_steps</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;max_steps&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-        <span class="n">noise_std</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;noise_std&quot;</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+        <span class="n">alpha</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">max_steps</span>   <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_steps"</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="n">noise_std</span>       <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"noise_std"</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">noise_std</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
             <span class="n">noise_std_val</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">noise_std</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">noise_std</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">noise_std_val</span>   <span class="o">=</span> <span class="n">noise_std</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;alpha&quot;</span><span class="p">]</span>       <span class="o">=</span> <span class="n">alpha</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;max_steps&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">max_steps</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;noise_std&quot;</span><span class="p">]</span>   <span class="o">=</span> <span class="n">noise_std_val</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"alpha"</span><span class="p">]</span>       <span class="o">=</span> <span class="n">alpha</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"max_steps"</span><span class="p">]</span>   <span class="o">=</span> <span class="n">max_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"noise_std"</span><span class="p">]</span>   <span class="o">=</span> <span class="n">noise_std_val</span></div>
 
 
 <div class="viewcode-block" id="AbstractSpikingCore.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.AbstractSpikingCore.html#neuroptimiser.core.processes.AbstractSpikingCore.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the spiking core to its initial state.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset the spiking core to its initial state."""</span>
         <span class="n">start_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_position</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_position</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">start_position</span><span class="p">)</span></div>
 </div>
@@ -476,7 +476,7 @@
 <div class="viewcode-block" id="TwoDimSpikingCore">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TwoDimSpikingCore.html#neuroptimiser.core.processes.TwoDimSpikingCore">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TwoDimSpikingCore</span><span class="p">(</span><span class="n">AbstractSpikingCore</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Two-Dimensional Spiking Core Process</span>
+<span class="w">    </span><span class="sd">"""Two-Dimensional Spiking Core Process</span>
 
 <span class="sd">    This process implements a two-dimensional spiking core with specific neuron models such as linear and Izhikevich. It allows for the definition of coefficients for the models and provides random initial values for the variables v1 and v2.</span>
 
@@ -496,9 +496,9 @@
 <span class="sd">            fg_in : InPort</span>
 <span class="sd">                Input port for the global best fitness.</span>
 <span class="sd">            xn_in : InPort</span>
-<span class="sd">                Input port for the neighbours&#39; positions.</span>
+<span class="sd">                Input port for the neighbours' positions.</span>
 <span class="sd">            fxn_in : InPort</span>
-<span class="sd">                Input port for the neighbours&#39; fitness.</span>
+<span class="sd">                Input port for the neighbours' fitness.</span>
 <span class="sd">        Variables</span>
 <span class="sd">            x : Var</span>
 <span class="sd">                Variable for the current position of the spiking core.</span>
@@ -516,11 +516,11 @@
 <span class="sd">    --------</span>
 <span class="sd">    AbstractSpikingCore : Base class for spiking cores.</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyTwoDimSpikingCoreModel` : Model implementation of the TwoDimSpikingCore process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="TwoDimSpikingCore.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TwoDimSpikingCore.html#neuroptimiser.core.processes.TwoDimSpikingCore.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">core_params</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Initialise the TwoDimSpikingCore with the given parameters.</span>
 
 <span class="sd">        Keyword Arguments</span>
@@ -536,23 +536,23 @@
 <span class="sd">            - The ``linear`` model uses a default coefficient matrix of [[-0.5, -0.5], [0.5, -0.5]].</span>
 <span class="sd">            - The ``izhikevich`` model uses default coefficients for the regular spiking (RS) neuron type: a=0.02, b=0.2, c=-65, d=8, I=0.1.</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">core_params</span><span class="p">)</span>
 
-        <span class="n">_name</span> <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;linear&quot;</span><span class="p">)</span>
+        <span class="n">_name</span> <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"linear"</span><span class="p">)</span>
 
         <span class="c1"># Read and prepare the specific parameters</span>
-        <span class="k">if</span> <span class="n">_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;izhikevich&quot;</span><span class="p">]:</span>
-            <span class="n">models_coeffs</span>               <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;coeffs&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"linear"</span><span class="p">,</span> <span class="s2">"izhikevich"</span><span class="p">]:</span>
+            <span class="n">models_coeffs</span>               <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"coeffs"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-            <span class="k">if</span> <span class="n">_name</span> <span class="o">==</span> <span class="s2">&quot;izhikevich&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_name</span> <span class="o">==</span> <span class="s2">"izhikevich"</span><span class="p">:</span>
                 <span class="n">_coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_izh_coeffs</span><span class="p">(</span><span class="n">models_coeffs</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span> <span class="c1">#if _name == &quot;linear&quot;:</span>
+            <span class="k">else</span><span class="p">:</span> <span class="c1">#if _name == "linear":</span>
                 <span class="n">_coefficients</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process_lin_coeffs</span><span class="p">(</span><span class="n">models_coeffs</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;coeffs_values&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_coefficients</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"coeffs_values"</span><span class="p">]</span> <span class="o">=</span> <span class="n">_coefficients</span>
 
         <span class="c1"># Public Variables</span>
-        <span class="n">seed</span> <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">))</span>
+        <span class="n">seed</span> <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"seed"</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">32</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v1</span> <span class="o">=</span> <span class="n">Var</span><span class="p">(</span>
             <span class="n">shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span>
@@ -565,7 +565,7 @@
 <div class="viewcode-block" id="TwoDimSpikingCore.process_lin_coeffs">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TwoDimSpikingCore.html#neuroptimiser.core.processes.TwoDimSpikingCore.process_lin_coeffs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">process_lin_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">models_coeffs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process the coefficients for linear model.</span>
+<span class="w">        </span><span class="sd">"""Process the coefficients for linear model.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -575,15 +575,15 @@
 <span class="sd">        -------</span>
 <span class="sd">        models_coeffs_ : list</span>
 <span class="sd">            Processed coefficients for the linear model.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">models_coeffs_</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">models_coeffs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">models_coeffs_</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">]])]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">models_coeffs</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">_model_split</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+            <span class="n">_model_split</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_model_split</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">_kind</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">_many</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span>
+                <span class="n">_kind</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">_many</span> <span class="o">=</span> <span class="n">models_coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"all"</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">_kind</span> <span class="o">=</span> <span class="n">models_coeffs</span>
                 <span class="n">_many</span> <span class="o">=</span> <span class="kc">False</span>
@@ -597,14 +597,14 @@
                     <span class="nb">len</span><span class="p">(</span><span class="n">models_coeffs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">models_coeffs</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
                 <span class="n">models_coeffs_</span> <span class="o">=</span> <span class="n">models_coeffs</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of models must be equal to the number of dimensions or 1&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"The number of models must be equal to the number of dimensions or 1"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">models_coeffs_</span></div>
 
 
 <div class="viewcode-block" id="TwoDimSpikingCore.process_izh_coeffs">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TwoDimSpikingCore.html#neuroptimiser.core.processes.TwoDimSpikingCore.process_izh_coeffs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">process_izh_coeffs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coeffs</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Process the coefficients for Izhikevich model.</span>
+<span class="w">        </span><span class="sd">"""Process the coefficients for Izhikevich model.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -614,16 +614,16 @@
 <span class="sd">        -------</span>
 <span class="sd">        coeffs_ : list</span>
 <span class="sd">            Processed coefficients for the Izhikevich model.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">coeffs_</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">coeffs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span> <span class="c1"># Default values (RS)</span>
-            <span class="n">coeffs_</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}]</span>
+            <span class="n">coeffs_</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"a"</span><span class="p">:</span> <span class="mf">0.02</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">"c"</span><span class="p">:</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">}]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coeffs</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">_model_split</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)</span>
+            <span class="n">_model_split</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)</span>
             <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_model_split</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">_kind</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;r&quot;</span>
-                <span class="n">_many</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;all&quot;</span>
+                <span class="n">_kind</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">"r"</span>
+                <span class="n">_many</span> <span class="o">=</span> <span class="n">coeffs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"_"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"all"</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">_kind</span> <span class="o">=</span> <span class="n">coeffs</span>
                 <span class="n">_many</span> <span class="o">=</span> <span class="kc">False</span>
@@ -637,14 +637,14 @@
                     <span class="nb">len</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">coeffs</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
                 <span class="n">coeffs_</span> <span class="o">=</span> <span class="n">coeffs</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The number of coefficients must be equal to the number of dimensions or 1&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"The number of coefficients must be equal to the number of dimensions or 1"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">coeffs_</span></div>
 
 
 <div class="viewcode-block" id="TwoDimSpikingCore.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TwoDimSpikingCore.html#neuroptimiser.core.processes.TwoDimSpikingCore.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the `TwoDimSpikingCore` to its initial state.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset the `TwoDimSpikingCore` to its initial state."""</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span></div>
@@ -655,9 +655,9 @@
 <div class="viewcode-block" id="Selector">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.Selector.html#neuroptimiser.core.processes.Selector">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Selector</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Selector Process</span>
+<span class="w">    </span><span class="sd">"""Selector Process</span>
 
-<span class="sd">    This process is designed to select the best position and fitness from the spiking core&#39;s current and new candidate based on a given function.</span>
+<span class="sd">    This process is designed to select the best position and fitness from the spiking core's current and new candidate based on a given function.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -684,7 +684,7 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PySelectorModel` : Model implementation of the Selector process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="Selector.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.Selector.html#neuroptimiser.core.processes.Selector.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -692,9 +692,9 @@
                  <span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
                  <span class="n">num_dimensions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
                  <span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">sel_mode</span><span class="o">=</span><span class="s2">&quot;greedy&quot;</span><span class="p">,</span>
+                 <span class="n">sel_mode</span><span class="o">=</span><span class="s2">"greedy"</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the Selector with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the Selector with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -711,15 +711,15 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">shape</span>       <span class="o">=</span> <span class="p">(</span><span class="n">num_dimensions</span><span class="p">,)</span>  <span class="c1"># assuming [[x1, x2, ..., xn]]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shape</span>  <span class="o">=</span> <span class="n">shape</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;agent_id&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">agent_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_agents</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">function</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">sel_mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"agent_id"</span><span class="p">]</span>    <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_agents"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_agents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span>    <span class="o">=</span> <span class="n">function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"sel_mode"</span><span class="p">]</span>    <span class="o">=</span> <span class="n">sel_mode</span>
 
         <span class="c1"># Inports</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x_in</span>   <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
@@ -739,7 +739,7 @@
 <div class="viewcode-block" id="Selector.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.Selector.html#neuroptimiser.core.processes.Selector.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the Selector to its initial state.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset the Selector to its initial state."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.9</span><span class="p">]))</span></div>
 </div>
@@ -749,7 +749,7 @@
 <div class="viewcode-block" id="HighLevelSelection">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.HighLevelSelection.html#neuroptimiser.core.processes.HighLevelSelection">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">HighLevelSelection</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;High-Level Selection Process</span>
+<span class="w">    </span><span class="sd">"""High-Level Selection Process</span>
 
 <span class="sd">    This process is designed to select the global best position and fitness from current candidates from spiking cores based on a given metric, i.e., fitness.</span>
 
@@ -778,14 +778,14 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyHighLevelSelectorModel` : Model implementation of the HighLevelSelection process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="HighLevelSelection.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.HighLevelSelection.html#neuroptimiser.core.processes.HighLevelSelection.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">num_dimensions</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
                  <span class="n">num_agents</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the HighLevelSelection with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the HighLevelSelection with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -799,7 +799,7 @@
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">shape</span> <span class="o">=</span> <span class="p">(</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">num_dimensions</span><span class="p">)</span>
 
@@ -817,15 +817,15 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">g_out</span>  <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_dimensions</span><span class="p">,))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fg_out</span> <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">num_agents</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_dimensions</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">,</span> <span class="s2">&quot;greedy&quot;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_agents"</span><span class="p">]</span>      <span class="o">=</span> <span class="n">num_agents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"sel_mode"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"sel_mode"</span><span class="p">,</span> <span class="s2">"greedy"</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="HighLevelSelection.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.HighLevelSelection.html#neuroptimiser.core.processes.HighLevelSelection.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the HighLevelSelection to its initial state.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset the HighLevelSelection to its initial state."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.9</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
@@ -837,9 +837,9 @@
 <div class="viewcode-block" id="NeuroHeuristicUnit">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeuroHeuristicUnit.html#neuroptimiser.core.processes.NeuroHeuristicUnit">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">NeuroHeuristicUnit</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;General model for a Neuro-Heuristic (Nheuristic) unit</span>
+<span class="w">    </span><span class="sd">"""General model for a Neuro-Heuristic (Nheuristic) unit</span>
 
-<span class="sd">    This unit can be used to define a complete neuro-heuristic model using the &quot;atomic&quot; processes of the Neuroptimiser framework, such as Spiking Core, Selector, Spiking Handler, Position Sender, and Position Receiver.</span>
+<span class="sd">    This unit can be used to define a complete neuro-heuristic model using the "atomic" processes of the Neuroptimiser framework, such as Spiking Core, Selector, Spiking Handler, Position Sender, and Position Receiver.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -872,7 +872,7 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyNeuroHeuristicUnitModel` : Model implementation of the NeuroHeuristicUnit process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="NeuroHeuristicUnit.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeuroHeuristicUnit.html#neuroptimiser.core.processes.NeuroHeuristicUnit.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -884,7 +884,7 @@
                  <span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">core_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the NeuroHeuristicUnit with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the NeuroHeuristicUnit with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -909,20 +909,20 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="n">internal_shape</span>              <span class="o">=</span> <span class="p">(</span><span class="n">num_dimensions</span><span class="p">,)</span>
         <span class="n">external_shape</span>              <span class="o">=</span> <span class="p">(</span><span class="n">num_agents</span><span class="p">,</span> <span class="n">num_dimensions</span><span class="p">)</span>
         <span class="n">external_shape_neighbours</span>   <span class="o">=</span> <span class="p">(</span><span class="n">num_neighbours</span><span class="p">,</span> <span class="n">num_dimensions</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;agent_id&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">num_agents</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_dimensions</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_neighbours</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">function</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;core_params&quot;</span><span class="p">]</span>     <span class="o">=</span> <span class="n">core_params</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"agent_id"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_agents"</span><span class="p">]</span>      <span class="o">=</span> <span class="n">num_agents</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_dimensions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_neighbours"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">num_neighbours</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">function</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"core_params"</span><span class="p">]</span>     <span class="o">=</span> <span class="n">core_params</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;spiking_core&quot;</span><span class="p">]</span>    <span class="o">=</span> <span class="n">spiking_core</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"spiking_core"</span><span class="p">]</span>    <span class="o">=</span> <span class="n">spiking_core</span>
 
         <span class="c1"># These vars come from the spiking_core</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span>      <span class="o">=</span> <span class="n">Var</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">internal_shape</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
@@ -944,19 +944,19 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">pn_in</span>  <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">external_shape_neighbours</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">fpn_in</span> <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_neighbours</span><span class="p">,</span> <span class="n">num_agents</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span>       <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;core_ref&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span>       <span class="o">=</span> <span class="n">core_params</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"core_ref"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="NeuroHeuristicUnit.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeuroHeuristicUnit.html#neuroptimiser.core.processes.NeuroHeuristicUnit.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the NeuroHeuristicUnit to its initial state.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Reset the NeuroHeuristicUnit to its initial state."""</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v1</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">v2</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="p">,</span> <span class="s2">"reset"</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">core_ref</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></div>
 </div>
 
@@ -965,7 +965,7 @@
 <div class="viewcode-block" id="TensorContractionLayer">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TensorContractionLayer.html#neuroptimiser.core.processes.TensorContractionLayer">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">TensorContractionLayer</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Tensor Contraction Layer Process</span>
+<span class="w">    </span><span class="sd">"""Tensor Contraction Layer Process</span>
 
 <span class="sd">    This process implements a tensor contraction layer that takes a weight matrix and computes the output based on the input tensor. It is designed to be used in spiking neural network architectures where tensor contractions are required.</span>
 
@@ -986,11 +986,11 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyTensorContractionLayerModel` : Model implementation of the TensorContractionLayer process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="TensorContractionLayer.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TensorContractionLayer.html#neuroptimiser.core.processes.TensorContractionLayer.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the TensorContractionLayer with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the TensorContractionLayer with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1001,9 +1001,9 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">shape</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">shape</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"shape"</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
         <span class="c1"># Inports</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">s_in</span>           <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
@@ -1019,10 +1019,10 @@
 <div class="viewcode-block" id="TensorContractionLayer.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.TensorContractionLayer.html#neuroptimiser.core.processes.TensorContractionLayer.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the TensorContractionLayer to its initial state.</span>
+<span class="w">        </span><span class="sd">"""Reset the TensorContractionLayer to its initial state.</span>
 
 <span class="sd">        This method is currently a placeholder and does not perform any operations for compatibility purposes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 
@@ -1030,7 +1030,7 @@
 <div class="viewcode-block" id="NeighbourhoodManager">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeighbourhoodManager.html#neuroptimiser.core.processes.NeighbourhoodManager">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">NeighbourhoodManager</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Neighbourhood Manager Process</span>
+<span class="w">    </span><span class="sd">"""Neighbourhood Manager Process</span>
 
 <span class="sd">    This process manages the neighbourhood of units based on a weight matrix. It computes the number of neighbours for each unit and stores the indices of the neighbours.</span>
 
@@ -1055,11 +1055,11 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyNeighbourhoodManagerModel` : Model implementation of the NeighbourhoodManager process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="NeighbourhoodManager.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeighbourhoodManager.html#neuroptimiser.core.processes.NeighbourhoodManager.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the NeighbourhoodManager with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the NeighbourhoodManager with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1071,26 +1071,26 @@
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="n">shape</span>           <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">shape</span>           <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"shape"</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
         <span class="c1"># Compute the number of neighbours for each neuron</span>
         <span class="n">neighbourhoods</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
         <span class="n">max_neighbours</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">neighbourhoods</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">max_neighbours</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No neighbors found&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"No neighbors found"</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">max_neighbours</span> <span class="o">!=</span> <span class="n">neighbourhoods</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;All agents have the same number of neighbors, not yet implemented for this case&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"All agents have the same number of neighbors, not yet implemented for this case"</span><span class="p">)</span>
 
         <span class="n">neighbor_indices</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="o">-</span><span class="n">weights</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="p">:</span><span class="n">max_neighbours</span><span class="p">]</span>
         <span class="n">shape_p_out</span>         <span class="o">=</span> <span class="p">(</span><span class="n">max_neighbours</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">shape_fp_out</span>        <span class="o">=</span> <span class="p">(</span><span class="n">max_neighbours</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">max_neighbours</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>      <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_neighbours"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">max_neighbours</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_agents"</span><span class="p">]</span>      <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="c1"># Inports</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_in</span>               <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">)</span>
@@ -1108,10 +1108,10 @@
 <div class="viewcode-block" id="NeighbourhoodManager.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.NeighbourhoodManager.html#neuroptimiser.core.processes.NeighbourhoodManager.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the NeighbourhoodManager to its initial state.</span>
+<span class="w">        </span><span class="sd">"""Reset the NeighbourhoodManager to its initial state.</span>
 
 <span class="sd">        This method is currently a placeholder and does not perform any operations for compatibility purposes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 
@@ -1119,7 +1119,7 @@
 <div class="viewcode-block" id="SpikingHandler">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.SpikingHandler.html#neuroptimiser.core.processes.SpikingHandler">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">SpikingHandler</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spiking Handler Process</span>
+<span class="w">    </span><span class="sd">"""Spiking Handler Process</span>
 
 <span class="sd">    This process handles the spiking activity of units back and forth between the internal and external bounds. It manages the input and output ports for spiking activity, allowing units to communicate their states.</span>
 
@@ -1139,11 +1139,11 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PySpikingHandlerModel` : Model implementation of the SpikingHandler process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="SpikingHandler.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.SpikingHandler.html#neuroptimiser.core.processes.SpikingHandler.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">,</span> <span class="n">internal_shape</span><span class="p">,</span> <span class="n">external_shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the SpikingHandler with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the SpikingHandler with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1158,7 +1158,7 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># Ports inside the bounds (going and coming back as vectors)</span>
@@ -1170,18 +1170,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">s_out</span>  <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">external_shape</span><span class="p">)</span>
 
         <span class="c1"># Pass the internal shape to the external shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;agent_id&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;external_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;internal_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"agent_id"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"external_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"internal_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
 
 
 <div class="viewcode-block" id="SpikingHandler.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.SpikingHandler.html#neuroptimiser.core.processes.SpikingHandler.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the SpikingHandler to its initial state.</span>
+<span class="w">        </span><span class="sd">"""Reset the SpikingHandler to its initial state.</span>
 
 <span class="sd">        This method is currently a placeholder and does not perform any operations for compatibility purposes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 
@@ -1189,7 +1189,7 @@
 <div class="viewcode-block" id="PositionSender">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionSender.html#neuroptimiser.core.processes.PositionSender">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PositionSender</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Position Sender Process</span>
+<span class="w">    </span><span class="sd">"""Position Sender Process</span>
 
 <span class="sd">    This process is designed to send the position and fitness of a unit from inside the bounds to outside the bounds. It manages the input and output ports for position and fitness data, allowing units to communicate their states.</span>
 
@@ -1209,11 +1209,11 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyPositionSenderModel` : Model implementation of the PositionSender process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="PositionSender.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionSender.html#neuroptimiser.core.processes.PositionSender.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">,</span> <span class="n">internal_shape</span><span class="p">,</span> <span class="n">external_shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the PositionSender with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the PositionSender with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1227,7 +1227,7 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">p_in</span>       <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">internal_shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fp_in</span>      <span class="o">=</span> <span class="n">InPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,))</span>
@@ -1237,18 +1237,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fp_out</span>     <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">external_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
 
         <span class="c1"># Pass the internal shape to the external shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;agent_id&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;external_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;internal_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"agent_id"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"external_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"internal_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
 
 
 <div class="viewcode-block" id="PositionSender.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionSender.html#neuroptimiser.core.processes.PositionSender.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the PositionSender to its initial state.</span>
+<span class="w">        </span><span class="sd">"""Reset the PositionSender to its initial state.</span>
 
 <span class="sd">        This method is currently a placeholder and does not perform any operations for compatibility purposes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 
@@ -1256,7 +1256,7 @@
 <div class="viewcode-block" id="PositionReceiver">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionReceiver.html#neuroptimiser.core.processes.PositionReceiver">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">PositionReceiver</span><span class="p">(</span><span class="n">AbstractProcess</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Position Receiver Process</span>
+<span class="w">    </span><span class="sd">"""Position Receiver Process</span>
 
 <span class="sd">    This process is designed to receive the position and fitness of a unit from outside the bounds and send it to inside the bounds. It manages the input and output ports for position and fitness data, allowing units to communicate their states.</span>
 
@@ -1276,11 +1276,11 @@
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    :py:class:`neuroptimiser.core.models.PyPositionReceiverModel` : Model implementation of the PositionReceiver process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="PositionReceiver.__init__">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionReceiver.html#neuroptimiser.core.processes.PositionReceiver.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">agent_id</span><span class="p">,</span> <span class="n">internal_shape</span><span class="p">,</span> <span class="n">external_shape</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialise the PositionReceiver with the given parameters.</span>
+<span class="w">        </span><span class="sd">"""Initialise the PositionReceiver with the given parameters.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1294,7 +1294,7 @@
 <span class="sd">        -----------------</span>
 <span class="sd">            **kwargs : dict, optional</span>
 <span class="sd">                Additional keyword arguments to be passed to the parent class `AbstractProcess`.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># Ports outside the bound receiving data in the proper shape</span>
@@ -1306,18 +1306,18 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">fp_out</span> <span class="o">=</span> <span class="n">OutPort</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">internal_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],))</span>
 
         <span class="c1"># Pass the internal shape to the external shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;agent_id&quot;</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;external_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">&quot;internal_shape&quot;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"agent_id"</span><span class="p">]</span>        <span class="o">=</span> <span class="n">agent_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"external_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">external_shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc_params</span><span class="p">[</span><span class="s2">"internal_shape"</span><span class="p">]</span>  <span class="o">=</span> <span class="n">internal_shape</span></div>
 
 
 <div class="viewcode-block" id="PositionReceiver.reset">
 <a class="viewcode-back" href="../../../generated/neuroptimiser.core.processes.PositionReceiver.html#neuroptimiser.core.processes.PositionReceiver.reset">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reset the PositionReceiver to its initial state.</span>
+<span class="w">        </span><span class="sd">"""Reset the PositionReceiver to its initial state.</span>
 
 <span class="sd">        This method is currently a placeholder and does not perform any operations for compatibility purposes.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 

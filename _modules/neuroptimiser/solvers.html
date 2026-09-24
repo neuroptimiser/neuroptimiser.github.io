@@ -12,7 +12,7 @@
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
     <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=4bf1dd04" />
@@ -358,12 +358,12 @@
 <div class="viewcode-block" id="AbstractSolver">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">AbstractSolver</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Abstract base class for any solver in the Neuro Optimiser framework.</span>
 <span class="sd">    This class defines the basic structure and methods that any solver should implement.</span>
 <span class="sd">    It includes methods for setting up the problem, validating configuration parameters,</span>
 <span class="sd">    and running the optimisation process.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">_INVALID_VALUE</span> <span class="o">=</span> <span class="mf">1e9</span>
     <span class="n">_experiment_name</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">_num_dimensions</span><span class="p">:</span> <span class="nb">int</span>
@@ -417,12 +417,12 @@
 <div class="viewcode-block" id="AbstractSolver.get_default_config">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver.get_default_config">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_default_config</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns the default configuration parameters for the solver.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_config_params</span><span class="p">(</span><span class="nb">dict</span><span class="p">())</span>
-        <span class="n">config</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">config</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">][</span><span class="mi">0</span><span class="p">,:]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">config</span></div>
 
 
@@ -434,11 +434,11 @@
 <div class="viewcode-block" id="AbstractSolver.reset_random_seed">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver.reset_random_seed">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">reset_random_seed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Resets the random seed for reproducibility.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="n">seed</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"seed"</span><span class="p">]</span>
         <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span></div>
 
 
@@ -455,13 +455,13 @@
 <div class="viewcode-block" id="AbstractSolver.generate_experiment_name">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver.generate_experiment_name">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">generate_experiment_name</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;Exp&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">generate_experiment_name</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">"Exp"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Generates a unique experiment name based on the current date and time.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">current_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="n">formatted_time</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">_%H-%M-%S&quot;</span><span class="p">)</span>
-        <span class="n">experiment_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">formatted_time</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">formatted_time</span> <span class="o">=</span> <span class="n">current_time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2">_%H-%M-%S"</span><span class="p">)</span>
+        <span class="n">experiment_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">formatted_time</span><span class="si">}</span><span class="s2">"</span>
         <span class="k">return</span> <span class="n">experiment_name</span></div>
 
 
@@ -470,54 +470,54 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_check_config_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_func</span><span class="p">,</span> <span class="n">exp_name</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">search_space</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">num_iterations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_iterations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_iterations</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_iterations"</span><span class="p">]</span> <span class="o">=</span> <span class="n">num_iterations</span>
 
         <span class="c1"># If problem has not been provided, raise an error</span>
         <span class="k">if</span> <span class="n">obj_func</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;obj_func must be provided&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"obj_func must be provided"</span><span class="p">)</span>
 
         <span class="k">elif</span> <span class="ow">not</span> <span class="nb">callable</span><span class="p">(</span><span class="n">obj_func</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;obj_func must be a callable function&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"obj_func must be a callable function"</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">&quot;lower_bounds&quot;</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">&quot;bounds&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">"bounds"</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">"lower_bounds"</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="s2">"bounds"</span><span class="p">):</span>
                 <span class="n">boundaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">obj_func</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">lb</span><span class="p">,</span> <span class="n">obj_func</span><span class="o">.</span><span class="n">bounds</span><span class="o">.</span><span class="n">ub</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># we assume that obj_func is an IOH problem</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">boundaries</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">obj_func</span><span class="o">.</span><span class="n">lower_bounds</span><span class="p">,</span> <span class="n">obj_func</span><span class="o">.</span><span class="n">upper_bounds</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="c1"># we assume that obj_func is a COCOEX problem</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boundaries</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">boundaries</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span> <span class="o">=</span> <span class="n">boundaries</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]</span> <span class="o">=</span> <span class="n">boundaries</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="k">elif</span> <span class="n">search_space</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">search_space</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span> <span class="o">=</span> <span class="n">search_space</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># Warn the user that the search space is not provided and use the default search space</span>
-            <span class="c1"># print(f&quot;Search space is not provided. Using the default search space: {self._config_params[&#39;search_space&#39;]}&quot;)</span>
+            <span class="c1"># print(f"Search space is not provided. Using the default search space: {self._config_params['search_space']}")</span>
             <span class="c1"># Use default</span>
             <span class="k">pass</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_original_obj_func</span> <span class="o">=</span> <span class="n">obj_func</span> <span class="c1"># Original function (no scaled)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_obj_func</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rescale_problem</span><span class="p">(</span>
-            <span class="n">obj_func</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj_func</span>
+            <span class="n">obj_func</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"function"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_obj_func</span>
 
         <span class="c1"># Generate the experiment name</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_experiment_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_experiment_name</span><span class="p">(</span><span class="n">exp_name</span> <span class="k">if</span> <span class="n">exp_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">&quot;Exp&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_experiment_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">generate_experiment_name</span><span class="p">(</span><span class="n">exp_name</span> <span class="k">if</span> <span class="n">exp_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">"Exp"</span><span class="p">)</span>
 
         <span class="c1"># Validate the configuration parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_config_params</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">)</span>
 
         <span class="c1"># Extract the configuration parameters</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_num_dimensions</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_iterations&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_num_agents</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_agents&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_num_neighbours</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_search_space</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_dimensions</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_iterations"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_agents</span>        <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_agents"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_num_neighbours</span>    <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"num_neighbours"</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_search_space</span>      <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span>
 
 <div class="viewcode-block" id="AbstractSolver.validate_params">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver.validate_params">[docs]</a>
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">validate_params</span><span class="p">(</span><span class="n">schema</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Validates the parameters against the provided schema.</span>
 
 <span class="sd">        Args:</span>
@@ -527,46 +527,46 @@
 <span class="sd">        Returns:</span>
 <span class="sd">            The validated parameters.</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="n">schema</span> <span class="o">=</span> <span class="n">Schema</span><span class="p">(</span><span class="n">schema</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">params</span> <span class="o">=</span> <span class="n">schema</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
         <span class="k">except</span> <span class="n">SchemaError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid parameters: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Invalid parameters: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">params</span></div>
 
 
 <div class="viewcode-block" id="AbstractSolver.validate_config_params">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.AbstractSolver.validate_config_params">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">validate_config_params</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config_params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Validates the configuration parameters for the solver.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            config_params (dict): The configuration parameters to validate.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_base_params_schema</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;search_space&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])):</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"search_space"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])):</span>
                 <span class="n">And</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;search_space must be an array with at least 2 columns&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"search_space must be an array with at least 2 columns"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"function"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">callable</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;function must be a callable function&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"function must be a callable function"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"num_dimensions"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;num_dimensions must be greater than 1&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;num_iterations&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"num_dimensions must be greater than 1"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"num_iterations"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;num_iterations must be greater than 0&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;num_agents&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"num_iterations must be greater than 0"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"num_agents"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;num_agents must be greater than 1&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"num_agents must be greater than 1"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"num_neighbours"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;num_neighbours must be greater than 0&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">69</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"num_neighbours must be greater than 0"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"seed"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">69</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;seed must be greater than 0&quot;</span><span class="p">),</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"seed must be greater than 0"</span><span class="p">),</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_params_schema</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_base_params_schema</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_params_schema</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_additional_params_schema</span><span class="p">)</span>
@@ -574,12 +574,12 @@
         <span class="n">config_params</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">validate_params</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_params_schema</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">config_params</span><span class="p">)</span>
 
         <span class="c1"># Validation for the search space</span>
-        <span class="k">if</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="c1"># If only one row is provided, then it is assumed that the search space is the same for all dimensions</span>
-            <span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">],</span> <span class="p">(</span><span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="n">config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">],</span> <span class="p">(</span><span class="n">config_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
 
-        <span class="k">elif</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;search_space&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;num_dimensions&quot;</span><span class="p">]:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;search_space must have the same number of rows as num_dimensions&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">"search_space"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">config_params</span><span class="p">[</span><span class="s2">"num_dimensions"</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"search_space must have the same number of rows as num_dimensions"</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">config_params</span></div>
 
@@ -589,9 +589,9 @@
     <span class="nd">@abstractmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">solve</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj_func</span><span class="p">,</span> <span class="n">exp_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
               <span class="n">search_space</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Abstract method to solve the optimisation problem.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">pass</span></div>
 </div>
 
@@ -599,7 +599,7 @@
 <div class="viewcode-block" id="NeurOptimiser">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.NeurOptimiser">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">NeurOptimiser</span><span class="p">(</span><span class="n">AbstractSolver</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 <span class="sd">    Neuro Optimiser is the main class for the Neuro Optimiser framework.</span>
 <span class="sd">    It inherits from the AbstractSolver class and implements the solve method, and sets up the model for the optimisation process.</span>
 
@@ -607,7 +607,7 @@
 <span class="sd">        config_params (dict): Configuration parameters for the Neuro Optimiser.</span>
 <span class="sd">        core_params (dict|list[dict]): Parameters for the spiking core of the nheuristic units.</span>
 <span class="sd">        selector_params (dict): Parameters for the high-level selection unit.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 <div class="viewcode-block" id="NeurOptimiser.__init__">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.NeurOptimiser.__init__">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
@@ -622,110 +622,110 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_profiler</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_additional_params_schema</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;spiking_core&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;TwoDimSpikingCore&quot;</span><span class="p">):</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"spiking_core"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"TwoDimSpikingCore"</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">SPK_CORE_OPTIONS</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;spiking_core must be one of </span><span class="si">{</span><span class="n">SPK_CORE_OPTIONS</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;unit_topology&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;2dr&quot;</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">"spiking_core must be one of </span><span class="si">{</span><span class="n">SPK_CORE_OPTIONS</span><span class="si">}</span><span class="s2">"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"unit_topology"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"2dr"</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ADJ_MAT_OPTIONS</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;unit_topology must be one of </span><span class="si">{</span><span class="n">ADJ_MAT_OPTIONS</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;neuron_topology&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;2dr&quot;</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">"unit_topology must be one of </span><span class="si">{</span><span class="n">ADJ_MAT_OPTIONS</span><span class="si">}</span><span class="s2">"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"neuron_topology"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"2dr"</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">ADJ_MAT_OPTIONS</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;neuron_topology must be one of </span><span class="si">{</span><span class="n">ADJ_MAT_OPTIONS</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;core_params&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">dict</span><span class="p">()):</span>
-                <span class="n">And</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="s2">&quot;core_params must be a dictionary&quot;</span><span class="p">),</span>
+                    <span class="n">error</span><span class="o">=</span><span class="sa">f</span><span class="s2">"neuron_topology must be one of </span><span class="si">{</span><span class="n">ADJ_MAT_OPTIONS</span><span class="si">}</span><span class="s2">"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"core_params"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="nb">dict</span><span class="p">()):</span>
+                <span class="n">And</span><span class="p">(</span><span class="nb">dict</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="s2">"core_params must be a dictionary"</span><span class="p">),</span>
         <span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_set_config_params</span><span class="p">(</span><span class="n">config_params</span><span class="p">)</span>
 
-        <span class="n">_strs_ext_models_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="s2">&quot;_all&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">DYN_MODELS_KIND</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s2">&quot;random&quot;</span><span class="p">,</span> <span class="s2">&quot;random_all&quot;</span><span class="p">]</span>
+        <span class="n">_strs_ext_models_A</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="s2">"_all"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">DYN_MODELS_KIND</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"random"</span><span class="p">,</span> <span class="s2">"random_all"</span><span class="p">]</span>
         <span class="n">_strs_models_A</span> <span class="o">=</span> <span class="n">DYN_MODELS_KIND</span> <span class="o">+</span> <span class="n">_strs_ext_models_A</span>
 
         <span class="c1"># Validate the configuration parameters for neurons</span>
         <span class="n">core_params_schema</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;alpha must be a number&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;dt&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"alpha must be a number"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"dt"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)),</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;dt must be a number greater than 0&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;max_steps&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"dt must be a number greater than 0"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"max_steps"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">)),</span> <span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;max_steps must be a number greater than 1&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;noise_std&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"max_steps must be a number greater than 1"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"noise_std"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;noise_std must be a number greater than or equal to 0&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;seed&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"noise_std must be a number greater than or equal to 0"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"seed"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">)),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;seed must be an integer or None&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="s2">&quot;izhikevich&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;system_params must either &#39;linear&#39; or &#39;izhikevich&#39;&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;coeffs&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"seed must be an integer or None"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"linear"</span><span class="p">,</span> <span class="s2">"izhikevich"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"system_params must either 'linear' or 'izhikevich'"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"coeffs"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"random"</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">)),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;coeffs must be a string or a list with the coefficients or the type of model&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;approx&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;rk4&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;rk4&quot;</span><span class="p">,</span> <span class="s2">&quot;euler&quot;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;approx must be either &#39;rk4&#39;, &#39;euler&#39; or None&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;ref_mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;pgn&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;p&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;pg&quot;</span><span class="p">,</span> <span class="s2">&quot;pgn&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;ref_mode must be either None, &#39;p&#39;, &#39;g&#39;, &#39;pg&#39; or &#39;pgn&#39;&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;thr_mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;diff_pg&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;fixed&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive_time&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive_stag&quot;</span><span class="p">,</span> <span class="s2">&quot;diff_pg&quot;</span><span class="p">,</span> <span class="s2">&quot;diff_pref&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;thr_mode must be either &#39;fixed&#39;, &#39;adaptive_time&#39;, &#39;adaptive_stag&#39;, &#39;diff_pg&#39;, &#39;diff_pref&#39;, &#39;random&#39;&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;thr_alpha&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"coeffs must be a string or a list with the coefficients or the type of model"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"approx"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"rk4"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"rk4"</span><span class="p">,</span> <span class="s2">"euler"</span><span class="p">]</span> <span class="ow">or</span> <span class="n">n</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">,</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"approx must be either 'rk4', 'euler' or None"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"ref_mode"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"pgn"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="s2">"p"</span><span class="p">,</span> <span class="s2">"g"</span><span class="p">,</span> <span class="s2">"pg"</span><span class="p">,</span> <span class="s2">"pgn"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"ref_mode must be either None, 'p', 'g', 'pg' or 'pgn'"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"thr_mode"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"diff_pg"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"fixed"</span><span class="p">,</span> <span class="s2">"adaptive_time"</span><span class="p">,</span> <span class="s2">"adaptive_stag"</span><span class="p">,</span> <span class="s2">"diff_pg"</span><span class="p">,</span> <span class="s2">"diff_pref"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"thr_mode must be either 'fixed', 'adaptive_time', 'adaptive_stag', 'diff_pg', 'diff_pref', 'random'"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"thr_alpha"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;thr_alpha must be a positive float or int&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;thr_min&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"thr_alpha must be a positive float or int"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"thr_min"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;thr_min must be a non-negative float or int&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;thr_max&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"thr_min must be a non-negative float or int"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"thr_max"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;thr_max must be a positive float or int&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;thr_k&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"thr_max must be a positive float or int"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"thr_k"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;thr_k must be a non-negative float or int&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;spk_cond&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;l1&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;fixed&quot;</span><span class="p">,</span> <span class="s2">&quot;l1&quot;</span><span class="p">,</span> <span class="s2">&quot;l2&quot;</span><span class="p">,</span> <span class="s2">&quot;l2_gen&quot;</span><span class="p">,</span> <span class="s2">&quot;wlq&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">,</span> <span class="s2">&quot;adaptive&quot;</span><span class="p">,</span> <span class="s2">&quot;stable&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;spk_cond must be either &#39;fixed&#39;, &#39;wlq&#39;, &#39;l1&#39;, &#39;l2&#39;, &#39;l2_gen&#39;, &#39;random&#39;, &#39;adaptive&#39;, and &#39;stable&#39;&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;spk_alpha&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"thr_k must be a non-negative float or int"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"spk_cond"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"l1"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"fixed"</span><span class="p">,</span> <span class="s2">"l1"</span><span class="p">,</span> <span class="s2">"l2"</span><span class="p">,</span> <span class="s2">"l2_gen"</span><span class="p">,</span> <span class="s2">"wlq"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">,</span> <span class="s2">"adaptive"</span><span class="p">,</span> <span class="s2">"stable"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"spk_cond must be either 'fixed', 'wlq', 'l1', 'l2', 'l2_gen', 'random', 'adaptive', and 'stable'"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"spk_alpha"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;spk_alpha must be a non-negative float or int&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;spk_q_ord&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"spk_alpha must be a non-negative float or int"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"spk_q_ord"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">,</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;spk_q_ord must be a positive integer&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;spk_weights&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"spk_q_ord must be a positive integer"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"spk_weights"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">n</span><span class="p">),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;spk_weights must be a list or tuple of two numbers, e.g., [0.5, 0.5]&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;hs_operator&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;differential&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;fixed&quot;</span><span class="p">,</span> <span class="s2">&quot;directional&quot;</span><span class="p">,</span> <span class="s2">&quot;differential&quot;</span><span class="p">,</span> <span class="s2">&quot;swarm&quot;</span><span class="p">,</span> <span class="s2">&quot;cma&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;hs_operator must be either &#39;fixed&#39;, &#39;directional&#39;, &#39;swarm&#39;, &#39;differential&#39;, &#39;random&#39;&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;hs_variant&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;rand&quot;</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"spk_weights must be a list or tuple of two numbers, e.g., [0.5, 0.5]"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"hs_operator"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"differential"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"fixed"</span><span class="p">,</span> <span class="s2">"directional"</span><span class="p">,</span> <span class="s2">"differential"</span><span class="p">,</span> <span class="s2">"swarm"</span><span class="p">,</span> <span class="s2">"cma"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"hs_operator must be either 'fixed', 'directional', 'swarm', 'differential', 'random'"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"hs_variant"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"rand"</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">str</span><span class="p">),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;hs_variant must be a string&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;hs_params&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">{}):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"hs_variant must be a string"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"hs_params"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">{}):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;hs_params must be a dictionary and depends on the hs_operator&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;is_bounded&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"hs_params must be a dictionary and depends on the hs_operator"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"is_bounded"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
                 <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="nb">bool</span><span class="p">),</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;is_bounded must be a boolean&quot;</span><span class="p">),</span>
-            <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;sel_mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;greedy&quot;</span><span class="p">):</span>
-                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;greedy&quot;</span><span class="p">,</span> <span class="s2">&quot;metropolis&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">],</span>
-                    <span class="n">error</span><span class="o">=</span><span class="s2">&quot;sel_mode must be either &#39;greedy&#39;, &#39;metropolis&#39;, &#39;all&#39; or &#39;random&#39;&quot;</span><span class="p">),</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"is_bounded must be a boolean"</span><span class="p">),</span>
+            <span class="n">Optional</span><span class="p">(</span><span class="s2">"sel_mode"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"greedy"</span><span class="p">):</span>
+                <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"greedy"</span><span class="p">,</span> <span class="s2">"metropolis"</span><span class="p">,</span> <span class="s2">"all"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">],</span>
+                    <span class="n">error</span><span class="o">=</span><span class="s2">"sel_mode must be either 'greedy', 'metropolis', 'all' or 'random'"</span><span class="p">),</span>
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="n">core_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="p">[{}]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">&#39;num_agents&#39;</span><span class="p">]</span>
+            <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="p">[{}]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">'num_agents'</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core_params</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-            <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="p">[</span><span class="n">core_params</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">&#39;num_agents&#39;</span><span class="p">]</span>
+            <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="p">[</span><span class="n">core_params</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">'num_agents'</span><span class="p">]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">core_params</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_params</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">&#39;num_agents&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_params</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">'num_agents'</span><span class="p">]:</span>
                 <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="n">core_params</span>
             <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">core_params</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="n">core_params</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">&#39;num_agents&#39;</span><span class="p">]</span>
+                <span class="n">repeated_core_params</span> <span class="o">=</span> <span class="n">core_params</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config_params</span><span class="p">[</span><span class="s1">'num_agents'</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                    <span class="s2">&quot;core_params must be a list of the same length as the number of agents, a single dict, or a list with one dictionary to be repeated&quot;</span><span class="p">)</span>
+                    <span class="s2">"core_params must be a list of the same length as the number of agents, a single dict, or a list with one dictionary to be repeated"</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;core_params must be either None, a dictionary, or a list of dictionaries&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"core_params must be either None, a dictionary, or a list of dictionaries"</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">core_params</span> <span class="o">=</span> <span class="p">[</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">validate_params</span><span class="p">(</span><span class="n">core_params_schema</span><span class="p">,</span> <span class="n">sub_core_params</span><span class="p">)</span>
@@ -734,9 +734,9 @@
 
         <span class="c1"># Validate the configuration parameters for the high-level selector</span>
         <span class="n">hl_sel_params_schema</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="n">Optional</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">&quot;greedy&quot;</span><span class="p">):</span>
-            <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;greedy&quot;</span><span class="p">,</span> <span class="s2">&quot;metropolis&quot;</span><span class="p">,</span> <span class="s2">&quot;all&quot;</span><span class="p">,</span> <span class="s2">&quot;random&quot;</span><span class="p">],</span>
-                <span class="n">error</span><span class="o">=</span><span class="s2">&quot;mode must be either &#39;greedy&#39;, &#39;metropolis&#39;, &#39;all&#39; or &#39;random&quot;</span><span class="p">),</span>
+        <span class="n">Optional</span><span class="p">(</span><span class="s2">"mode"</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s2">"greedy"</span><span class="p">):</span>
+            <span class="n">And</span><span class="p">(</span><span class="k">lambda</span> <span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"greedy"</span><span class="p">,</span> <span class="s2">"metropolis"</span><span class="p">,</span> <span class="s2">"all"</span><span class="p">,</span> <span class="s2">"random"</span><span class="p">],</span>
+                <span class="n">error</span><span class="o">=</span><span class="s2">"mode must be either 'greedy', 'metropolis', 'all' or 'random"</span><span class="p">),</span>
         <span class="p">}</span>
 
         <span class="k">if</span> <span class="n">selector_params</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -747,7 +747,7 @@
 <div class="viewcode-block" id="NeurOptimiser.get_default_params">
 <a class="viewcode-back" href="../../api-solvers.html#neuroptimiser.solvers.NeurOptimiser.get_default_params">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">get_default_params</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">],</span> <span class="nb">dict</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Returns the default parameters for the Neuro Optimiser.</span>
 
 <span class="sd">        Returns:</span>
@@ -761,18 +761,18 @@
 <span class="sd">            &gt;&gt;&gt; core_params, selector_params = solver.get_default_params()</span>
 <span class="sd">            &gt;&gt;&gt; print(core_params)</span>
 <span class="sd">            &gt;&gt;&gt; # Output:</span>
-<span class="sd">            &gt;&gt;&gt; # [{&#39;noise_std&#39;: 0.1, &#39;thr_k&#39;: 0.05, &#39;thr_min&#39;: 1e-06, &#39;coeffs&#39;: &#39;random&#39;, &#39;thr_alpha&#39;: 1.0, &#39;name&#39;: &#39;linear&#39;, &#39;is_bounded&#39;: False, &#39;hs_operator&#39;: &#39;fixed&#39;, &#39;max_steps&#39;: 100, &#39;spk_alpha&#39;: 0.25, &#39;spk_cond&#39;: &#39;fixed&#39;, &#39;thr_max&#39;: 1.0, &#39;ref_mode&#39;: &#39;pg&#39;, &#39;thr_mode&#39;: &#39;diff_pg&#39;, &#39;seed&#39;: None, &#39;hs_variant&#39;: &#39;fixed&#39;, &#39;approx&#39;: &#39;rk4&#39;, &#39;alpha&#39;: 1.0, &#39;dt&#39;: 0.01}]</span>
+<span class="sd">            &gt;&gt;&gt; # [{'noise_std': 0.1, 'thr_k': 0.05, 'thr_min': 1e-06, 'coeffs': 'random', 'thr_alpha': 1.0, 'name': 'linear', 'is_bounded': False, 'hs_operator': 'fixed', 'max_steps': 100, 'spk_alpha': 0.25, 'spk_cond': 'fixed', 'thr_max': 1.0, 'ref_mode': 'pg', 'thr_mode': 'diff_pg', 'seed': None, 'hs_variant': 'fixed', 'approx': 'rk4', 'alpha': 1.0, 'dt': 0.01}]</span>
 <span class="sd">            &gt;&gt;&gt; print(selector_params)</span>
 <span class="sd">            &gt;&gt;&gt; # Output:</span>
 <span class="sd">            &gt;&gt;&gt; # {}</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">core_params</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="bp">self</span><span class="o">.</span><span class="n">selector_params</span></div>
 
 
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_build_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Parameters are set up.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Parameters are set up."</span><span class="p">)</span>
 
         <span class="c1"># 0. SETTING UP THE PARAMETERS</span>
         <span class="c1"># 0.1. Generate the initial positions for each nheuristic unit</span>
@@ -781,19 +781,19 @@
         <span class="c1"># 0.2. Define the topology for the spiking neural networks</span>
         <span class="n">neuralnet_adjacency</span> <span class="o">=</span> <span class="n">get_arch_matrix</span><span class="p">(</span>
             <span class="n">length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_agents</span><span class="p">,</span>
-            <span class="n">topology</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;neuron_topology&quot;</span><span class="p">],</span>
+            <span class="n">topology</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_params</span><span class="p">[</span><span class="s2">"neuron_topology"</span><span class="p">],</span>
             <span class="n">num_neighbours</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_neighbours</span>
         <span class="p">)</span>
 
         <span class="c1"># 0.3. Define the topology for the neighbourhood manager</span>
         <span class="n">neighbourhood_adjacency</span> <span class="o">=</span> <span class="n">get_arch_matrix</span><span class="p">(</span>
             <span class="n">length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_agents</span><span class="p">,</span>
-            <span class="n">topology</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_params</span><span class="p">[</span><span class="s2">&quot;unit_topology&quot;</span><span class="p">],</span>
+            <span class="n">topology</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_params</span><span class="p">[</span><span class="s2">"unit_topology"</span><span class="p">],</span>
             <span class="n">num_neighbours</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_neighbours</span>
         <span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Initial positions and topologies are set up.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Initial positions and topologies are set up."</span><span class="p">)</span>
 
         <span class="c1"># 1. SETTING UP THE BUILDING BLOCKS</span>
         <span class="c1"># 1.1. Instantiate the tensor contraction layer for the spiking neural networks</span>
@@ -817,26 +817,26 @@
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span>
-                <span class="s2">&quot;[neuropt:log] Tensor contraction layer, neighbourhood manager, and high-level selection unit are created.&quot;</span><span class="p">)</span>
+                <span class="s2">"[neuropt:log] Tensor contraction layer, neighbourhood manager, and high-level selection unit are created."</span><span class="p">)</span>
 
         <span class="c1"># 1.4. Create the population of nheuritic units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">nhus</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">agent_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_agents</span><span class="p">):</span>
             <span class="n">agent_config</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_params</span><span class="p">)</span>
-            <span class="n">agent_config</span><span class="p">[</span><span class="s2">&quot;num_neighbours&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neighbourhood</span><span class="o">.</span><span class="n">p_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">agent_config</span><span class="p">[</span><span class="s2">&quot;core_params&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_params</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span>
-            <span class="n">agent_config</span><span class="p">[</span><span class="s2">&quot;core_params&quot;</span><span class="p">][</span><span class="s2">&quot;init_position&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_positions</span><span class="p">[</span><span class="n">agent_id</span><span class="p">,</span> <span class="p">:]</span>
-            <span class="n">agent_config</span><span class="p">[</span><span class="s2">&quot;core_params&quot;</span><span class="p">][</span><span class="s2">&quot;seed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_id</span> <span class="o">+</span> <span class="mi">69</span>
+            <span class="n">agent_config</span><span class="p">[</span><span class="s2">"num_neighbours"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neighbourhood</span><span class="o">.</span><span class="n">p_out</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">agent_config</span><span class="p">[</span><span class="s2">"core_params"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">core_params</span><span class="p">[</span><span class="n">agent_id</span><span class="p">]</span>
+            <span class="n">agent_config</span><span class="p">[</span><span class="s2">"core_params"</span><span class="p">][</span><span class="s2">"init_position"</span><span class="p">]</span> <span class="o">=</span> <span class="n">initial_positions</span><span class="p">[</span><span class="n">agent_id</span><span class="p">,</span> <span class="p">:]</span>
+            <span class="n">agent_config</span><span class="p">[</span><span class="s2">"core_params"</span><span class="p">][</span><span class="s2">"seed"</span><span class="p">]</span> <span class="o">=</span> <span class="n">agent_id</span> <span class="o">+</span> <span class="mi">69</span>
 
             <span class="n">unit</span> <span class="o">=</span> <span class="n">NeuroHeuristicUnit</span><span class="p">(</span>
                 <span class="n">agent_id</span><span class="o">=</span><span class="n">agent_id</span><span class="p">,</span>
-                <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;nhu_</span><span class="si">{</span><span class="n">agent_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">"nhu_</span><span class="si">{</span><span class="n">agent_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">agent_config</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">nhus</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Population of nheuristic units is created.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Population of nheuristic units is created."</span><span class="p">)</span>
 
         <span class="c1"># 2. SETTING UP THE CONNECTIONS</span>
         <span class="c1"># 2.1. Connect the nheuristic units to the spiking neural networks</span>
@@ -860,20 +860,20 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">fg_out</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">unit</span><span class="o">.</span><span class="n">fg_in</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Connections between nheuristic units and auxiliary processes are established.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Connections between nheuristic units and auxiliary processes are established."</span><span class="p">)</span>
 
         <span class="c1"># 3. SETTING UP THE RUN CONFIGURATION</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rcfg</span> <span class="o">=</span> <span class="n">Loihi2SimCfg</span><span class="p">(</span>
-            <span class="n">select_tag</span><span class="o">=</span><span class="s1">&#39;floating_pt&#39;</span><span class="p">,</span>
+            <span class="n">select_tag</span><span class="o">=</span><span class="s1">'floating_pt'</span><span class="p">,</span>
             <span class="n">select_sub_proc_model</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_reset_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># Reset all processes if the model exists</span>
         <span class="k">for</span> <span class="n">unit</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhus</span><span class="p">:</span>
-            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="s2">"reset"</span><span class="p">):</span>
                 <span class="n">unit</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="p">,</span> <span class="s2">&quot;reset&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="p">,</span> <span class="s2">"reset"</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_stop_processes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -912,9 +912,9 @@
             <span class="n">monitors_v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">probe</span><span class="p">(</span>
                 <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nhus</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">v2</span><span class="p">,</span> <span class="n">num_steps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Monitors are set up.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Monitors are set up."</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;[neuropt:log] Starting simulation with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span><span class="si">}</span><span class="s2"> iterations...&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"[neuropt:log] Starting simulation with </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span><span class="si">}</span><span class="s2"> iterations..."</span><span class="p">)</span>
 
         <span class="c1"># STEP 4: Run the simulation</span>
         <span class="n">t</span> <span class="o">=</span> <span class="mi">0</span>
@@ -924,10 +924,10 @@
 
             <span class="n">current_fg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">selection</span><span class="o">.</span><span class="n">fg</span><span class="o">.</span><span class="n">get</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">t</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span> <span class="o">//</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">t</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_num_iterations</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;... step: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">, best fitness: </span><span class="si">{</span><span class="n">current_fg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"... step: </span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s2">, best fitness: </span><span class="si">{</span><span class="n">current_fg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Simulation completed. Fetching monitor data...&quot;</span><span class="p">,</span>
-              <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Simulation completed. Fetching monitor data..."</span><span class="p">,</span>
+              <span class="n">end</span><span class="o">=</span><span class="s2">" "</span><span class="p">)</span>
         <span class="c1"># STEP 5: Read data</span>
         <span class="n">p_data</span> <span class="o">=</span> <span class="n">monitor_p</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
         <span class="n">g_data</span> <span class="o">=</span> <span class="n">monitor_g</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
@@ -941,15 +941,15 @@
         <span class="n">s_data</span> <span class="o">=</span> <span class="n">monitor_S</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
 
         <span class="c1"># Prepare data</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;g&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">g_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">fp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;fp&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fp_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">fg</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;fg&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fg_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"p"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">p_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"g"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">g_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fp</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"fp"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fp_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">fg</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"fg"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fg_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
 
-        <span class="n">v1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;v1&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v1_data</span><span class="p">]</span>
-        <span class="n">v2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;v2&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v2_data</span><span class="p">]</span>
+        <span class="n">v1</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="s2">"v1"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v1_data</span><span class="p">]</span>
+        <span class="n">v2</span> <span class="o">=</span> <span class="p">[[</span><span class="n">x</span><span class="p">[</span><span class="s2">"v2"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">v2_data</span><span class="p">]</span>
 
-        <span class="n">spikes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;s_matrix&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">spikes</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"s_matrix"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">s_data</span><span class="o">.</span><span class="n">values</span><span class="p">()][</span><span class="mi">0</span><span class="p">]</span>
 
         <span class="n">monitor_p</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
         <span class="n">monitor_g</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
@@ -961,7 +961,7 @@
             <span class="n">monitors_v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
             <span class="n">monitors_v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;done&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"done"</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_stop_processes</span><span class="p">()</span>
 
@@ -998,7 +998,7 @@
               <span class="n">num_iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
               <span class="n">search_space</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
               <span class="n">debug_mode</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Solve the optimisation problem using the Neuro Optimiser framework.</span>
 
 <span class="sd">        Args:</span>
@@ -1009,16 +1009,16 @@
 <span class="sd">            debug_mode (bool, optional): If True, enables debug mode with additional logging and monitoring. Defaults to False.</span>
 <span class="sd">        Returns:</span>
 <span class="sd">            Tuple[float, np.ndarray]: A tuple containing the best position found and its corresponding fitness value.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="n">debug_mode</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[neuropt:log] Debug mode is enabled. Monitoring will be activated.&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"[neuropt:log] Debug mode is enabled. Monitoring will be activated."</span><span class="p">)</span>
 
         <span class="c1"># Step 1: Set up the model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_config_params</span><span class="p">(</span><span class="n">obj_func</span><span class="p">,</span> <span class="n">exp_name</span><span class="p">,</span> <span class="n">num_iterations</span><span class="p">,</span> <span class="n">search_space</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span> <span class="o">=</span> <span class="n">debug_mode</span>
 
-        <span class="c1"># Build the model only if it hasn&#39;t been built already</span>
+        <span class="c1"># Build the model only if it hasn't been built already</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_build_model</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">debug_mode</span><span class="p">:</span>
@@ -1033,16 +1033,16 @@
 
         <span class="c1"># Prepare the results dictionary</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s2">&quot;experiment_name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_experiment_name</span><span class="p">,</span>
-            <span class="s2">&quot;best_position&quot;</span><span class="p">:</span> <span class="n">best_position</span><span class="p">,</span>
-            <span class="s2">&quot;best_fitness&quot;</span><span class="p">:</span> <span class="n">best_fitness</span><span class="p">,</span>
-            <span class="s2">&quot;p&quot;</span><span class="p">:</span> <span class="n">p_original</span><span class="p">,</span>
-            <span class="s2">&quot;fp&quot;</span><span class="p">:</span> <span class="n">fp</span><span class="p">,</span>
-            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="n">g_original</span><span class="p">,</span>
-            <span class="s2">&quot;fg&quot;</span><span class="p">:</span> <span class="n">fg</span><span class="p">,</span>
-            <span class="s2">&quot;v1&quot;</span><span class="p">:</span> <span class="n">v1</span><span class="p">,</span>
-            <span class="s2">&quot;v2&quot;</span><span class="p">:</span> <span class="n">v2</span><span class="p">,</span>
-            <span class="s2">&quot;s&quot;</span><span class="p">:</span> <span class="n">spikes</span>
+            <span class="s2">"experiment_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_experiment_name</span><span class="p">,</span>
+            <span class="s2">"best_position"</span><span class="p">:</span> <span class="n">best_position</span><span class="p">,</span>
+            <span class="s2">"best_fitness"</span><span class="p">:</span> <span class="n">best_fitness</span><span class="p">,</span>
+            <span class="s2">"p"</span><span class="p">:</span> <span class="n">p_original</span><span class="p">,</span>
+            <span class="s2">"fp"</span><span class="p">:</span> <span class="n">fp</span><span class="p">,</span>
+            <span class="s2">"g"</span><span class="p">:</span> <span class="n">g_original</span><span class="p">,</span>
+            <span class="s2">"fg"</span><span class="p">:</span> <span class="n">fg</span><span class="p">,</span>
+            <span class="s2">"v1"</span><span class="p">:</span> <span class="n">v1</span><span class="p">,</span>
+            <span class="s2">"v2"</span><span class="p">:</span> <span class="n">v2</span><span class="p">,</span>
+            <span class="s2">"s"</span><span class="p">:</span> <span class="n">spikes</span>
         <span class="p">}</span>
 
         <span class="k">return</span> <span class="n">best_position</span><span class="p">,</span> <span class="n">best_fitness</span></div>
